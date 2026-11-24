@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "챙김",
+  "short_name": "챙김",
+  "description": "지원금, 세금, 공연 일정을 한곳에서 챙겨요.",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F7F6F3",
+  "theme_color": "#F7F6F3",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

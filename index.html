@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F6F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161615" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="지원금, 세금, 공연 일정을 한곳에서 챙겨요.">
+  <title>챙김</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./fonts/fonts.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="masthead">
+      <a class="brand" href="#today">챙김</a>
+      <button class="quiet-button" type="button" id="profile-button">내 조건</button>
+    </header>
+    <main id="main" tabindex="-1">
+      <noscript><p class="state">일정을 보려면 자바스크립트를 켜 주세요.</p></noscript>
+    </main>
+  </div>
+  <nav class="tab-bar" aria-label="주 메뉴">
+    <div class="tab-inner">
+      <a href="#today" aria-current="page"><span aria-hidden="true">📬</span>오늘</a>
+      <a href="#benefits"><span aria-hidden="true">💳</span>지원금</a>
+      <a href="#taxes"><span aria-hidden="true">🧾</span>세금</a>
+      <a href="#events"><span aria-hidden="true">🎟️</span>공연</a>
+    </div>
+  </nav>
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-title"></dialog>
+</body>
+</html>
