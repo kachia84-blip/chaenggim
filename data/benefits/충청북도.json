@@ -11442,6 +11442,33 @@
     }
   },
   {
+    "id": "448000000683",
+    "name": "출생 축하 기념 아기 주민등록증 제작 지원",
+    "org": "충청북도 단양군",
+    "summary": "❍ 신청대상: 단양군에 주민등록이 되어 있는 출생아 \r\n❍ 신청기간: 출생일로부터 12개월",
+    "target": "단양군에 주민등록이 되어 있는 출생아",
+    "amount": "❍ 사업시기: 2025. 1.부터\r\n❍ 신청대상: 단양군에 주민등록이 되어 있는 출생아 \r\n❍ 신청기간: 출",
+    "how": "방문신청",
+    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2169426&bnefType=all&svcId=448000000683",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "❍ 신청대상: 단양군에 주민등록이 되어 있는 출생아 ❍ 신청기간: 출생일로부터 12개월",
+    "who": "단양군에 주민등록이 되어 있는 출생아",
+    "deadline": null,
+    "deadlineText": "상시신청",
+    "field": "임신·출산",
+    "emoji": "🍼",
+    "sigungu": "단양군",
+    "cond": {
+      "ageMin": 18,
+      "ageMax": 49,
+      "income": null,
+      "need": [
+        "출산/입양"
+      ]
+    }
+  },
+  {
     "id": "448000000664",
     "name": "출생·전입자 종량제봉투 지원",
     "org": "충청북도 단양군",

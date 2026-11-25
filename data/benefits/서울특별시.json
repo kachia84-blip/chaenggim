@@ -14918,7 +14918,7 @@
     "summary": "주민을 대상으로 민사, 형사, 가사, 행정 및 생활관련 법률상담 제공",
     "target": "법률서비스 접근이 취약한 구민 누구나",
     "amount": "주민생활에서 발생하는 각종 법률문제에 있어 주민의 이익과 권리를 보호하기 위하여 법률상담을 무료로 제공하는 ",
-    "how": "정부24온라인신청||방문신청||직접입력",
+    "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100998&bnefType=all&svcId=311000000146",
     "amountWon": null,
     "amountText": "",
