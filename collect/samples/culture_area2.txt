@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<OpenAPI_ServiceResponse>
-<cmmMsgHeader>
-  <errMsg>SERVICE_KEY_IS_NOT_REGISTERED_ERROR</errMsg>
-  <returnAuthMsg>등록되지 않은 서비스키</returnAuthMsg>
-  <returnReasonCode>30</returnReasonCode>
-</cmmMsgHeader>
-</OpenAPI_ServiceResponse>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><response><header><resultCode>00</resultCode><resultMsg>정상입니다.</resultMsg></header><body><totalCount>462</totalCount><PageNo>1</PageNo><numOfrows>3</numOfrows><items><item><serviceName>공연</serviceName><seq>393376</seq><title>[대학로] 대표 코미디 연극 &amp;lt;오백에 삼십&amp;gt;</title><startDate>20151121</startDate><endDate>20261231</endDate><place>JTN아트홀</place><realmName>연극</realmName><area>서울</area><sigungu>종로구</sigungu><thumbnail>http://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202608/a4629ff32ba140548694a7230176c392.jpg</thumbnail><gpsX>127.00393230387</gpsX><gpsY>37.5766441213197</gpsY></item><item><serviceName>공연</serviceName><seq>204025</seq><title>늘근도둑이야기</title><startDate>20220305</startDate><endDate>20261231</endDate><place>아트포레스트 1관</place><realmName>연극</realmName><area>서울</area><sigungu>종로구</sigungu><thumbnail>http://www.culture.go.kr/upload/rdf/25/09/show_2025092617561683206.jpg</thumbnail><gpsX>127.00309074973019</gpsX><gpsY>37.58248538026813</gpsY></item><item><serviceName>공연</serviceName><seq>407403</seq><title>뮤직드라마 &amp;lt;불편한 편의점&amp;gt;</title><startDate>20230408</startDate><endDate>20261231</endDate><place>올웨이즈씨어터</place><realmName>연극</realmName><area>서울</area><sigungu>종로구</sigungu><thumbnail>http://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/bc745f0f7b53488693dff4c3d630b870.jpg</thumbnail><gpsX>127.002101274</gpsX><gpsY>37.5830962756</gpsY></item></items></body></response>

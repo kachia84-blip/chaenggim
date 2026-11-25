@@ -4,7 +4,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from .benefits import normalize_sido
-from .common import DATA_DIR, atomic_write_json, get_key, http_get_json, kst_today, require_minimum
+from .common import DATA_DIR, atomic_write_json, get_key, http_get_json, kst_today, log, require_minimum
 
 
 BASE_URL = "https://apis.data.go.kr/B553457/cultureinfo"
@@ -96,8 +96,20 @@ def collect(data_dir=DATA_DIR, today=None):
     key = get_key()
     candidates = {str(row["seq"]): row for row in period_rows(key, today) if row.get("seq")}
     require_minimum("문화정보", len(candidates), 10)
-    with ThreadPoolExecutor(max_workers=6) as pool:
-        events = list(pool.map(lambda row: _detail(key, row), candidates.values()))
+    def safe_detail(row):  # 상세 몇 건이 막혀도 나머지는 살린다
+        try:
+            return _detail(key, row)
+        except Exception:
+            return None
+
+    with ThreadPoolExecutor(max_workers=2) as pool:  # 6개 동시 요청은 HTTP 429로 막혔다(2026-11-25)
+        events = list(pool.map(safe_detail, candidates.values()))
+    failed = events.count(None)
+    if failed > len(events) * 0.2:
+        raise RuntimeError(f"문화정보 detail2: {failed}/{len(events)}건 실패")
+    if failed:
+        log(f"events: detail2 {failed}/{len(events)}건 건너뜀")
+    events = [item for item in events if item]
     today_text = today.isoformat()
     events = [item for item in events if item["start"] and item["end"] and item["end"] >= today_text]
     require_minimum("문화정보", len(events), 10)

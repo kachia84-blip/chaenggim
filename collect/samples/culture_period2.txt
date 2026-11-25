@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<OpenAPI_ServiceResponse>
-<cmmMsgHeader>
-  <errMsg>SERVICE_KEY_IS_NOT_REGISTERED_ERROR</errMsg>
-  <returnAuthMsg>등록되지 않은 서비스키</returnAuthMsg>
-  <returnReasonCode>30</returnReasonCode>
-</cmmMsgHeader>
-</OpenAPI_ServiceResponse>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><response><header><resultCode>00</resultCode><resultMsg>정상입니다.</resultMsg></header><body><totalCount>965</totalCount><PageNo>1</PageNo><numOfrows>3</numOfrows><items><item><serviceName>공연</serviceName><seq>393376</seq><title>[대학로] 대표 코미디 연극 &amp;lt;오백에 삼십&amp;gt;</title><startDate>20151121</startDate><endDate>20261231</endDate><place>JTN아트홀</place><realmName>연극</realmName><area>서울</area><sigungu>종로구</sigungu><thumbnail>http://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202608/a4629ff32ba140548694a7230176c392.jpg</thumbnail><gpsX>127.00393230387</gpsX><gpsY>37.5766441213197</gpsY></item><item><serviceName>전시</serviceName><seq>246265</seq><title>개방 수장고 개편</title><startDate>20201203</startDate><endDate>20261231</endDate><place>국립현대미술관 청주관</place><realmName>전시</realmName><area>충북</area><sigungu>청주시</sigungu><thumbnail>http://www.culture.go.kr/upload/rdf/23/05/show_202305231185612403.jpg</thumbnail><gpsX>127.48991744317918</gpsX><gpsY>36.65544975133425</gpsY></item><item><serviceName>전시</serviceName><seq>396296</seq><title>하남역사박물관 이성산성 실감관 &amp;lt;이성산성, 한강을 지배하다&amp;gt;</title><startDate>20210325</startDate><endDate>20261231</endDate><place>하남역사박물관</place><realmName>전시</realmName><area>경기</area><sigungu>하남시</sigungu><thumbnail>http://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/5140e219993140be811b2547d12abb06.jpg</thumbnail><gpsX>127.20608369133384</gpsX><gpsY>37.5454548377358</gpsY></item></items></body></response>

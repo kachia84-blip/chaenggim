@@ -15,7 +15,6 @@ REGIONS = {
     "부산광역시": ("부산", "부산시"),
     "대구광역시": ("대구", "대구시"),
     "인천광역시": ("인천", "인천시"),
-    "광주광역시": ("광주", "광주시"),
     "대전광역시": ("대전", "대전시"),
     "울산광역시": ("울산", "울산시"),
     "세종특별자치시": ("세종", "세종시"),
@@ -24,7 +23,7 @@ REGIONS = {
     "충청북도": ("충북", "충북도"),
     "충청남도": ("충남", "충남도"),
     "전북특별자치도": ("전북", "전북도", "전라북도"),
-    "전라남도": ("전남", "전남도"),
+    "전남광주통합특별시": ("전남광주", "광주광역시", "광주", "광주시", "전라남도", "전남", "전남도"),
     "경상북도": ("경북", "경북도"),
     "경상남도": ("경남", "경남도"),
     "제주특별자치도": ("제주", "제주도"),
@@ -34,7 +33,7 @@ REGION_PREFIX = re.compile(
     r"^(" + "|".join(sorted(REGION_ALIASES, key=len, reverse=True)) + r")(?=(?:청)?(?:$|[\s()·,/]))"
 )
 DISTRICT_PREFIX = re.compile(r"^([가-힣0-9]+?[시군구])(?:청)?(?=$|[\s()·,/])")
-LOCAL_TYPE = re.compile(r"(?:지방|광역|기초)\s*자치\s*단체|지자체|지방정부|^(?:시도|시군구)$")
+LOCAL_TYPE = re.compile(r"(?:지방|광역|기초)\s*자치\s*단체|지자체|지방정부|^(?:시도|시군구|광역시도|교육청|지방공기업|지방출자_출연기관)$")
 DEADLINE_DATE = re.compile(r"(?<!\d)(\d{4})([.-])(\d{2})\2(\d{2})(?!\d)")
 
 FIELD_EMOJI = {
@@ -57,8 +56,9 @@ def benefit_region(org_type, org):
     if org_type and not LOCAL_TYPE.search(org_type):
         return NATIONWIDE, ""
     province = REGION_PREFIX.match(org)
-    if not province:
-        return (None if org_type else NATIONWIDE), ""
+    if not province:  # 예: 전남개발공사, 서울주택도시공사 → 이름 안의 시도 별칭
+        found = next((REGION_ALIASES[a] for a in sorted(REGION_ALIASES, key=len, reverse=True) if len(a) >= 2 and a in org), "")
+        return (found or (None if org_type else NATIONWIDE)), ""
     remaining = org[province.end():].removeprefix("청").lstrip(" (,·/")
     district = DISTRICT_PREFIX.match(remaining)
     if not district:
@@ -103,10 +103,10 @@ def map_benefit(service, conditions, sigungu):
     deadline_text = field("신청기한")
     return {
         "id": field("서비스ID"), "name": field("서비스명"), "org": field("소관기관명"),
-        "summary": field("서비스목적요약")[:120], "target": field("지원대상")[:160],
-        "amount": field("지원내용")[:120], "how": field("신청방법")[:120], "url": field("상세조회URL"),
+        "summary": field("서비스목적요약")[:70], "target": field("지원대상")[:70],
+        "amount": field("지원내용")[:60], "how": field("신청방법")[:40], "url": field("상세조회URL"),
         "deadline": parse_deadline(deadline_text), "deadlineText": deadline_text[:60],
-        "field": category, "emoji": FIELD_EMOJI.get(category, "📌"), "updated": field("수정일시"),
+        "field": category, "emoji": FIELD_EMOJI.get(category, "📌"),
         "sigungu": sigungu,
         "cond": {
             "ageMin": age_min, "ageMax": age_max,

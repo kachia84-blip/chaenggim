@@ -72,7 +72,7 @@ class BenefitTests(unittest.TestCase):
         self.assertEqual(item["deadline"], "2026-11-30")
         self.assertEqual(item["deadlineText"], SERVICE["신청기한"])
         self.assertEqual(item["emoji"], "🏠")
-        self.assertEqual([len(item[key]) for key in ("summary", "target", "amount", "how")], [120, 160, 120, 120])
+        self.assertEqual([len(item[key]) for key in ("summary", "target", "amount", "how")], [70, 70, 60, 40])  # 휴대폰 용량 때문에 목록 설명을 줄임
         self.assertEqual(item["cond"], {
             "ageMin": 19, "ageMax": 34, "income": ["JA0201"], "flags": ["근로자/직장인", "무주택세대"],
         })
@@ -127,7 +127,7 @@ class BenefitTests(unittest.TestCase):
             self.assertEqual([item["id"] for item in nationwide[:2]], ["CENTRAL-0", "CENTRAL-1"])
             self.assertEqual(nationwide[1]["cond"]["flags"], ["대학생"])
             index = _read(directory / "index.json")
-            self.assertEqual((len(index), index["전국"], index["서울특별시"], index["경기도"]), (18, 49, 1, 0))
+            self.assertEqual((len(index), index["전국"], index["서울특별시"], index["경기도"]), (17, 49, 1, 0))  # 광주·전남이 전남광주통합특별시로 합쳐짐
             self.assertEqual(_read(directory / "경기도.json"), [])
         self.assertEqual([(args[0].split("/")[-1], args[1]["page"], args[1]["perPage"])
                           for args, _ in get.call_args_list], [

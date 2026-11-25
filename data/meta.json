@@ -1,7 +1,13 @@
 {
-  "updated": "2026-11-25T06:00:00+09:00",
+  "updated": "2026-11-25T21:04:21+09:00",
   "sources": {
-    "benefits": "보조금24 수집 전 예시 데이터",
-    "events": "한국문화정보원 공연·전시 정보 수집 전 예시 데이터"
+    "benefits": {
+      "count": 8919,
+      "ok": true
+    },
+    "events": {
+      "count": 6,
+      "ok": false
+    }
   }
 }
