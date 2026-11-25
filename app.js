@@ -201,7 +201,7 @@ function profileFields(step, draft) {
     ];
   }
   return [
-    selectField("일", "worker", draft.worker, ["직장인", "자영업", "프리랜서", "없음"]),
+    selectField("일", "worker", draft.worker, ["직장인", "공무원", "자영업", "프리랜서", "없음"]),
     selectField("자동차 보유", "car", draft.car, [["true", "있음"], ["false", "없음"]])
   ];
 }
@@ -375,8 +375,8 @@ function taxMatches(item) {
   if (item.who === "car") return profile.car !== false;
   if (item.who === "owner") return profile.homeless !== true;
   const worker = profile.worker;
-  if (!["직장인", "자영업", "프리랜서", "없음"].includes(worker)) return true;
-  if (item.who === "worker") return worker === "직장인";
+  if (!["직장인", "공무원", "자영업", "프리랜서", "없음"].includes(worker)) return true;
+  if (item.who === "worker") return worker === "직장인" || worker === "공무원";  // 공무원도 연말정산 대상
   if (item.who === "business") return worker === "자영업" || worker === "프리랜서";
   return true;
 }
