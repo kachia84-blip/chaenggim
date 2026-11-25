@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tax-refund",
+    "emoji": "🧾",
+    "title": "안 찾아간 국세 환급금",
+    "what": "주소가 바뀌거나 계좌를 안 알려서 못 받은 세금 환급금",
+    "where": "홈택스",
+    "how": "로그인 → 조회·발급 → 세금 신고·납부 → 국세환급금 찾기",
+    "url": "https://www.hometax.go.kr"
+  },
+  {
+    "id": "local-tax-refund",
+    "emoji": "🏛️",
+    "title": "안 찾아간 지방세 환급금",
+    "what": "자동차세·재산세 등을 두 번 냈거나 더 내서 생긴 환급금",
+    "where": "위택스",
+    "how": "로그인 → 납부·환급 → 지방세 환급금 조회·신청",
+    "url": "https://www.wetax.go.kr"
+  },
+  {
+    "id": "dormant-account",
+    "emoji": "🏦",
+    "title": "휴면 계좌·카드 포인트",
+    "what": "잊고 있던 은행 계좌 잔액과 카드사별 남은 포인트",
+    "where": "어카운트인포",
+    "how": "본인 인증 → 내 계좌 한눈에 → 휴면·비활동 계좌, 카드 포인트 조회",
+    "url": "https://www.payinfo.or.kr"
+  },
+  {
+    "id": "hidden-insurance",
+    "emoji": "🛡️",
+    "title": "숨은 보험금",
+    "what": "만기가 지났거나 받을 조건이 됐는데 청구하지 않은 보험금",
+    "where": "내보험찾아줌",
+    "how": "본인 인증 → 숨은 보험금 조회",
+    "url": "https://cont.insure.or.kr"
+  },
+  {
+    "id": "dormant-stock",
+    "emoji": "📈",
+    "title": "잊힌 주식·배당금",
+    "what": "회사 합병이나 주소 변경으로 받지 못한 주식과 배당금",
+    "where": "한국예탁결제원",
+    "how": "주식찾기 → 실기주·미수령 주식 조회",
+    "url": "https://www.ksd.or.kr"
+  }
+]
