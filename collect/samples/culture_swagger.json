@@ -1,0 +1,1846 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "description": "이 데이터셋은 대한민국 문화체육관광부 및 산하 기관에서 생산되는 공연, 전시, 문화예술, 문화유산, 관광, 체육, 도서 등 다양한 문화정보를 종합적으로 제공하는 OpenAPI 서비스입니다. 기간별, 지역별, 분야별 공연 및 전시 목록과 상세정보, 장소, 일정, 가격, 위치 좌표, 썸네일 이미지, 관련 링크 등 다양한 정보를 포함합니다. 그 뿐만 아니라 문화행사 일정 확인, 문화캘린더 서비스, 지역 문화 홍보, 문화정책 연구 등 다양한 분야에서 활용할 수 있으며, 데이터는 최신 정보를 반영해 주기적으로 갱신됩니다.",
+  "version": "1.0.0",
+  "title": "한국문화정보원_한눈에보는문화정보조회서비스"
+ },
+ "host": "apis.data.go.kr/B553457/cultureinfo",
+ "basePath": "",
+ "schemes": [
+  "https",
+  "http"
+ ],
+ "paths": {
+  "/period2": {
+   "get": {
+    "responses": {
+     "99": {
+      "description": "기타 에러입니다."
+     },
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "응답코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "응답 메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "공연전시정보목록",
+             "properties": {
+              "gpsY": {
+               "type": "string",
+               "description": "GPS-Y좌표",
+               "properties": {}
+              },
+              "serviceName": {
+               "type": "string",
+               "description": "서비스명",
+               "properties": {}
+              },
+              "seq": {
+               "type": "string",
+               "description": "일련번호",
+               "properties": {}
+              },
+              "title": {
+               "type": "string",
+               "description": "제목",
+               "properties": {}
+              },
+              "startDate": {
+               "type": "string",
+               "description": "시작일",
+               "properties": {}
+              },
+              "endDate": {
+               "type": "string",
+               "description": "마감일",
+               "properties": {}
+              },
+              "place": {
+               "type": "string",
+               "description": "장소",
+               "properties": {}
+              },
+              "realmName": {
+               "type": "string",
+               "description": "분류명",
+               "properties": {}
+              },
+              "area": {
+               "type": "string",
+               "description": "지역",
+               "properties": {}
+              },
+              "thumbnail": {
+               "type": "string",
+               "description": "썸네일",
+               "properties": {}
+              },
+              "gpsX": {
+               "type": "string",
+               "description": "GPS-X좌표",
+               "properties": {}
+              },
+              "sigungu": {
+               "type": "string",
+               "description": "시군구",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체count",
+           "properties": {}
+          },
+          "PageNo": {
+           "type": "string",
+           "description": "현재페이지",
+           "properties": {}
+          },
+          "numOfrows": {
+           "type": "string",
+           "description": "페이지당ROW수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "기간별 문화정보목록조회",
+    "description": "검색 한 기간별 문화정보목록조회",
+    "operationId": "period2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "PageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "numOfrows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "keyword",
+     "description": "검색키워드",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxfrom",
+     "description": "경도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyfrom",
+     "description": "위도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxto",
+     "description": "경도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyto",
+     "description": "위도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "serviceTp",
+     "description": "서비스구분 (A:공연/전시, B:행사/축제, C:교육/체험)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "from",
+     "description": "시작기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "to",
+     "description": "종료기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  },
+  "/area2": {
+   "get": {
+    "responses": {
+     "99": {
+      "description": "기타 에러입니다."
+     },
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "응답코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "응답메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "공연전시정보목록",
+             "properties": {
+              "serviceName": {
+               "type": "string",
+               "description": "분야별정보",
+               "properties": {}
+              },
+              "seq": {
+               "type": "string",
+               "description": "일련번호",
+               "properties": {}
+              },
+              "title": {
+               "type": "string",
+               "description": "제목",
+               "properties": {}
+              },
+              "startDate": {
+               "type": "string",
+               "description": "시작일",
+               "properties": {}
+              },
+              "endDate": {
+               "type": "string",
+               "description": "마감일",
+               "properties": {}
+              },
+              "place": {
+               "type": "string",
+               "description": "장소",
+               "properties": {}
+              },
+              "realmName": {
+               "type": "string",
+               "description": "분류명",
+               "properties": {}
+              },
+              "area": {
+               "type": "string",
+               "description": "지역",
+               "properties": {}
+              },
+              "thumbnail": {
+               "type": "string",
+               "description": "썸네일",
+               "properties": {}
+              },
+              "gpsX": {
+               "type": "string",
+               "description": "GPS-X좌표",
+               "properties": {}
+              },
+              "gpsY": {
+               "type": "string",
+               "description": "GPS-Y좌표",
+               "properties": {}
+              },
+              "sigungu": {
+               "type": "string",
+               "description": "시군구",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체count",
+           "properties": {}
+          },
+          "PageNo": {
+           "type": "string",
+           "description": "현재페이지",
+           "properties": {}
+          },
+          "numOfrows": {
+           "type": "string",
+           "description": "페이지당ROW수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "지역별 문화정보목록조회",
+    "description": "검색한 지역별 문화정보들의 목록을 제공합니다",
+    "operationId": "area2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "PageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "numOfrows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "sido",
+     "description": "시/도",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "from",
+     "description": "시작기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "to",
+     "description": "종료기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "place",
+     "description": "장소",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxfrom",
+     "description": "경도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyfrom",
+     "description": "위도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxto",
+     "description": "경도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyto",
+     "description": "위도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "keyword",
+     "description": "검색키워드",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "sortStdr",
+     "description": "정렬기준 (1:등록일, 2:공연명, 3:지역)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "serviceTp",
+     "description": "분야별구분 (A:공연/전시, B:행사/축제, C:교육/체험)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "sigungu",
+     "description": "시군구",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  },
+  "/detail2": {
+   "get": {
+    "responses": {
+     "99": {
+      "description": "기타 에러입니다."
+     },
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "응답코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "응답메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "공연전시상세정보",
+             "properties": {
+              "seq": {
+               "type": "string",
+               "description": "일련번호",
+               "properties": {}
+              },
+              "title": {
+               "type": "string",
+               "description": "제목",
+               "properties": {}
+              },
+              "startDate": {
+               "type": "string",
+               "description": "시작일",
+               "properties": {}
+              },
+              "endDate": {
+               "type": "string",
+               "description": "마감일",
+               "properties": {}
+              },
+              "place": {
+               "type": "string",
+               "description": "장소",
+               "properties": {}
+              },
+              "realmName": {
+               "type": "string",
+               "description": "분류명",
+               "properties": {}
+              },
+              "area": {
+               "type": "string",
+               "description": "지역",
+               "properties": {}
+              },
+              "price": {
+               "type": "string",
+               "description": "티켓요금",
+               "properties": {}
+              },
+              "contents1": {
+               "type": "string",
+               "description": "내용1",
+               "properties": {}
+              },
+              "url": {
+               "type": "string",
+               "description": "관람URL",
+               "properties": {}
+              },
+              "phone": {
+               "type": "string",
+               "description": "문의처",
+               "properties": {}
+              },
+              "gpsX": {
+               "type": "string",
+               "description": "GPS-X좌표",
+               "properties": {}
+              },
+              "gpsY": {
+               "type": "string",
+               "description": "GPS-Y좌표",
+               "properties": {}
+              },
+              "imgUrl": {
+               "type": "string",
+               "description": "이미지",
+               "properties": {}
+              },
+              "placeUrl": {
+               "type": "string",
+               "description": "공연장URL",
+               "properties": {}
+              },
+              "placeAddr": {
+               "type": "string",
+               "description": "공연장 주소",
+               "properties": {}
+              },
+              "placeSeq": {
+               "type": "string",
+               "description": "문화예술공간 일련번호",
+               "properties": {}
+              },
+              "sigungu": {
+               "type": "string",
+               "description": "시군구",
+               "properties": {}
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "문화정보 상세정보조회",
+    "description": "문화정보 상세내용을 제공하는 서비",
+    "operationId": "detail2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "seq",
+     "description": "일련번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    }
+   ]
+  },
+  "/livelihood2": {
+   "get": {
+    "responses": {
+     "99": {
+      "description": "기타 에러입니다."
+     },
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "응답코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "응답메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "문화생활정보목록",
+             "properties": {
+              "seq": {
+               "type": "string",
+               "description": "일련번호",
+               "properties": {}
+              },
+              "title": {
+               "type": "string",
+               "description": "제목",
+               "properties": {}
+              },
+              "orgName": {
+               "type": "string",
+               "description": "기관명",
+               "properties": {}
+              },
+              "regDate": {
+               "type": "string",
+               "description": "등록일",
+               "properties": {}
+              },
+              "url": {
+               "type": "string",
+               "description": "원문URL",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체count",
+           "properties": {}
+          },
+          "PageNo": {
+           "type": "string",
+           "description": "현재페이지",
+           "properties": {}
+          },
+          "numOfrows": {
+           "type": "string",
+           "description": "페이지당ROW수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "문화캘린더정보 목록조회",
+    "description": "문화캘린더정보등을 일별로 정리해서 목록 제공",
+    "operationId": "livelihood2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "PageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "numOfrows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "keyword",
+     "description": "검색키워드",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  },
+  "/realm2": {
+   "get": {
+    "responses": {
+     "99": {
+      "description": "기타 에러입니다."
+     },
+     "200": {
+      "description": "성공",
+      "schema": {
+       "type": "object",
+       "properties": {
+        "header": {
+         "type": "object",
+         "description": "header",
+         "properties": {
+          "resultCode": {
+           "type": "string",
+           "description": "응답코드",
+           "properties": {}
+          },
+          "resultMsg": {
+           "type": "string",
+           "description": "응답메시지",
+           "properties": {}
+          }
+         }
+        },
+        "body": {
+         "type": "object",
+         "description": "body",
+         "properties": {
+          "items": {
+           "type": "object",
+           "description": "items",
+           "properties": {
+            "item": {
+             "type": "object",
+             "description": "공연전시정보목록",
+             "properties": {
+              "gpsY": {
+               "type": "string",
+               "description": "GPS-Y좌표",
+               "properties": {}
+              },
+              "serviceName": {
+               "type": "string",
+               "description": "서비스명",
+               "properties": {}
+              },
+              "seq": {
+               "type": "string",
+               "description": "일련번호",
+               "properties": {}
+              },
+              "title": {
+               "type": "string",
+               "description": "제목",
+               "properties": {}
+              },
+              "startDate": {
+               "type": "string",
+               "description": "시작일",
+               "properties": {}
+              },
+              "endDate": {
+               "type": "string",
+               "description": "마감일",
+               "properties": {}
+              },
+              "place": {
+               "type": "string",
+               "description": "장소",
+               "properties": {}
+              },
+              "realmName": {
+               "type": "string",
+               "description": "분류명",
+               "properties": {}
+              },
+              "area": {
+               "type": "string",
+               "description": "지역",
+               "properties": {}
+              },
+              "thumbnail": {
+               "type": "string",
+               "description": "썸네일",
+               "properties": {}
+              },
+              "gpsX": {
+               "type": "string",
+               "description": "GPS-X좌표",
+               "properties": {}
+              },
+              "sigungu": {
+               "type": "string",
+               "description": "시군구",
+               "properties": {}
+              }
+             }
+            }
+           }
+          },
+          "totalCount": {
+           "type": "string",
+           "description": "전체count",
+           "properties": {}
+          },
+          "PageNo": {
+           "type": "string",
+           "description": "현재페이지",
+           "properties": {}
+          },
+          "numOfrows": {
+           "type": "string",
+           "description": "페이지당ROW수",
+           "properties": {}
+          }
+         }
+        }
+       },
+       "xml": {
+        "name": "response"
+       }
+      }
+     }
+    },
+    "tags": [
+     "API 목록"
+    ],
+    "summary": "분야별 문화정보목록조회",
+    "description": "연극,음악/콘서트,국악,무용/발레, 전시, 뮤지컬/오페라, 아동/가족, 행사/축제, 교육/체험,도서, 체육,기타 분야별 문화정보목록조회",
+    "operationId": "realm2",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/xml"
+    ]
+   },
+   "parameters": [
+    {
+     "name": "serviceKey",
+     "description": "공공데이터포털에서 받은 인증키",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "PageNo",
+     "description": "페이지번호",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "numOfrows",
+     "description": "한 페이지 결과 수",
+     "type": "string",
+     "required": true,
+     "in": "query"
+    },
+    {
+     "name": "sido",
+     "description": "시/도",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "from",
+     "description": "시작기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "to",
+     "description": "종료기간",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "place",
+     "description": "장소",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxfrom",
+     "description": "경도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyfrom",
+     "description": "위도 하한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsxto",
+     "description": "경도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "gpsyto",
+     "description": "위도 상한",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "keyword",
+     "description": "검색키워드",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "sortStdr",
+     "description": "정렬기준(1:등록일, 2:공연명, 3:지역)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "realmCode",
+     "description": "분류코드 (A000: 연극,  B000: 음악/콘서트, B002: 국악, C000: 무용/발레, D000: 전시, B003: 뮤지컬/오페라, E000: 아동/가족, F000: 행사/축제, G000: 교육/체험, H000: 도서, I000: 체육, L000: 기타)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    },
+    {
+     "name": "serviceTp",
+     "description": "분야별구분(A:공연/전시, B:행사/축제, C:교육/체험)",
+     "type": "string",
+     "required": false,
+     "in": "query"
+    }
+   ]
+  }
+ },
+ "definitions": {
+  "period2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "응답코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "응답 메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "공연전시정보목록",
+         "properties": {
+          "gpsY": {
+           "type": "string",
+           "description": "GPS-Y좌표"
+          },
+          "serviceName": {
+           "type": "string",
+           "description": "서비스명"
+          },
+          "seq": {
+           "type": "string",
+           "description": "일련번호"
+          },
+          "title": {
+           "type": "string",
+           "description": "제목"
+          },
+          "startDate": {
+           "type": "string",
+           "description": "시작일"
+          },
+          "endDate": {
+           "type": "string",
+           "description": "마감일"
+          },
+          "place": {
+           "type": "string",
+           "description": "장소"
+          },
+          "realmName": {
+           "type": "string",
+           "description": "분류명"
+          },
+          "area": {
+           "type": "string",
+           "description": "지역"
+          },
+          "thumbnail": {
+           "type": "string",
+           "description": "썸네일"
+          },
+          "gpsX": {
+           "type": "string",
+           "description": "GPS-X좌표"
+          },
+          "sigungu": {
+           "type": "string",
+           "description": "시군구"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체count"
+      },
+      "PageNo": {
+       "type": "string",
+       "description": "현재페이지"
+      },
+      "numOfrows": {
+       "type": "string",
+       "description": "페이지당ROW수"
+      }
+     }
+    }
+   }
+  },
+  "area2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "응답코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "응답메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "공연전시정보목록",
+         "properties": {
+          "serviceName": {
+           "type": "string",
+           "description": "분야별정보"
+          },
+          "seq": {
+           "type": "string",
+           "description": "일련번호"
+          },
+          "title": {
+           "type": "string",
+           "description": "제목"
+          },
+          "startDate": {
+           "type": "string",
+           "description": "시작일"
+          },
+          "endDate": {
+           "type": "string",
+           "description": "마감일"
+          },
+          "place": {
+           "type": "string",
+           "description": "장소"
+          },
+          "realmName": {
+           "type": "string",
+           "description": "분류명"
+          },
+          "area": {
+           "type": "string",
+           "description": "지역"
+          },
+          "thumbnail": {
+           "type": "string",
+           "description": "썸네일"
+          },
+          "gpsX": {
+           "type": "string",
+           "description": "GPS-X좌표"
+          },
+          "gpsY": {
+           "type": "string",
+           "description": "GPS-Y좌표"
+          },
+          "sigungu": {
+           "type": "string",
+           "description": "시군구"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체count"
+      },
+      "PageNo": {
+       "type": "string",
+       "description": "현재페이지"
+      },
+      "numOfrows": {
+       "type": "string",
+       "description": "페이지당ROW수"
+      }
+     }
+    }
+   }
+  },
+  "detail2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "응답코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "응답메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "공연전시상세정보",
+         "properties": {
+          "seq": {
+           "type": "string",
+           "description": "일련번호"
+          },
+          "title": {
+           "type": "string",
+           "description": "제목"
+          },
+          "startDate": {
+           "type": "string",
+           "description": "시작일"
+          },
+          "endDate": {
+           "type": "string",
+           "description": "마감일"
+          },
+          "place": {
+           "type": "string",
+           "description": "장소"
+          },
+          "realmName": {
+           "type": "string",
+           "description": "분류명"
+          },
+          "area": {
+           "type": "string",
+           "description": "지역"
+          },
+          "price": {
+           "type": "string",
+           "description": "티켓요금"
+          },
+          "contents1": {
+           "type": "string",
+           "description": "내용1"
+          },
+          "url": {
+           "type": "string",
+           "description": "관람URL"
+          },
+          "phone": {
+           "type": "string",
+           "description": "문의처"
+          },
+          "gpsX": {
+           "type": "string",
+           "description": "GPS-X좌표"
+          },
+          "gpsY": {
+           "type": "string",
+           "description": "GPS-Y좌표"
+          },
+          "imgUrl": {
+           "type": "string",
+           "description": "이미지"
+          },
+          "placeUrl": {
+           "type": "string",
+           "description": "공연장URL"
+          },
+          "placeAddr": {
+           "type": "string",
+           "description": "공연장 주소"
+          },
+          "placeSeq": {
+           "type": "string",
+           "description": "문화예술공간 일련번호"
+          },
+          "sigungu": {
+           "type": "string",
+           "description": "시군구"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "livelihood2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "응답코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "응답메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "문화생활정보목록",
+         "properties": {
+          "seq": {
+           "type": "string",
+           "description": "일련번호"
+          },
+          "title": {
+           "type": "string",
+           "description": "제목"
+          },
+          "orgName": {
+           "type": "string",
+           "description": "기관명"
+          },
+          "regDate": {
+           "type": "string",
+           "description": "등록일"
+          },
+          "url": {
+           "type": "string",
+           "description": "원문URL"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체count"
+      },
+      "PageNo": {
+       "type": "string",
+       "description": "현재페이지"
+      },
+      "numOfrows": {
+       "type": "string",
+       "description": "페이지당ROW수"
+      }
+     }
+    }
+   }
+  },
+  "realm2_response": {
+   "type": "object",
+   "properties": {
+    "header": {
+     "type": "object",
+     "description": "header",
+     "properties": {
+      "resultCode": {
+       "type": "string",
+       "description": "응답코드"
+      },
+      "resultMsg": {
+       "type": "string",
+       "description": "응답메시지"
+      }
+     }
+    },
+    "body": {
+     "type": "object",
+     "description": "body",
+     "properties": {
+      "items": {
+       "type": "object",
+       "description": "items",
+       "properties": {
+        "item": {
+         "type": "object",
+         "description": "공연전시정보목록",
+         "properties": {
+          "gpsY": {
+           "type": "string",
+           "description": "GPS-Y좌표"
+          },
+          "serviceName": {
+           "type": "string",
+           "description": "서비스명"
+          },
+          "seq": {
+           "type": "string",
+           "description": "일련번호"
+          },
+          "title": {
+           "type": "string",
+           "description": "제목"
+          },
+          "startDate": {
+           "type": "string",
+           "description": "시작일"
+          },
+          "endDate": {
+           "type": "string",
+           "description": "마감일"
+          },
+          "place": {
+           "type": "string",
+           "description": "장소"
+          },
+          "realmName": {
+           "type": "string",
+           "description": "분류명"
+          },
+          "area": {
+           "type": "string",
+           "description": "지역"
+          },
+          "thumbnail": {
+           "type": "string",
+           "description": "썸네일"
+          },
+          "gpsX": {
+           "type": "string",
+           "description": "GPS-X좌표"
+          },
+          "sigungu": {
+           "type": "string",
+           "description": "시군구"
+          }
+         }
+        }
+       }
+      },
+      "totalCount": {
+       "type": "string",
+       "description": "전체count"
+      },
+      "PageNo": {
+       "type": "string",
+       "description": "현재페이지"
+      },
+      "numOfrows": {
+       "type": "string",
+       "description": "페이지당ROW수"
+      }
+     }
+    }
+   }
+  }
+ },
+ "swaggerOprtinVOs": [
+  {
+   "oprtinUrl": "http://www.culture.go.kr/nopenapi/rest/publicperformancedisplays/realm",
+   "oprtinNm": "분야별 문화정보목록조회",
+   "oprtinDc": "연극,음악/콘서트,국악,무용/발레, 전시, 뮤지컬/오페라, 아동/가족, 행사/축제, 교육/체험,도서, 체육,기타 분야별 문화정보목록조회",
+   "gwSvcNm": "realm2",
+   "operationId": "realm2",
+   "publicDataTyDetailCode": "PRDE02",
+   "reqList": [
+    {
+     "paramtrNm": "serviceKey",
+     "paramtrDc": "공공데이터포털에서 받은 인증키",
+     "paramtrBassValue": "-",
+     "paramtrTy": "string",
+     "paramtrDivision": "필수",
+     "ck": true
+    },
+    {
+     "paramtrNm": "PageNo",
+     "paramtrDc": "페이지번호",
+     "paramtrBassValue": "1",
+     "paramtrTy": "string",
+     "paramtrDivision": "필수",
+     "ck": true
+    },
+    {
+     "paramtrNm": "numOfrows",
+     "paramtrDc": "한 페이지 결과 수",
+     "paramtrBassValue": "10",
+     "paramtrTy": "string",
+     "paramtrDivision": "필수",
+     "ck": true
+    },
+    {
+     "paramtrNm": "sido",
+     "paramtrDc": "시/도",
+     "paramtrBassValue": "서울",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "from",
+     "paramtrDc": "시작기간",
+     "paramtrBassValue": "20181029",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "to",
+     "paramtrDc": "종료기간",
+     "paramtrBassValue": "20251231",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "place",
+     "paramtrDc": "장소",
+     "paramtrBassValue": "국립중앙도서관",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "gpsxfrom",
+     "paramtrDc": "경도 하한",
+     "paramtrBassValue": "127.00298547116853",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "gpsyfrom",
+     "paramtrDc": "위도 하한",
+     "paramtrBassValue": "37.49761794050167",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "gpsxto",
+     "paramtrDc": "경도 상한",
+     "paramtrBassValue": "127.00298547116853",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "gpsyto",
+     "paramtrDc": "위도 상한",
+     "paramtrBassValue": "37.49761794050167",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "keyword",
+     "paramtrDc": "검색키워드",
+     "paramtrBassValue": "국립중앙도서관",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "sortStdr",
+     "paramtrDc": "정렬기준(1:등록일, 2:공연명, 3:지역)",
+     "paramtrBassValue": "1",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "realmCode",
+     "paramtrDc": "분류코드 (A000: 연극,  B000: 음악/콘서트, B002: 국악, C000: 무용/발레, D000: 전시, B003: 뮤지컬/오페라, E000: 아동/가족, F000: 행사/축제, G000: 교육/체험, H000: 도서, I000: 체육, L000: 기타)",
+     "paramtrBassValue": "D000",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    },
+    {
+     "paramtrNm": "serviceTp",
+     "paramtrDc": "분야별구분(A:공연/전시, B:행사/축제, C:교육/체험)",
+     "paramtrBassValue": "A",
+     "paramtrTy": "string",
+     "paramtrDivision": "옵션",
+     "ck": true
+    }
+   ],
+   "resList": [
+    {
+     "paramtrNm": "header",
+     "paramtrDc": "header",
+     "arrayYn": "N",
+     "paramtrDefNm": "#/definitions/oper-4-header",
+     "subDefNm": "oper-4-header",
+     "paramtrTy": "object",
+     "paramtrDivision": "필수",
+     "ck": true,
+     "subParam": [
+      {
+       "paramtrNm": "resultCode",
+       "paramtrDc": "응답코드",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      },
+      {
+       "paramtrNm": "resultMsg",
+       "paramtrDc": "응답메시지",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      }
+     ]
+    },
+    {
+     "paramtrNm": "body",
+     "paramtrDc": "body",
+     "arrayYn": "N",
+     "paramtrDefNm": "#/definitions/oper-4-body",
+     "subDefNm": "oper-4-body",
+     "paramtrTy": "object",
+     "paramtrDivision": "필수",
+     "ck": true,
+     "subParam": [
+      {
+       "paramtrNm": "items",
+       "paramtrDc": "items",
+       "arrayYn": "N",
+       "paramtrDefNm": "#/definitions/oper-4-items",
+       "subDefNm": "oper-4-items",
+       "paramtrTy": "object",
+       "paramtrDivision": "필수",
+       "ck": true,
+       "subParam": [
+        {
+         "paramtrNm": "item",
+         "paramtrDc": "공연전시정보목록",
+         "arrayYn": "N",
+         "paramtrDefNm": "#/definitions/oper-4-item",
+         "subDefNm": "oper-4-item",
+         "paramtrTy": "object",
+         "paramtrDivision": "필수",
+         "ck": true,
+         "subParam": [
+          {
+           "paramtrNm": "gpsY",
+           "paramtrDc": "GPS-Y좌표",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "serviceName",
+           "paramtrDc": "서비스명",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "seq",
+           "paramtrDc": "일련번호",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "title",
+           "paramtrDc": "제목",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "startDate",
+           "paramtrDc": "시작일",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "endDate",
+           "paramtrDc": "마감일",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "place",
+           "paramtrDc": "장소",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "realmName",
+           "paramtrDc": "분류명",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "area",
+           "paramtrDc": "지역",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "thumbnail",
+           "paramtrDc": "썸네일",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "gpsX",
+           "paramtrDc": "GPS-X좌표",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          },
+          {
+           "paramtrNm": "sigungu",
+           "paramtrDc": "시군구",
+           "arrayYn": "N",
+           "paramtrDefNm": "",
+           "paramtrTy": "string",
+           "paramtrDivision": "필수",
+           "ck": true
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "paramtrNm": "totalCount",
+       "paramtrDc": "전체count",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      },
+      {
+       "paramtrNm": "PageNo",
+       "paramtrDc": "현재페이지",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      },
+      {
+       "paramtrNm": "numOfrows",
+       "paramtrDc": "페이지당ROW수",
+       "arrayYn": "N",
+       "paramtrDefNm": "",
+       "paramtrTy": "string",
+       "paramtrDivision": "필수",
+       "ck": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

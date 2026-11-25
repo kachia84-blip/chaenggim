@@ -2,18 +2,23 @@
 
 const scope = new URL(self.registration.scope);
 const cachePrefix = "chaenggim:" + scope.pathname + ":";
-const cacheName = cachePrefix + "v1";
+const cacheName = cachePrefix + "v3";
 const shell = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icons/icon.svg",
-  "./fonts/fonts.css", "./fonts/pretendard.woff2"
+  "./fonts/fonts.css", "./fonts/pretendard.woff2",
+  "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"
 ];
 const jsonFiles = ["benefits", "events", "taxes", "tips", "meta"].map(name => "./data/" + name + ".json");
+const nationalBenefits = "./data/benefits/전국.json";
 const shellPaths = new Set(shell.map(path => new URL(path, scope).pathname));
 
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(cacheName).then(cache =>
-    cache.addAll([...shell, ...jsonFiles].map(path => new Request(new URL(path, scope), { cache: "reload" })))
-  ).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(cacheName).then(async cache => {
+    const reload = path => new Request(new URL(path, scope), { cache: "reload" });
+    await cache.addAll([...shell, ...jsonFiles].map(reload));
+    // 첫 수집 전에는 전국 파일이 없으므로 설치는 예시 데이터로 마친다.
+    await cache.add(reload(nationalBenefits)).catch(() => {});
+  }).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", event => {
@@ -56,7 +61,7 @@ self.addEventListener("fetch", event => {
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== scope.origin || !url.pathname.startsWith(scope.pathname)) return;
   const relative = url.pathname.slice(scope.pathname.length);
-  if (/^data\/[^/]+\.json$/.test(relative)) {
+  if (/^data\/(?:benefits\/)?[^/]+\.json$/.test(relative)) {
     event.respondWith(networkFirst(request));
   } else if (shellPaths.has(url.pathname)) {
     event.respondWith(cacheFirst(request, relative));

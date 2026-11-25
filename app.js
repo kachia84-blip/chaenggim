@@ -65,22 +65,45 @@ function opensLater(opening, today, now) {
 const dataKeys = ["benefits", "taxes", "events", "tips"];
 const data = { benefits: [], taxes: [], events: [], tips: [] };
 const failed = new Set();
-let loading = true;
+let pendingLoads = 0;
 
-async function readData(key) {
-  const response = await fetch("./data/" + key + ".json", { cache: "no-cache" });
+async function readData(key, allowMissing = false) {
+  let response;
+  try {
+    response = await fetch("./data/" + key + ".json", { cache: "no-cache" });
+  } catch (error) {
+    if (allowMissing && error instanceof TypeError) return null;
+    throw error;
+  }
+  if (allowMissing && response.status === 404) return null;
   if (!response.ok) throw new Error("일정을 불러오지 못했어요.");
   const items = await response.json();
   if (!Array.isArray(items)) throw new Error("일정 형식을 확인해 주세요.");
   return items;
 }
 
+async function readBenefits(sido) {
+  const [national, local] = await Promise.all([
+    readData("benefits/전국", true),
+    sido ? readData("benefits/" + encodeURIComponent(sido), true) : null
+  ]);
+  if (national !== null) return [...national, ...(local ?? [])];
+
+  const samples = await readData("benefits");
+  return [...samples.filter(item => {
+    const sampleRegions = item.cond?.sido ?? [];
+    return item.sample && (sampleRegions.length === 0 || (local === null && sampleRegions.includes(sido)));
+  }), ...(local ?? [])];
+}
+
 async function loadData(keys = dataKeys) {
-  loading = true;
+  const sido = benefitSido();
+  pendingLoads++;
   render();
-  const results = await Promise.allSettled(keys.map(readData));
+  const results = await Promise.allSettled(keys.map(key => key === "benefits" ? readBenefits(sido) : readData(key)));
   results.forEach((result, index) => {
     const key = keys[index];
+    if (key === "benefits" && sido !== benefitSido()) return;
     if (result.status === "fulfilled") {
       data[key] = result.value;
       failed.delete(key);
@@ -88,7 +111,7 @@ async function loadData(keys = dataKeys) {
       failed.add(key);
     }
   });
-  loading = false;
+  pendingLoads--;
   render();
   scheduleRefresh();
 }
@@ -107,9 +130,12 @@ const regions = [
   "울산광역시", "세종특별자치시", "경기도", "강원특별자치도", "충청북도", "충청남도",
   "전북특별자치도", "전라남도", "경상북도", "경상남도", "제주특별자치도"
 ];
-const incomeBands = ["중위50이하", "중위100이하", "중위150이하", "그이상"];
 const profileSteps = ["나이·지역", "가구·집", "일·차"];
 let profile = readProfile();
+
+function benefitSido() {
+  return regions.includes(profile.sido) ? profile.sido : "";
+}
 
 function readProfile() {
   try {
@@ -227,9 +253,15 @@ function showProfileStep(step, draft) {
       error.textContent = "이 기기에 조건을 저장할 수 없어요.";
       return;
     }
+    const previousSido = benefitSido();
     profile = draft;
     sheet.close();
-    render();
+    if (benefitSido() !== previousSido) {
+      data.benefits = [];
+      loadData(["benefits"]);
+    } else {
+      render();
+    }
   });
   showSheet(title, progress, form);
 }
@@ -239,6 +271,7 @@ function todayEntries(today, now) {
   const benefits = matchingBenefits(today).filter(item => item.deadline && item.endDay - today <= 14)
     .map(item => ({
       title: item.name, emoji: item.emoji, sample: item.sample, label: "지원금 마감",
+      cond: item.cond,
       distance: item.endDay - today, status: dDay(item.endDay - today),
       open: () => openBenefit(item)
     }));
@@ -262,10 +295,11 @@ function todayRow(item, lead) {
   const label = el("span", "row-meta", item.label);
   if (lead) {
     return rowControl(item, "row bill-lead", status,
-      el("span", "row-text", el("span", "lead-title", emoji(item.emoji), title), label, sampleLabel(item)));
+      el("span", "row-text", el("span", "lead-title", emoji(item.emoji), title), label,
+        conditionLabel(item), sampleLabel(item)));
   }
   return rowControl(item, "row", emoji(item.emoji),
-    el("span", "row-text", title, label, sampleLabel(item)), status);
+    el("span", "row-text", title, label, conditionLabel(item), sampleLabel(item)), status);
 }
 
 function tipCard(today) {
@@ -291,28 +325,26 @@ function renderToday(today, now) {
     dataNotice(dataKeys), el("div", "stack", bill, tipCard(today))];
 }
 
-// 지원금 · 알려진 조건이 맞지 않을 때만 제외한다.
+// 지원금 · 시군구와 나이를 확인한다.
 function benefitMatches(item, today) {
+  if (item.sigungu && profile.sigungu && item.sigungu !== profile.sigungu) return false;
   const cond = item.cond ?? {};
-  const age = profile.birthYear ? dateParts(today)[0] - profile.birthYear : null;
-  if (age != null && ((cond.ageMin != null && age < cond.ageMin) ||
-    (cond.ageMax != null && age > cond.ageMax))) return false;
-  if (typeof profile.homeless === "boolean" && cond.homeless != null &&
-    profile.homeless !== cond.homeless) return false;
-  for (const key of ["sido", "sigungu", "household"]) {
-    if (profile[key] && profile[key] !== "모름" && cond[key]?.length &&
-      !cond[key].includes(profile[key])) return false;
-  }
-  const limit = incomeBands.indexOf(cond.incomeMax);
-  const income = incomeBands.indexOf(profile.incomeBand);
-  return limit < 0 || income < 0 || income <= limit;
+  if (!Number.isInteger(profile.birthYear) || profile.birthYear <= 0) return true;
+  const age = dateParts(today)[0] - profile.birthYear;
+  return (cond.ageMin == null || age >= cond.ageMin) && (cond.ageMax == null || age <= cond.ageMax);
+}
+
+function conditionLabel(item) {
+  const { ageMin, ageMax, ...other } = item.cond ?? {};
+  return Object.values(other).some(value => Array.isArray(value) ? value.length > 0 : value != null && value !== "")
+    ? el("span", "sample", "조건 확인 필요") : null;
 }
 
 function matchingBenefits(today) {
   return data.benefits.map(item => ({
     ...item, endDay: item.deadline ? dayNumber(item.deadline) : Infinity
   })).filter(item => item.endDay >= today && benefitMatches(item, today))
-    .sort((first, second) => first.endDay - second.endDay);
+    .sort((first, second) => first.endDay - second.endDay || first.name.localeCompare(second.name, "ko"));
 }
 
 function openBenefit(item) {
@@ -329,7 +361,7 @@ function renderBenefits(today) {
   edit.id = "benefit-profile-button";
   const rows = items.map(item => rowControl({ open: () => openBenefit(item) }, "row", emoji(item.emoji),
     el("span", "row-text", el("span", "row-title", item.name), el("span", "row-sub", item.amount),
-      el("span", "row-meta", item.org), sampleLabel(item)),
+      el("span", "row-meta", item.org), conditionLabel(item), sampleLabel(item)),
     statusText(item.deadline ? dDay(item.endDay - today) : "상시")));
   return [pageHead("지원금", hasProfile() ? null : el("p", null, "내 조건을 설정하면 맞는 지원금을 볼 수 있어요."), edit),
     dataNotice(["benefits"]), cardList(rows, "조건에 맞는 지원금이 없어요.")];
@@ -587,7 +619,7 @@ function render(options = {}) {
     if (link.hash === "#" + tab) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
-  if (loading) {
+  if (pendingLoads) {
     const notice = el("p", "state", "일정을 불러오는 중이에요.");
     notice.setAttribute("role", "status");
     main.replaceChildren(notice);
