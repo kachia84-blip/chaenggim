@@ -1,0 +1,1029 @@
+[
+  {
+    "id": "k-pass",
+    "emoji": "🚌",
+    "title": "모두의카드(K-패스) 교통비 환급",
+    "kind": "받는 돈",
+    "plain": "대중교통을 자주 타면 기본형과 모두의카드 중 유리한 금액을 돌려받아요",
+    "yearlyWon": 144000,
+    "amountText": "연 약 14만 4천 원",
+    "basis": "매월 환급 대상 대중교통 15회 이상, 이용액 6만 원 × 일반 기본형 20% × 12개월 예시",
+    "who": {
+      "ageMin": 19
+    },
+    "how": "K-패스 교통카드를 발급받아 K-패스 앱이나 누리집에 등록하세요",
+    "when": "상시",
+    "url": "https://korea-pass.kr/",
+    "source": "https://www.molit.go.kr/mta/USR/WPGE0201/m_37187/DTL.jsp",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "seoul-climate-pass",
+    "emoji": "🚇",
+    "title": "서울 청년 기후동행패스",
+    "kind": "받는 돈",
+    "plain": "서울 청년은 만 39세까지 모두의카드 청년 환급 기준을 적용받아요",
+    "yearlyWon": null,
+    "amountText": "이용액에 따라 환급",
+    "basis": "청년 기본형 30%와 교통수단별 정액형을 비교해 적용해요. K-패스와 같은 제도예요",
+    "who": {
+      "ageMin": 19,
+      "ageMax": 39,
+      "sido": [
+        "서울특별시"
+      ]
+    },
+    "how": "기후동행패스 또는 K-패스 카드를 발급받아 K-패스에 등록하고 서울 주소를 인증하세요",
+    "when": "상시",
+    "url": "https://www.seoul.go.kr/news/news_report.do?bbsNo=158&nttNo=462949",
+    "source": "https://www.seoul.go.kr/news/news_report.do?bbsNo=158&nttNo=462949",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "busan-dongbaek-pass",
+    "emoji": "🚊",
+    "title": "부산 동백패스·K-패스 연계",
+    "kind": "받는 돈",
+    "plain": "부산 대중교통을 월 4만 5천 원 넘게 타면 초과 이용액을 환급받아요",
+    "yearlyWon": null,
+    "amountText": "월 4.5만 원 초과분 환급",
+    "basis": "동백패스와 K-패스에 모두 가입하면 대상 교통수단 이용액의 월 4만 5천 원 초과분을 한도 없이 환급해요. 동백패스 단독 기본형의 월 환급 한도는 4만 5천 원이에요",
+    "who": {
+      "ageMin": 19,
+      "sido": [
+        "부산광역시"
+      ]
+    },
+    "how": "동백전 앱에서 동백패스에 가입하세요. K-패스 연계는 같은 교통카드를 K-패스에도 등록하세요",
+    "when": "상시",
+    "url": "https://www.busan.go.kr/depart/dongbaegpass",
+    "source": "https://www.busan.go.kr/busaninseoul/deptpart02/1721108",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "senior-subway-free",
+    "emoji": "🚆",
+    "title": "서울 지하철 어르신 무임승차",
+    "kind": "아끼는 돈",
+    "plain": "만 65세 이상이면 서울 지하철 무임 구간을 무료로 이용할 수 있어요",
+    "yearlyWon": 279000,
+    "amountText": "연 약 27만 9천 원",
+    "basis": "교통카드 기본운임 1,550원 × 월 15회 × 12개월 예시",
+    "who": {
+      "ageMin": 65,
+      "sido": [
+        "서울특별시",
+        "경기도",
+        "인천광역시"
+      ]
+    },
+    "how": "주소지에 맞는 우대용 교통카드나 역의 1회용 우대권을 이용하세요",
+    "when": "상시",
+    "url": "https://news.seoul.go.kr/traffic/traffic_price",
+    "source": "https://news.seoul.go.kr/traffic/traffic_price",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "car-tax-prepay",
+    "emoji": "🚗",
+    "title": "자동차세 1월 연납 할인",
+    "kind": "아끼는 돈",
+    "plain": "1월에 자동차세를 미리 내면 2~12월분 세액의 5%가 공제돼요",
+    "yearlyWon": 18400,
+    "amountText": "연 약 1만 8,400원",
+    "basis": "연세액 40만 원 × 연세액 기준 약 4.6% 예시",
+    "who": {
+      "car": true
+    },
+    "how": "위택스(서울은 이택스)에서 1월 중 연납 신청",
+    "when": "2026년 1월 연납은 1월 14일~2월 4일. 다음 일정은 위택스에서 확인하세요",
+    "url": "https://www.110.go.kr/data/counselView.do?curPage=314&num=A01_660057&scCate1=&scCate2=&scIntt=&scText=&scType=",
+    "source": "https://www.110.go.kr/data/counselView.do?curPage=314&num=A01_660057&scCate1=&scCate2=&scIntt=&scText=&scType=",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "compact-car-fuel-refund",
+    "emoji": "⛽",
+    "title": "경차 유류세 환급카드",
+    "kind": "아끼는 돈",
+    "plain": "대상 경차에 지정 카드로 주유하면 유류세를 연 30만 원까지 돌려받아요",
+    "yearlyWon": 200000,
+    "amountText": "연 약 20만 원",
+    "basis": "휘발유 연 800L × L당 250원 예시. 경유도 L당 250원, LPG는 L당 최대 161원",
+    "who": {
+      "incomeNote": "1세대 1경차(1,000cc 미만)",
+      "car": true,
+      "eligibilityNote": "배기량 1,000cc 미만 경차와 세대 내 차량 보유 조건을 확인하세요"
+    },
+    "how": "신한·롯데·현대카드에서 경차사랑카드 발급 후 주유",
+    "when": "공식 안내상 2026년 12월 31일까지",
+    "url": "https://www.110.go.kr/data/counselView.do?curPage=40&num=A01_700740&scCate1=&scCate2=&scIntt=&scText=&scType=",
+    "source": "https://www.110.go.kr/data/counselView.do?curPage=40&num=A01_700740&scCate1=&scCate2=&scIntt=&scText=&scType=",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "carbon-point-car",
+    "emoji": "🚘",
+    "title": "자동차 탄소중립포인트",
+    "kind": "받는 돈",
+    "plain": "주행거리를 줄이면 실적에 따라 연 최대 10만 원을 현금으로 받아요",
+    "yearlyWon": 40000,
+    "amountText": "연 약 4만 원",
+    "basis": "감축률 10% 이상 20% 미만 또는 감축량 1,000km 이상 2,000km 미만이면 4만 원. 최대 10만 원",
+    "who": {
+      "incomeNote": "비사업용 내연기관차(친환경차 제외)",
+      "sido": [
+        "부산광역시",
+        "대구광역시",
+        "인천광역시",
+        "대전광역시",
+        "울산광역시",
+        "세종특별자치시",
+        "경기도",
+        "강원특별자치도",
+        "충청북도",
+        "충청남도",
+        "전북특별자치도",
+        "전남광주통합특별시",
+        "경상북도",
+        "경상남도",
+        "제주특별자치도"
+      ],
+      "car": true,
+      "eligibilityNote": "서울 외 등록 비사업용 12인승 이하 승용·승합차 대상이에요. 전기·하이브리드·수소차는 제외돼요"
+    },
+    "how": "지역별 모집 때 신청하고 차량번호와 누적 주행거리 사진을 제출하세요",
+    "when": "해마다 지역별 선착순 모집",
+    "url": "https://car.cpoint.or.kr/guide/carCoPoint.do",
+    "source": "https://car.cpoint.or.kr/guide/carCoPoint.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "pension-irp-tax-credit",
+    "emoji": "💼",
+    "title": "연금저축·IRP 세액공제",
+    "kind": "아끼는 돈",
+    "plain": "연금저축과 IRP 납입액에 대해 소득세를 공제받아요",
+    "yearlyWon": 396000,
+    "amountText": "연 약 39만 6천 원",
+    "basis": "연 300만 원 × 지방소득세 포함 13.2% 예시. 연금저축 600만 원, IRP 합산 900만 원 한도",
+    "who": {
+      "incomeNote": "총급여 5,500만 원 또는 종합소득금액 4,500만 원 이하 15%, 초과 12%. 지방소득세 포함 16.5%, 13.2%",
+      "eligibilityNote": "공제 대상 연금계좌에 납입하고 공제할 세금이 있어야 해요"
+    },
+    "how": "증권사·은행에서 연금계좌 개설 후 12월 말까지 입금",
+    "when": "연말까지 납입하고 연말정산이나 종합소득세 신고 때 적용",
+    "url": "https://korea.nabo.go.kr/board/file/down.do?fid=33319156",
+    "source": "https://korea.nabo.go.kr/board/file/down.do?fid=33319156",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "monthly-rent-tax-credit",
+    "emoji": "🏠",
+    "title": "월세 세액공제",
+    "kind": "아끼는 돈",
+    "plain": "조건을 충족하면 연간 월세액의 15~17%를 세액공제 받아요",
+    "yearlyWon": 900000,
+    "amountText": "연 약 90만 원",
+    "basis": "월세 50만 원 × 12개월 × 15% 예시. 공제 대상 월세는 연 1,000만 원 한도",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "총급여 8,000만·종합소득금액 7,000만 원 이하. 17%는 각각 5,500만·4,500만 원 이하",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "housing": [
+        "월세"
+      ],
+      "eligibilityNote": "무주택 세대 여부, 전입신고, 국민주택규모 또는 기준시가 4억 원 이하 등 주택 조건을 확인하세요"
+    },
+    "how": "임대차계약서·이체내역을 연말정산 때 회사에 제출",
+    "when": "매년 1~2월",
+    "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239025",
+    "source": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239025",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "housing-subscription-deduction",
+    "emoji": "🏦",
+    "title": "주택청약저축 소득공제",
+    "kind": "아끼는 돈",
+    "plain": "총급여 7천만 원 이하 무주택자는 청약 납입액의 40%를 소득공제 받아요",
+    "yearlyWon": 144000,
+    "amountText": "연 약 14만 4천 원",
+    "basis": "연 240만 원 납입 × 공제율 40% × 한계세율 15% 예시. 납입 한도 300만 원, 최대 소득공제 120만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "총급여 7,000만 원 이하",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "housing": [
+        "전세",
+        "월세",
+        "부모님 집"
+      ],
+      "eligibilityNote": "무주택 세대의 세대주 또는 배우자로서 본인 명의 청약저축에 납입해야 해요"
+    },
+    "how": "가입 은행 앱에서 무주택확인서 등록 후 연말정산 반영",
+    "when": "연말까지 납입하고 연말정산 때 적용",
+    "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1031132127",
+    "source": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1031132127",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "jeonse-loan-deduction",
+    "emoji": "🔑",
+    "title": "전세대출 원리금 소득공제",
+    "kind": "아끼는 돈",
+    "plain": "공제 대상 전세대출 원리금 상환액의 40%를 소득공제 받아요",
+    "yearlyWon": 360000,
+    "amountText": "연 약 36만 원",
+    "basis": "연 상환액 600만 원 × 공제율 40% × 한계세율 15% 예시. 청약저축 공제액과 합산해 연 400만 원 한도",
+    "who": {
+      "incomeNote": "국민주택규모 이하 무주택 세대주",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "housing": [
+        "전세"
+      ],
+      "eligibilityNote": "무주택 세대의 국민주택규모 등 주택 조건과 차입처·차입일을 확인하세요. 예시는 금융기관 대출 기준이에요"
+    },
+    "how": "연말정산 간소화에서 주택자금상환증명서 조회 후 제출",
+    "when": "매년 1~2월",
+    "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239021&mi=40608",
+    "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239021&mi=40608",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "mortgage-interest-deduction",
+    "emoji": "🏡",
+    "title": "주담대 이자 소득공제",
+    "kind": "아끼는 돈",
+    "plain": "조건에 맞는 장기 주택담보대출의 이자 상환액을 소득공제 받아요",
+    "yearlyWon": 600000,
+    "amountText": "연 약 60만 원",
+    "basis": "연 이자 400만 원 × 한계세율 15% 예시. 상환 기간과 방식별 소득공제 한도는 600만~2,000만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "2024년 이후 취득 주택 기준시가 6억 원 이하",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "housing": [
+        "자가"
+      ],
+      "eligibilityNote": "세대의 주택 수, 차입 시점, 채무자와 주택 소유자, 상환 조건을 확인하세요"
+    },
+    "how": "연말정산 간소화에서 이자상환증명서 내려받아 제출",
+    "when": "매년 1~2월",
+    "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239022&mi=40610",
+    "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239022&mi=40610",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "card-market-transit-deduction",
+    "emoji": "💳",
+    "title": "전통시장·교통 40% 공제",
+    "kind": "아끼는 돈",
+    "plain": "전통시장과 대중교통 결제액은 40% 공제율과 추가 한도를 적용해요",
+    "yearlyWon": 120000,
+    "amountText": "연 약 12만 원",
+    "basis": "공제 대상 사용액 200만 원 × 공제율 40% × 한계세율 15% 예시",
+    "who": {
+      "incomeNote": "총급여 25% 초과 사용분부터 적용",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "eligibilityNote": "연간 카드 등 사용액이 총급여의 25%를 넘어야 해요. 공제 한도를 함께 확인하세요"
+    },
+    "how": "별도 신청 없이 카드·현금영수증 결제 시 자동 반영",
+    "when": "매년 1~2월",
+    "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239033",
+    "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239033",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "culture-sports-deduction",
+    "emoji": "🏊",
+    "title": "문화·체육시설 30% 공제",
+    "kind": "아끼는 돈",
+    "plain": "등록 가맹점에서 결제한 도서·공연·수영장·헬스장 등의 문화비를 소득공제 받아요",
+    "yearlyWon": 45000,
+    "amountText": "연 약 4만 5천 원",
+    "basis": "공제 대상 사용액 100만 원 × 공제율 30% × 한계세율 15% 예시",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "총급여 7,000만 원 이하",
+      "workers": [
+        "직장인",
+        "공무원"
+      ],
+      "eligibilityNote": "연간 카드 등 사용액이 총급여의 25%를 넘어야 해요"
+    },
+    "how": "문화비 소득공제 등록 가맹점에서 결제 시 자동 반영",
+    "when": "매년 1~2월",
+    "url": "https://www.mcst.go.kr/site/s_policy/subPolicy/cultureart/cultureart08.jsp",
+    "source": "https://www.mcst.go.kr/site/s_policy/subPolicy/cultureart/cultureart08.jsp",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "sme-youth-tax-cut",
+    "emoji": "🧑‍💻",
+    "title": "청년 중소기업 취업자 소득세 감면",
+    "kind": "아끼는 돈",
+    "plain": "만 15~34세 중소기업 취업자는 5년간 소득세 90%를 감면받아요",
+    "yearlyWon": null,
+    "amountText": "소득세 90% 감면",
+    "basis": "취업일부터 5년간 적용하며 과세기간마다 200만 원 한도예요. 감면액은 소득세에 따라 달라져요",
+    "who": {
+      "ageMin": 15,
+      "incomeNote": "병역 기간 최대 6년 차감, 60세 이상은 70%·3년",
+      "workers": [
+        "직장인"
+      ],
+      "excludeWorkers": [
+        "공무원"
+      ],
+      "eligibilityNote": "취업일 당시 만 15~34세에서 병역 기간을 최대 6년 차감해 판단해요. 회사의 업종·규모 등도 확인하세요"
+    },
+    "how": "감면신청서를 회사에 제출(미신청분은 5년 내 경정청구)",
+    "when": "취업 뒤 회사에 신청하고 연말정산에서 확인하세요",
+    "url": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239023",
+    "source": "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239023",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "isa-tax-free",
+    "emoji": "📈",
+    "title": "ISA 이자·배당 비과세",
+    "kind": "아끼는 돈",
+    "plain": "ISA 수익 200만~400만 원 비과세, 초과분은 9.9% 분리과세해요",
+    "yearlyWon": 102667,
+    "amountText": "연 약 10만 3천 원",
+    "basis": "일반형에서 3년간 과세 대상 순이익 200만 원 × 일반 원천징수율 15.4% ÷ 3년 예시",
+    "who": {
+      "ageMin": 15,
+      "incomeCapped": true,
+      "incomeNote": "서민형은 총급여 5,000만 원 또는 종합소득금액 3,800만 원 이하. 금융소득종합과세 이력 제한은 가입 유형 공통",
+      "eligibilityNote": "만 15~18세는 직전 과세기간에 근로소득이 있어야 해요. 최근 3개 과세기간 금융소득종합과세 대상자는 가입할 수 없어요"
+    },
+    "how": "증권사·은행 앱에서 중개형·신탁형 ISA 계좌 개설",
+    "when": "상시",
+    "url": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021392749",
+    "source": "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021392749",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "tax-free-savings-senior",
+    "emoji": "🪙",
+    "title": "기초연금 수급자 비과세 종합저축",
+    "kind": "아끼는 돈",
+    "plain": "만 65세 이상 기초연금 수급자는 저축원금 5천만 원까지 이자·배당 비과세를 받을 수 있어요",
+    "yearlyWon": 152460,
+    "amountText": "연 약 15만 2천 원",
+    "basis": "저축원금 3천만 원 × 연 3.3% × 일반 원천징수율 15.4% 예시",
+    "who": {
+      "ageMin": 65,
+      "incomeCapped": true,
+      "incomeNote": "기초연금 선정 소득·재산 기준 적용",
+      "eligibilityNote": "기초연금을 실제 수급 중인지 확인하세요"
+    },
+    "how": "은행 방문·앱에서 비과세 종합저축으로 예·적금 가입",
+    "when": "상시",
+    "url": "https://law.go.kr/LSW/lsLinkProc.do?joNo=008802&lsNm=%EC%A1%B0%EC%84%B8%ED%8A%B9%EB%A1%80%EC%A0%9C%ED%95%9C%EB%B2%95&mode=11",
+    "source": "https://law.go.kr/LSW/lsLinkProc.do?joNo=008802&lsNm=%EC%A1%B0%EC%84%B8%ED%8A%B9%EB%A1%80%EC%A0%9C%ED%95%9C%EB%B2%95&mode=11",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "yellow-umbrella-deduction",
+    "emoji": "☂️",
+    "title": "노란우산공제 소득공제",
+    "kind": "아끼는 돈",
+    "plain": "소상공인·자영업자는 납입액을 연 최대 600만 원까지 소득공제 받아요",
+    "yearlyWon": 450000,
+    "amountText": "연 약 45만 원",
+    "basis": "연 부금 300만 원 전액 공제 × 한계세율 15% 예시. 공제 한도는 소득 구간별 600만·500만·400만·200만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "개인은 사업소득 구간별 한도 적용. 법인 대표는 총급여 8,000만 원 이하",
+      "workers": [
+        "자영업"
+      ],
+      "eligibilityNote": "소기업·소상공인 가입 요건과 업종을 확인하세요"
+    },
+    "how": "중소기업중앙회 노란우산 앱이나 은행에서 공제 가입",
+    "when": "상시",
+    "url": "https://yumam.kbiz.or.kr/cmnsCnts/view?menuId=C080301000",
+    "source": "https://yumam.kbiz.or.kr/cmnsCnts/view?menuId=C080301000",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "local-tax-ebill-discount",
+    "emoji": "✉️",
+    "title": "지방세 전자고지·자동납부",
+    "kind": "아끼는 돈",
+    "plain": "지방세 전자송달과 자동이체를 함께 신청하면 고지서당 최대 1,600원 깎여요",
+    "yearlyWon": 1500,
+    "amountText": "연 약 1,500원",
+    "basis": "전자송달과 자동납부를 모두 신청한 뒤 정기분 3건 × 건당 500원 예시. 금액은 지자체 조례에 따라 달라요",
+    "who": {
+      "eligibilityNote": "정기분 지방세가 부과되는지 확인하세요"
+    },
+    "how": "위택스(서울은 이택스)에서 전자송달·자동납부 신청",
+    "when": "상시(다음 달부터 적용)",
+    "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032787693",
+    "source": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1032787693",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "earned-income-credit",
+    "emoji": "💵",
+    "title": "근로장려금",
+    "kind": "받는 돈",
+    "plain": "가구의 소득과 재산이 기준에 맞으면 근로장려금을 받을 수 있어요",
+    "yearlyWon": 1000000,
+    "amountText": "가구별 최대 165만~330만 원",
+    "basis": "단독 최대 165만 원, 홑벌이 최대 285만 원, 맞벌이 최대 330만 원. 합계 비교용 예시는 100만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "단독 2,200만·홑벌이 3,200만·맞벌이 4,400만 원 미만, 가구 재산 2억 4천만 원 미만",
+      "eligibilityNote": "귀속연도 근로·사업·종교인소득이 있어야 해요. 전문직 사업자와 일정 상용근로자 가구는 제외돼요"
+    },
+    "how": "5월 정기신청 또는 3·9월 반기신청을 홈택스에서 접수",
+    "when": "5월 정기신청. 근로소득만 있으면 3월·9월 반기신청도 가능해요",
+    "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7783&mi=2451",
+    "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7783&mi=2451",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "child-tax-credit",
+    "emoji": "👨‍👩‍👧",
+    "title": "자녀장려금",
+    "kind": "받는 돈",
+    "plain": "소득 7천만 원 미만 양육 가구에 자녀 1인당 최대 100만 원 지급해요",
+    "yearlyWon": 700000,
+    "amountText": "자녀 1명당 50만~100만 원",
+    "basis": "자녀 1명당 50만~100만 원. 합계 비교용 예시는 자녀 1명 70만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "부부합산 총소득 7,000만 원 미만, 가구 재산 2억 4천만 원 미만",
+      "needsChild": true,
+      "eligibilityNote": "만 18세 미만 부양자녀의 소득 등 요건을 확인하세요"
+    },
+    "how": "매년 5월 국세청 홈택스·손택스에서 신청",
+    "when": "매년 5월",
+    "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7783&mi=2451",
+    "source": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7783&mi=2451",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "basic-pension",
+    "emoji": "👴",
+    "title": "기초연금",
+    "kind": "받는 돈",
+    "plain": "만 65세 이상 소득하위 70% 어르신께 월 최대 34만 9,700원 드려요",
+    "yearlyWon": 4196400,
+    "amountText": "월 최대 34만 9,700원",
+    "basis": "2026년 기준연금액 월 34만 9,700원 × 12개월 상한. 부부 동시 수급과 소득·연금에 따라 감액될 수 있어요",
+    "who": {
+      "ageMin": 65,
+      "incomeCapped": true,
+      "incomeNote": "2026년 소득인정액 단독 월 247만 원, 부부 월 395만 2천 원 이하",
+      "eligibilityNote": "본인이나 배우자의 직역연금 수급 여부와 예외를 확인하세요"
+    },
+    "how": "만 65세 생일 한 달 전부터 복지로·주민센터 신청",
+    "when": "상시(생일 1개월 전부터)",
+    "url": "https://bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00001164",
+    "source": "https://bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00001164",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "culture-nuri-card",
+    "emoji": "🎭",
+    "title": "문화누리카드",
+    "kind": "받는 돈",
+    "plain": "기초수급·차상위에게 공연·도서·여행에 쓰는 연 15만 원을 지급해요",
+    "yearlyWon": 150000,
+    "amountText": "기본 연 15만 원",
+    "basis": "2026년 기본 15만 원. 일부 생애주기는 1만 원을 추가로 지원해요",
+    "who": {
+      "ageMin": 6,
+      "ageByYear": true,
+      "incomeCapped": true,
+      "incomeNote": "기초생활수급자·차상위계층",
+      "lowIncomeOnly": true
+    },
+    "how": "문화누리 앱·누리집이나 주민센터에서 카드 발급",
+    "when": "2026년 발급 2월 2일~11월 30일, 사용 12월 31일까지",
+    "url": "https://m.mnuri.kr/munhwa/introduceNuri.do",
+    "source": "https://m.mnuri.kr/munhwa/introduceNuri.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "youth-monthly-rent",
+    "emoji": "🏘️",
+    "title": "청년월세 지원",
+    "kind": "받는 돈",
+    "plain": "만 19~34세 무주택 청년에게 월 최대 20만 원을 최대 24개월 지원해요",
+    "yearlyWon": 2400000,
+    "amountText": "연 최대 240만 원",
+    "basis": "월 20만 원 × 12개월(생애 최대 24개월)",
+    "who": {
+      "ageMin": 19,
+      "ageMax": 34,
+      "ageByYear": true,
+      "incomeCapped": true,
+      "incomeNote": "청년가구 중위 60%·재산 1.22억 원 이하, 원가구 중위 100%·재산 4.7억 원 이하",
+      "housing": [
+        "월세"
+      ],
+      "eligibilityNote": "부모와 따로 사는 무주택 청년 대상이에요. 원가구 소득을 보지 않는 예외가 있어요"
+    },
+    "how": "복지로 누리집·앱이나 주민센터에서 온라인·방문 신청",
+    "when": "2026년 모집 3월 30일~5월 29일. 다음 모집은 복지로 공고를 확인하세요",
+    "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfa=&wlfareInfoId=WLF00004661",
+    "source": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfa=&wlfareInfoId=WLF00004661",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "youth-future-savings",
+    "emoji": "💰",
+    "title": "청년미래적금 기여금",
+    "kind": "받는 돈",
+    "plain": "월 최대 50만 원 저축 시 정부기여금 6~12%와 이자 비과세를 지원해요",
+    "yearlyWon": 360000,
+    "amountText": "일반형 연 최대 36만 원",
+    "basis": "월 50만 원 × 일반형 6% × 12개월 예시. 우대형은 12%, 3년 만기 조건",
+    "who": {
+      "ageMin": 19,
+      "ageMax": 34,
+      "ageAdjustmentMax": 6,
+      "incomeCapped": true,
+      "incomeNote": "일반형은 총급여 6,000만·종합소득 4,800만 원 이하 또는 소상공인 연 매출 3억 원 이하, 가구 중위 200% 이하",
+      "workers": [
+        "직장인",
+        "공무원",
+        "자영업",
+        "프리랜서"
+      ],
+      "eligibilityNote": "병역 이행 기간은 최대 6년 차감해요. 우대형은 별도 가입·기여금 조건을 확인하세요"
+    },
+    "how": "취급 은행 앱에서 청년미래적금 가입 신청 후 심사",
+    "when": "2026년 2차는 10월 7~16일 신청, 심사 통과자는 11월 16~27일 계좌 개설. 평일 기준",
+    "url": "https://fsc.go.kr/no010101/87820",
+    "source": "https://fsc.go.kr/no010101/87820",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "youth-tomorrow-savings",
+    "emoji": "🌱",
+    "title": "청년내일저축계좌",
+    "kind": "받는 돈",
+    "plain": "일하는 저소득 청년이 매월 10만 원 이상 저축하면 정부가 월 30만 원을 보태줘요",
+    "yearlyWon": 3600000,
+    "amountText": "연 360만 원",
+    "basis": "정부 매칭 월 30만 원 × 12개월(3년 만기)",
+    "who": {
+      "ageMin": 15,
+      "ageMax": 39,
+      "incomeCapped": true,
+      "incomeNote": "가구 소득인정액 중위 50% 이하, 근로·사업소득 월 10만 원 이상",
+      "eligibilityNote": "3년간 근로·저축 유지, 교육 이수, 자금사용계획서 제출 요건이 있어요"
+    },
+    "how": "모집 기간에 복지로 온라인 또는 주민센터 방문 신청",
+    "when": "2026년 신규 모집 5월 4~20일. 다음 일정은 복지로 공고를 확인하세요",
+    "url": "https://www.bokjiro.go.kr/ssis-tbu/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00000060",
+    "source": "https://www.bokjiro.go.kr/ssis-tbu/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00000060",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "jeonse-guarantee-fee",
+    "emoji": "🛡️",
+    "title": "전세보증금 반환보증 보증료 지원",
+    "kind": "받는 돈",
+    "plain": "보증금 3억 이하 무주택 임차인의 반환보증료를 최대 40만 원 돌려줘요",
+    "yearlyWon": null,
+    "amountText": "최대 40만 원 환급",
+    "basis": "청년·신혼부부는 납부 보증료, 그 외는 납부액의 90%까지 지원해요. 2026년 지원 상한 40만 원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "연소득 청년 5천만·청년 외 6천만·신혼부부 7,500만 원 이하, 임차보증금 3억 원 이하",
+      "housing": [
+        "전세",
+        "월세"
+      ],
+      "eligibilityNote": "무주택 임차인이며 신청 시 반환보증이 유효해야 해요. 지역별 공고를 확인하세요"
+    },
+    "how": "보증료 납부 후 정부24나 HUG 안심전세포털 신청",
+    "when": "상시(예산 소진 시 마감)",
+    "url": "https://m.khug.or.kr/jeonse/web/s05/s050601.jsp",
+    "source": "https://m.khug.or.kr/jeonse/web/s05/s050601.jsp",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "naeilbaeum-card",
+    "emoji": "📚",
+    "title": "국민내일배움카드",
+    "kind": "받는 돈",
+    "plain": "직업훈련비를 5년간 300만~500만 원 지원해요(공무원 등 제외)",
+    "yearlyWon": null,
+    "amountText": "5년간 300만~500만 원",
+    "basis": "기본 훈련비 계좌 한도 300만 원, 추가지원 대상은 최대 500만 원. 과정에 따라 자부담이 있어요",
+    "who": {
+      "ageMax": 74,
+      "incomeCapped": true,
+      "incomeNote": "45세 미만 대기업 근로자 월 임금 300만 원 이상, 특수형태근로종사자 월 소득 500만 원 이상 등 제외",
+      "excludeWorkers": [
+        "공무원"
+      ],
+      "eligibilityNote": "사립학교 교직원, 재학 기간, 자영업 매출·사업 기간 등 제외 조건을 확인하세요"
+    },
+    "how": "고용24 앱·누리집에서 카드 발급 신청 후 과정 수강",
+    "when": "상시",
+    "url": "https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?currentPageNo=1&recordCountPerPage=12&systClId=SC00000004&systId=SI00000351",
+    "source": "https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?currentPageNo=1&recordCountPerPage=12&systClId=SC00000004&systId=SI00000351",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "youth-culture-arts-pass",
+    "emoji": "🎟️",
+    "title": "청년문화예술패스",
+    "kind": "받는 돈",
+    "plain": "만 19~20세 청년에게 공연·전시·영화·도서비 15만~20만 원을 줘요",
+    "yearlyWon": null,
+    "amountText": "15만~20만 원 지원",
+    "basis": "2026년 2006~2007년생 대상. 수도권 15만 원, 비수도권 20만 원을 생애 한 번 지원해요",
+    "who": {
+      "ageMin": 19,
+      "ageMax": 20,
+      "ageByYear": true
+    },
+    "how": "청년문화예술패스 누리집에서 온라인 신청(선착순)",
+    "when": "2026년 추가 발급은 8월 10일부터 예산 소진 시까지. 사용 기한은 누리집에서 확인하세요",
+    "url": "https://youthculturepass.or.kr/",
+    "source": "https://www.mcst.go.kr/site/s_policy/govPolicy/performView.jsp?pSeq=1127",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "lifelong-learning-voucher",
+    "emoji": "🎓",
+    "title": "평생교육이용권",
+    "kind": "받는 돈",
+    "plain": "선정되면 평생교육 강좌 수강료에 쓸 수 있는 35만 원을 받아요",
+    "yearlyWon": 350000,
+    "amountText": "연 35만 원",
+    "basis": "선정된 학습자 1명당 카드 포인트 35만 원",
+    "who": {
+      "ageMin": 19,
+      "incomeCapped": true,
+      "incomeNote": "일반형은 19세 이상 기초생활수급자·차상위계층 우선 등 시·도 공고를 적용해요",
+      "eligibilityNote": "노인형 65세 이상, 장애인형 19세 이상 등록장애인, 디지털형 30세 이상 등 유형별 공고를 확인하세요"
+    },
+    "how": "평생교육이용권 누리집에서 거주 시·도 공고 확인 신청",
+    "when": "시·도별 모집 공고",
+    "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=105555&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W&temp=Y",
+    "source": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=105555&lev=0&m=020402&opType=N&page=1&s=moe&searchType=null&statusYN=W&temp=Y",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "gyeonggi-youth-basic-income",
+    "emoji": "💸",
+    "title": "경기 청년기본소득",
+    "kind": "받는 돈",
+    "plain": "경기도 만 24세 청년은 거주 요건을 충족하면 분기별 25만 원을 받을 수 있어요",
+    "yearlyWon": 1000000,
+    "amountText": "분기 25만 원 · 최대 100만 원",
+    "basis": "지역화폐 분기 25만 원 × 4분기, 1명당 최대 100만 원",
+    "who": {
+      "ageMin": 24,
+      "ageMax": 24,
+      "sido": [
+        "경기도"
+      ],
+      "excludeSigungu": [
+        "성남",
+        "성남시",
+        "고양",
+        "고양시"
+      ],
+      "eligibilityNote": "경기도에 3년 연속 또는 합산 10년 이상 거주해야 해요. 2026년 성남시·고양시는 제외돼요"
+    },
+    "how": "분기별 모집 기간에 잡아바 어플라이에서 온라인 신청",
+    "when": "분기별 모집. 2026년 4분기는 11월 2일~12월 1일",
+    "url": "https://web1.gg.go.kr/contents/contents.do?ciIdx=1037&menuId=2736",
+    "source": "https://web1.gg.go.kr/contents/contents.do?ciIdx=1037&menuId=2736",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "nps-local-support",
+    "emoji": "🏛️",
+    "title": "저소득 지역가입자 연금지원",
+    "kind": "아끼는 돈",
+    "plain": "저소득 국민연금 지역가입자가 보험료를 납부하면 정부가 일부를 지원해요",
+    "yearlyWon": 342000,
+    "amountText": "보험료 50% 지원",
+    "basis": "2026년 기준소득월액 60만 원 × 보험료율 9.5% × 50% × 12개월 예시. 생애 최대 12개월",
+    "who": {
+      "ageMin": 18,
+      "ageMax": 59,
+      "incomeCapped": true,
+      "incomeNote": "기준소득월액 80만·재산 6억·종합소득 1,680만 원 미만. 종합소득에서 사업·근로소득 제외",
+      "eligibilityNote": "국민연금 지역가입자만 해당돼요. 다른 보험료 지원과의 중복 여부를 확인하세요"
+    },
+    "how": "내 곁에 국민연금 앱이나 공단 지사에서 신청",
+    "when": "상시",
+    "url": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0021M0.do?menuId=MN24001109&tab=tab5",
+    "source": "https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0021M0.do?menuId=MN24001109&tab=tab5",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "kepco-energy-cashback",
+    "emoji": "⚡",
+    "title": "한전 에너지캐시백",
+    "kind": "아끼는 돈",
+    "plain": "과거 같은 달보다 전기 사용량을 줄이면 다음 전기요금에서 캐시백을 받아요",
+    "yearlyWon": null,
+    "amountText": "절감량에 따라 요금 차감",
+    "basis": "2026년 7~12월 검침은 절감률 1% 이상에 kWh당 30~120원, 평시 기준은 3% 이상에 30~100원",
+    "who": {
+      "eligibilityNote": "주택용 전기를 쓰고 직전 2개년 중 1개년 이상 비교 실적이 있어야 해요"
+    },
+    "how": "한전 에너지마켓플레이스·한전ON에서 온라인 신청",
+    "when": "상시",
+    "url": "https://www.pcccr.go.kr/base/board/read?boardManagementNo=7&boardNo=7723&menuLevel=3&menuNo=&page=8&searchCategory=&searchType=&searchWord=",
+    "source": "https://www.pcccr.go.kr/base/board/read?boardManagementNo=7&boardNo=7723&menuLevel=3&menuNo=&page=8&searchCategory=&searchType=&searchWord=",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "city-gas-cashback",
+    "emoji": "🔥",
+    "title": "도시가스 절약 캐시백",
+    "kind": "받는 돈",
+    "plain": "동절기 주택난방용 도시가스를 지난겨울보다 아끼면 절감량에 따라 환급받을 수 있어요",
+    "yearlyWon": null,
+    "amountText": "겨울철 절감량에 따라 환급",
+    "basis": "2025년 12월~2026년 3월 회차는 3% 이상 절감에 ㎥당 50·100·200원. 다음 회차는 공고 기준을 적용해요",
+    "who": {
+      "eligibilityNote": "주택난방용 개별·중앙난방 도시가스 대상이에요. 지역난방은 제외돼요"
+    },
+    "how": "K-가스캐시백 누리집에 고객번호 등록 후 절약 실천",
+    "when": "동절기 접수 일정은 K-가스캐시백 공고 확인",
+    "url": "https://www.k-gascashback.or.kr/ko/intro/cashback",
+    "source": "https://www.k-gascashback.or.kr/ko/intro/cashback",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "carbon-point-green",
+    "emoji": "🌿",
+    "title": "탄소중립포인트 녹색생활",
+    "kind": "받는 돈",
+    "plain": "전자영수증·텀블러 등 친환경 실천으로 연 최대 7만 원을 현금으로 받아요",
+    "yearlyWon": 30000,
+    "amountText": "연 약 3만 원",
+    "basis": "다회용기 이용 1회 500원 × 월 5회 × 12개월 예시. 1인당 연 7만 원 한도",
+    "who": {},
+    "how": "누리집에 가입하고 공식 안내의 제휴처별 적립 등록과 실천 절차를 확인하세요",
+    "when": "상시",
+    "url": "https://www.cpoint.or.kr/netzero/site/cntnts/CNTNTS_002.do",
+    "source": "https://www.cpoint.or.kr/netzero/site/cntnts/CNTNTS_002.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "carbon-point-energy",
+    "emoji": "🔋",
+    "title": "탄소중립포인트 에너지",
+    "kind": "받는 돈",
+    "plain": "전기·수도·가스의 과거 사용량 대비 절감 실적에 따라 포인트를 받아요",
+    "yearlyWon": null,
+    "amountText": "반기별 감축 포인트",
+    "basis": "가정이 5% 이상 10% 미만 감축하면 반기당 전기 5,000·수도 750·가스 3,000포인트. 포인트 지급 기준은 지자체 공고를 확인하세요 1포인트는 지자체별 최대 2원이에요",
+    "who": {
+      "sido": [
+        "부산광역시",
+        "대구광역시",
+        "인천광역시",
+        "대전광역시",
+        "울산광역시",
+        "세종특별자치시",
+        "경기도",
+        "강원특별자치도",
+        "충청북도",
+        "충청남도",
+        "전북특별자치도",
+        "전남광주통합특별시",
+        "경상북도",
+        "경상남도",
+        "제주특별자치도"
+      ],
+      "eligibilityNote": "서울은 에코마일리지를 운영해요. 고객번호 또는 사용량 확인이 필요해요"
+    },
+    "how": "탄소중립포인트 에너지 누리집에서 고객번호 등록",
+    "when": "상시",
+    "url": "https://www.cpoint.or.kr/user/guide/incentiveGuide.do",
+    "source": "https://www.cpoint.or.kr/user/guide/incentiveGuide.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "seoul-eco-mileage",
+    "emoji": "🍃",
+    "title": "서울 에코마일리지",
+    "kind": "받는 돈",
+    "plain": "서울 가정이 전기·수도·가스를 줄이면 6개월마다 최대 5만 마일리지 받아요",
+    "yearlyWon": 20000,
+    "amountText": "연 약 2만 마일리지",
+    "basis": "6개월 5% 이상 10% 미만 절감으로 1만 마일리지 × 연 2회 예시. 회당 최대 5만 마일리지",
+    "who": {
+      "sido": [
+        "서울특별시"
+      ],
+      "eligibilityNote": "서울 가정의 에너지 사용량이 확인되어야 해요"
+    },
+    "how": "에코마일리지에 가입하고 에너지 고객번호를 등록하세요",
+    "when": "상시 가입, 6개월 단위 평가",
+    "url": "https://news.seoul.go.kr/env/archives/568914",
+    "source": "https://news.seoul.go.kr/env/archives/568914",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "mobile-25-discount",
+    "emoji": "📱",
+    "title": "휴대폰 선택약정 25% 할인",
+    "kind": "아끼는 돈",
+    "plain": "선택약정 대상 단말기로 약정하면 매월 이동통신 요금제 월정액을 25% 할인받아요",
+    "yearlyWon": 150000,
+    "amountText": "연 약 15만 원",
+    "basis": "월정액 5만 원 × 25% × 12개월 예시",
+    "who": {
+      "eligibilityNote": "지원금 이력 등 단말기 요건을 조회하고 통신사에 1년 또는 2년 약정을 신청하세요"
+    },
+    "how": "스마트초이스 조회 후 통신사 앱·고객센터(114) 신청",
+    "when": "상시(약정 만료 후)",
+    "url": "https://smartchoice.or.kr/smc/service/danpageNew.do",
+    "source": "https://smartchoice.or.kr/smc/service/danpageNew.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "telecom-welfare-discount",
+    "emoji": "☎️",
+    "title": "이동통신요금 복지 감면",
+    "kind": "아끼는 돈",
+    "plain": "기초생활수급자·차상위계층·기초연금 수급자 등은 이동통신요금을 감면받을 수 있어요",
+    "yearlyWon": null,
+    "amountText": "유형·실청구액별 감면",
+    "basis": "기초연금 수급자는 청구액의 50% 이내 월 최대 11,000원. 다른 감면 유형의 금액과 한도는 공식 안내를 확인하세요",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "수급·차상위·기초연금은 각 제도의 소득·재산 기준을 적용해요",
+      "eligibilityNote": "등록장애인, 일부 국가유공자 등 다른 자격도 있어요. 해당 유형과 통신요금을 확인하세요"
+    },
+    "how": "전용 ARS(1523), 통신사(114), 복지로에서 신청",
+    "when": "상시",
+    "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003257",
+    "source": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003257",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "electricity-welfare-discount",
+    "emoji": "💡",
+    "title": "전기요금 복지할인",
+    "kind": "아끼는 돈",
+    "plain": "기초생활수급자·차상위계층·다자녀 등 가구 유형에 따라 전기요금을 할인받아요",
+    "yearlyWon": null,
+    "amountText": "가구 유형별 요금 할인",
+    "basis": "할인액과 여름철 한도는 대상 유형 및 실제 청구액에 따라 달라요",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "수급·차상위는 자격을 적용해요. 다자녀·대가족 등은 별도 기준을 적용해요",
+      "eligibilityNote": "한전에서 대상 유형과 전기 계약을 확인하세요"
+    },
+    "how": "한전 고객센터(123), 한전ON, 복지로에서 신청",
+    "when": "상시",
+    "url": "https://home.kepco.co.kr/kepco/front/html/CY/H/C/CYHCHP00209.html",
+    "source": "https://home.kepco.co.kr/kepco/front/html/CY/H/C/CYHCHP00209.html",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "gas-welfare-discount",
+    "emoji": "🛢️",
+    "title": "도시가스 요금 경감",
+    "kind": "아끼는 돈",
+    "plain": "기초생활수급자·차상위계층·다자녀 등 가구 유형에 따라 주택용 도시가스 요금을 경감받아요",
+    "yearlyWon": null,
+    "amountText": "자격·계절별 요금 경감",
+    "basis": "경감 한도는 대상 유형, 사용 용도와 동절기 여부에 따라 달라요",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "수급·차상위는 자격을 적용해요. 다자녀 등은 별도 기준을 적용해요",
+      "eligibilityNote": "관할 도시가스회사에 대상 유형과 요금 경감 한도를 확인하세요"
+    },
+    "how": "주민센터, 정부24, 관할 도시가스 고객센터 신청",
+    "when": "상시",
+    "url": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268902",
+    "source": "https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000268902",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "energy-voucher",
+    "emoji": "🌡️",
+    "title": "에너지바우처",
+    "kind": "받는 돈",
+    "plain": "소득과 세대원 조건을 충족한 가구에 냉난방 에너지 이용권을 지급해요",
+    "yearlyWon": 295200,
+    "amountText": "29만 5,200~70만 1,300원",
+    "basis": "2026년 1인 295,200원, 2인 407,500원, 3인 532,700원, 4인 이상 701,300원",
+    "who": {
+      "incomeCapped": true,
+      "incomeNote": "생계·의료·주거·교육급여 수급 세대",
+      "lowIncomeOnly": true,
+      "eligibilityNote": "같은 세대에 노인, 영유아, 장애인, 임산부, 다자녀 세대 등 공식 세대원 특성 요건이 있어요"
+    },
+    "how": "주민센터 방문 또는 복지로 온라인 신청",
+    "when": "2026년 6월 15일~12월 31일 신청, 2027년 5월 31일까지 사용",
+    "url": "https://www.energyv.or.kr/info/support_info.do",
+    "source": "https://www.energyv.or.kr/info/support_info.do",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "digital-onnuri",
+    "emoji": "🛍️",
+    "title": "디지털 온누리상품권 할인",
+    "kind": "아끼는 돈",
+    "plain": "디지털 온누리상품권을 할인 구매해 전통시장 등 등록 가맹점에서 쓸 수 있어요",
+    "yearlyWon": 168000,
+    "amountText": "평시 7% 할인",
+    "basis": "월 20만 원 구매 × 평시 7% × 12개월 예시. 행사 할인과 구매 한도는 앱에서 확인하세요",
+    "who": {},
+    "how": "디지털온누리 앱에서 카드 연동 후 할인 금액으로 충전",
+    "when": "상시",
+    "url": "https://onnurigift.or.kr/",
+    "source": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?bcIdx=1072057&cbIdx=86",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "teunteun-money",
+    "emoji": "🏋️",
+    "title": "튼튼머니 운동 포인트",
+    "kind": "받는 돈",
+    "plain": "지정 체육시설에서 운동하고 인증하면 상품권으로 바꿀 수 있는 포인트를 쌓아요",
+    "yearlyWon": 25000,
+    "amountText": "연 약 2만 5천 포인트",
+    "basis": "지정 시설에서 30분 이상 운동 인증 500포인트 × 연 50회 예시. 주 5회·연 100회까지 인정돼요",
+    "who": {
+      "ageMin": 4
+    },
+    "how": "튼튼머니 앱에서 지정 시설을 찾고 운동 전후 QR코드로 인증하세요",
+    "when": "2026년 사업은 2월 23일 재개, 예산 소진 시 조기 종료",
+    "url": "https://nfa.kspo.or.kr/spoint/selectSpointSaveUse.kspo",
+    "source": "https://nfa.kspo.or.kr/spoint/selectSpointFacility.kspo",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "seoul-wrist-doctor",
+    "emoji": "⌚",
+    "title": "서울 손목닥터9988",
+    "kind": "받는 돈",
+    "plain": "서울시민이 걷기·건강 미션을 실천하면 포인트를 서울페이머니로 바꿀 수 있어요",
+    "yearlyWon": null,
+    "amountText": "연 최대 14만 2천 포인트",
+    "basis": "인정된 활동별로 포인트를 적립해요. 서울시 안내의 건강습관별 연 최대치는 14만 2천 포인트예요",
+    "who": {
+      "ageMin": 19,
+      "sido": [
+        "서울특별시"
+      ]
+    },
+    "how": "손목닥터9988 앱 가입 후 걷기·건강 미션 참여",
+    "when": "상시",
+    "url": "https://onhealth.seoul.go.kr/plus/web/announcement/participant",
+    "source": "https://mediahub.seoul.go.kr/archives/2019250",
+    "checkedBy": "gpt-2026-11"
+  },
+  {
+    "id": "gyeonggi-climate-income",
+    "emoji": "🌍",
+    "title": "경기 기후행동 기회소득",
+    "kind": "받는 돈",
+    "plain": "경기도민은 대중교통·걷기 등 기후 활동에 참여하고 지역화폐로 보상받을 수 있어요",
+    "yearlyWon": null,
+    "amountText": "공통 연 최대 6만 원",
+    "basis": "공통 활동 최대 6만 원. 2026년 협력 시·군 추가 활동은 최대 3만 원을 더 받아요",
+    "who": {
+      "ageMin": 7,
+      "sido": [
+        "경기도"
+      ]
+    },
+    "how": "기후행동 기회소득 앱에서 지역을 인증하고 활동별 참여 방법을 확인하세요",
+    "when": "상시",
+    "url": "https://gnews.gg.go.kr/briefing/brief_gongbo_view.do?BS_CODE=s017&number=69851&subject_Code=BO01",
+    "source": "https://gnews.gg.go.kr/briefing/brief_gongbo_view.do?BS_CODE=s017&number=69851&subject_Code=BO01",
+    "checkedBy": "gpt-2026-11"
+  }
+]

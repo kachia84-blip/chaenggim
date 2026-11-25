@@ -62,7 +62,7 @@ function opensLater(opening, today, now) {
 }
 
 // 데이터 불러오기 · 일부 파일이 실패해도 받은 일정은 표시한다.
-const dataKeys = ["benefits", "taxes", "events", "tips", "dormant"];
+const dataKeys = ["picks", "benefits", "taxes", "events", "tips", "dormant"];
 const data = Object.fromEntries(dataKeys.map(key => [key, []]));
 const failed = new Set();
 let pendingLoads = 0;
@@ -134,6 +134,9 @@ const regions = [
   "전북특별자치도", "전남광주통합특별시", "경상북도", "경상남도", "제주특별자치도"
 ];
 const profileSteps = ["나이·지역", "가구·집", "일·차"];
+const nonOwnerHousing = ["전세", "월세", "부모님 집"];
+const housingOptions = ["자가", ...nonOwnerHousing, "모름"];
+const childOptions = ["있음", "없음", "모름"];
 let profile = readSavedObject(PROFILE_KEY);
 let dormantChecks = readSavedObject(DORMANT_KEY);
 // 잠자는 돈은 해마다 새로 생기므로, 확인한 지 1년이 지나면 체크를 풀고 다시 알린다.
@@ -158,6 +161,10 @@ function readSavedObject(key) {
 
 function hasProfile() {
   return Object.values(profile).some(value => value != null && value !== "" && value !== "모름");
+}
+
+function childStatus(person) {
+  return person.child ?? (person.household === "자녀있음" ? "있음" : "모름");
 }
 
 function field(label, input) {
@@ -202,7 +209,8 @@ function profileFields(step, draft) {
       selectField("가구 형태", "household", draft.household, [
         ["1인", "1인 가구"], ["부부", "부부"], ["자녀있음", "자녀와 함께"], ["부모님과", "부모님과 함께"]
       ]),
-      selectField("주택 보유", "homeless", draft.homeless, [["true", "무주택"], ["false", "주택 보유"]]),
+      selectField("집", "housing", draft.housing, housingOptions),
+      selectField("자녀", "child", childStatus(draft), childOptions),
       selectField("가구 소득", "incomeBand", draft.incomeBand, [
         ["모름", "모름"], ["중위50이하", "중위소득 50% 이하"], ["중위100이하", "중위소득 100% 이하"],
         ["중위150이하", "중위소득 150% 이하"], ["그이상", "중위소득 150% 초과"]
@@ -223,8 +231,14 @@ function updateDraft(form, draft) {
     if (key === "lowIncome") draft[key] = value ? value === "true" : null;
     else if (!value) delete draft[key];
     else if (key === "birthYear") draft[key] = Number(value);
-    else if (key === "car" || key === "homeless") draft[key] = value === "true";
+    else if (key === "car") draft[key] = value === "true";
     else draft[key] = value;
+    if (key === "housing") {
+      if (value && value !== "모름") draft.homeless = nonOwnerHousing.includes(value);
+      else if (!value && profile.housing == null && typeof profile.homeless === "boolean") {
+        draft.homeless = profile.homeless;
+      } else delete draft.homeless;
+    }
   }
 }
 
@@ -279,25 +293,67 @@ function showProfileStep(step, draft) {
   showSheet(title, progress, form);
 }
 
-// 오늘 · 지원금과 바로 확인할 수 있는 일정을 보여 준다.
-const koreanAmount = new Intl.NumberFormat("ko-KR", { maximumFractionDigits: 4 });
+// 추천 · 프로필로 확인할 수 있는 조건과 추가로 확인할 조건을 구분한다.
+const pickKinds = ["받는 돈", "아끼는 돈"];
+const koreanAmount = new Intl.NumberFormat("ko-KR", { maximumFractionDigits: 0 });
+const manLabel = won => koreanAmount.format(won / 10_000) + "만";
 
-function wonLabel(won) {
-  const eok = Math.floor(won / 100_000_000);
-  const man = (won % 100_000_000) / 10_000;
-  return (eok ? koreanAmount.format(eok) + "억" : "") +
-    (man || !eok ? (eok ? " " : "") + koreanAmount.format(man) + "만" : "") + " 원";
+function pickStatus(item, person, today = seoulDay()) {
+  const who = item.who ?? {};
+  const ageRestricted = who.ageMin != null || who.ageMax != null;
+  const [year, month, day] = dateParts(today);
+  const ages = [];
+  if (Number.isInteger(person.birthYear) && person.birthYear > 0 && person.birthYear <= year) {
+    const yearAge = year - person.birthYear;
+    ages.push(yearAge);
+    // 출생연도만 저장하므로 생일에 따라 자격이 갈리는 경우는 확인이 필요하다.
+    if (yearAge > 0 && !who.ageByYear && (month !== 12 || day !== 31)) ages.push(yearAge - 1);
+  }
+  const ageMin = who.ageMin ?? -Infinity;
+  const ageMax = who.ageMax ?? Infinity;
+  const possibleAge = ages.some(age => age >= ageMin && age <= ageMax + (who.ageAdjustmentMax ?? 0));
+  const confirmedAge = ages.length && ages.every(age => age >= ageMin && age <= ageMax);
+  const child = childStatus(person);
+  const known = value => value != null && value !== "" && value !== "모름";
+  const conditions = [
+    [who.workers?.length || who.excludeWorkers?.length, known(person.worker),
+      (!who.workers?.length || who.workers.includes(person.worker)) && !who.excludeWorkers?.includes(person.worker)],
+    [who.lowIncomeOnly, typeof person.lowIncome === "boolean", person.lowIncome === true],
+    [who.sido?.length, known(person.sido), who.sido?.includes(person.sido)],
+    [who.excludeSigungu?.length, known(person.sigungu),
+      !who.excludeSigungu?.some(area => person.sigungu?.split(/\s+/).includes(area))],
+    [who.car, typeof person.car === "boolean", person.car === true],
+    [who.housing?.length, known(person.housing), who.housing?.includes(person.housing)],
+    [who.needsChild, known(child), child === "있음"]
+  ];
+  if (ageRestricted && ages.length && !possibleAge) return "no";
+  if (conditions.some(([required, answered, matches]) => required && answered && !matches)) return "no";
+  // 가구의 중위소득 구간만으로 제도별 급여·소득인정액·재산 한도를 확인할 수 없다.
+  // eligibilityNote는 신청 방법 안내라서 그것만으로 "확인 필요"로 내리지 않는다.
+  if ((who.incomeCapped && !who.lowIncomeOnly) ||
+      (ageRestricted && !confirmedAge) ||
+      conditions.some(([required, answered]) => required && !answered)) return "check";
+  return "ok";
 }
 
-function heroCard(top) {
+function visiblePicks(today) {
+  return data.picks.map(item => ({ ...item, status: pickStatus(item, profile, today) }))
+    .filter(item => item.status !== "no")
+    .sort((first, second) => Number(first.status === "check") - Number(second.status === "check") ||
+      (second.yearlyWon ?? -1) - (first.yearlyWon ?? -1));
+}
+
+function heroCard(items) {
   if (!hasProfile()) {
     return el("section", "card hero", el("h2", "row-sub", "내 조건을 넣으면 받을 수 있는 돈을 계산해 드려요"),
       button("내 조건 넣기", "action", openProfile));
   }
-  const total = top.reduce((sum, item) => sum + (item.amountWon ?? 0), 0);
-  return el("section", "card hero", el("h2", "row-sub", "내 조건으로 받을 수 있는 지원금"),
-    el("p", "hero-amount", "연 최대 " + wonLabel(total)),
-    el("p", "row-sub", top.length + "건 · 신청 안 하면 못 받아요"));
+  const eligible = items.filter(item => item.status === "ok");
+  const [received, saved] = pickKinds.map(kind => eligible.filter(item => item.kind === kind)
+    .reduce((sum, item) => sum + (item.yearlyWon ?? 0), 0));
+  return el("section", "card hero", el("h2", "row-sub", "내 조건으로 챙길 수 있는 돈"),
+    el("p", "hero-amount", "연 약 " + manLabel(received + saved) + " 원"),
+    el("p", "row-sub", `받는 돈 ${manLabel(received)} · 아끼는 돈 ${manLabel(saved)} · ${eligible.length}가지`));
 }
 
 function tabLink(tab, label) {
@@ -306,11 +362,51 @@ function tabLink(tab, label) {
   return link;
 }
 
-function topBenefitsCard(top, total, today) {
-  return el("section", "card", el("h2", null, "먼저 챙길 지원금"),
-    top.length ? listing(top.map(item => benefitRow(item, today, true)))
-      : el("p", "state", "먼저 챙길 지원금이 없어요"),
-    tabLink("benefits", (total - top.length) + "건 더 보기"));
+function pickWho(who) {
+  const age = who.ageMin != null && who.ageMax != null ? `만 ${who.ageMin}~${who.ageMax}세`
+    : who.ageMin != null ? `만 ${who.ageMin}세 이상` : who.ageMax != null ? `만 ${who.ageMax}세 이하` : "";
+  return [
+    age, who.incomeNote || (who.lowIncomeOnly ? "기초생활수급자·차상위계층" : ""),
+    who.workers?.join("·"), who.excludeWorkers?.length && who.excludeWorkers.join("·") + " 제외",
+    who.sido?.join("·"), who.car && "자동차 보유", who.housing?.join("·"),
+    who.needsChild && "자녀 있음", who.eligibilityNote
+  ].filter(Boolean).join("\n") || "별도 대상 제한 없음";
+}
+
+function pickNote(item) {
+  return item.status === "check" ? el("span", "row-meta", "조건 확인 필요") : null;
+}
+
+function openPick(item) {
+  showDetail(item.emoji, item.title, false, [
+    ["무엇", item.plain], ["얼마", detailCopy(item.amountText, item.basis)], ["누가", pickWho(item.who)],
+    ["어떻게", item.how], ["언제", item.when]
+  ], item.url, { note: pickNote(item) });
+}
+
+function pickRow(item) {
+  return rowControl({ open: () => openPick(item) }, "row pick-row", emoji(item.emoji),
+    el("span", "row-text", el("span", "pick-title", el("span", "row-title", item.title),
+      el("span", "pick-kind", item.kind)), el("span", "row-sub", item.plain), pickNote(item)),
+    el("span", "status pick-amount", item.amountText));
+}
+
+function topPicksCard(items) {
+  return el("section", "card", el("h2", null, "지금 챙기면 이득"),
+    items.length ? listing(items.slice(0, 5).map(pickRow))
+      : el("p", "state", "조건에 맞는 추천이 없어요"),
+    tabLink("picks", `전체 ${items.length}가지 보기`));
+}
+
+function renderPicks(today) {
+  const items = visiblePicks(today);
+  const groups = pickKinds.map(kind => {
+    const group = items.filter(item => item.kind === kind);
+    return group.length ? el("section", "card", el("h2", null, kind), listing(group.map(pickRow))) : null;
+  });
+  return [pageHead("챙길 수 있는 돈", null, button("내 조건 바꾸기", "quiet-button text-button", openProfile)),
+    dataNotice(["picks"]), items.length ? el("div", "stack", ...groups)
+      : el("p", "state", "조건에 맞는 추천이 없어요")];
 }
 
 function dormantCard() {
@@ -392,24 +488,13 @@ function tipCard(today) {
     : el("p", "state", "오늘 표시할 생활정보가 없어요."));
 }
 
-// 첫 화면 TOP 5와 합계는 "조건만 맞으면 그냥 받는 돈"만 센다(사고·질병·위기 때 받는 것은 목록에만).
-const SITUATIONAL = /보험|대지급|체불|도산|폐업|긴급|위기|재난|피해|사망|장례|질병|질환|치료|수술|입원|난임|임신|출산|장애|돌봄|간병|자립준비|보호종료|퇴소|이재민|화재|사고|범죄|학대|실직|휴업/;
-function readyToReceive(item) {
-  if (item.narrow || item.unconfirmed) return false;
-  if (item.cond.income?.length && profile.lowIncome !== true) return false;
-  return !SITUATIONAL.test(item.name + " " + (item.plain || ""));
-}
-
 function renderToday(today) {
-  const items = matchingBenefits(today);
-  const eligible = items.filter(readyToReceive);
-  const top = [...eligible.filter(item => item.amountWon != null),
-    ...eligible.filter(item => item.amountWon == null)].slice(0, 5);
+  const items = visiblePicks(today);
   const tax = upcomingTaxes(today, true)[0];
   const date = el("time", null, koreanDate.format(dayDate(today)));
   date.dateTime = dayDate(today).toISOString().slice(0, 10);
   return [pageHead("오늘", el("p", null, date)),
-    dataNotice(dataKeys), el("div", "stack", heroCard(top), topBenefitsCard(top, items.length, today),
+    dataNotice(dataKeys.filter(key => key !== "benefits")), el("div", "stack", heroCard(items), topPicksCard(items),
       data.dormant.length ? dormantCard() : null, weekendEventsCard(today),
       tax ? el("section", "card tax-preview", el("h2", null, "다가오는 세금"),
         rowControl({ open: () => openTax(tax) }, "row", emoji(tax.emoji),
@@ -427,6 +512,7 @@ const narrowTraits = new Set([
 ]);
 const BENEFIT_PAGE_SIZE = 40;
 let benefitLimit = BENEFIT_PAGE_SIZE;
+let benefitQuery = "";
 const legacyWonUnits = { 억: 100_000_000, 천만: 10_000_000, 백만: 1_000_000, 십만: 100_000, 만: 10_000,
   천: 1_000, 백: 100, 십: 10, "": 1 };
 const wonNumber = "(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?";
@@ -571,21 +657,22 @@ function usefulWho(item) {
   return who.length >= 8 && !/^(지원\s*자격|지원\s*대상|대상|자격|사업\s*대상)\s*:?$/.test(who) ? who : "";
 }
 
-function benefitRow(item, today, compact = false) {
-  const amount = niceAmount(item.amountText);
+function benefitRow(item, today) {
   const status = statusText(item.deadline ? dDay(item.endDay - today) : "상시");
-  const preview = compact ? usefulWho(item) || item.plain : amount || usefulWho(item) || item.plain;
+  const preview = niceAmount(item.amountText) || usefulWho(item) || item.plain;
   return rowControl({ open: () => openBenefit(item) }, "row benefit-row", emoji(item.emoji),
     el("span", "row-text", el("span", "row-title", item.name), preview && el("span", "row-sub", preview),
-      !compact && item.org ? el("span", "row-meta", item.org) : null,
-      compact ? null : conditionLabel(item), sampleLabel(item)),
-    compact && amount ? el("span", "status benefit-amount", amount) : status);
+      item.org ? el("span", "row-meta", item.org) : null, conditionLabel(item), sampleLabel(item)), status);
 }
 
-function renderBenefits(today) {
-  const items = matchingBenefits(today);
-  const edit = button("내 조건 바꾸기", "quiet-button text-button", openProfile);
-  edit.id = "benefit-profile-button";
+function benefitResults(items, today) {
+  const terms = benefitQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (terms.length) {
+    items = items.filter(item => {
+      const searchable = [item.name, item.plain, item.org].join(" ").toLowerCase();
+      return terms.every(term => searchable.includes(term));
+    });
+  }
   const row = item => benefitRow(item, today);
   const list = listing(items.slice(0, benefitLimit).map(row));
   const more = button("더 보기", "quiet-button text-button card-link", () => {
@@ -595,10 +682,26 @@ function renderBenefits(today) {
     next[0]?.focus();
     if (benefitLimit >= items.length) more.parentElement.remove();
   });
-  const results = items.length ? el("div", "card list-card", list,
-    items.length > benefitLimit ? el("div", "list-more", more) : null) : el("p", "state", "조건에 맞는 지원금이 없어요.");
+  return items.length ? el("div", "card list-card", list,
+    items.length > benefitLimit ? el("div", "list-more", more) : null)
+    : el("p", "state", terms.length ? "검색 결과가 없어요" : "조건에 맞는 지원금이 없어요");
+}
+
+function renderBenefits(today) {
+  const items = matchingBenefits(today);
+  const edit = button("내 조건 바꾸기", "quiet-button text-button", openProfile);
+  edit.id = "benefit-profile-button";
+  const results = el("div", null, benefitResults(items, today));
+  const search = inputField("지원금 검색", "benefit-search", benefitQuery, {
+    id: "benefit-search", type: "search", placeholder: "지원금 이름, 내용, 기관"
+  });
+  search.addEventListener("input", event => {
+    benefitQuery = event.target.value;
+    benefitLimit = BENEFIT_PAGE_SIZE;
+    results.replaceChildren(benefitResults(items, today));
+  });
   return [pageHead("지원금", hasProfile() ? null : el("p", null, "내 조건을 설정하면 맞는 지원금을 볼 수 있어요."), edit),
-    dataNotice(["benefits"]), results];
+    search, dataNotice(["benefits"]), results];
 }
 
 // 세금 · 전년도에서 이어지는 기간과 다음 해 시작일을 함께 계산한다.
@@ -786,7 +889,7 @@ sheet.addEventListener("click", event => {
 // 라우터 · 해시 탭과 공통 화면 요소를 관리한다.
 const main = document.querySelector("#main");
 const tabLinks = [...document.querySelectorAll(".tab-inner a")];
-const views = { today: renderToday, benefits: renderBenefits, taxes: renderTaxes, events: renderEvents };
+const views = { today: renderToday, picks: renderPicks, benefits: renderBenefits, taxes: renderTaxes, events: renderEvents };
 
 function el(tag, className, ...children) {
   const node = document.createElement(tag);
@@ -851,7 +954,7 @@ function render(options = {}) {
   const today = seoulDay(now);
   const previousScroll = options.retainControls ? main.querySelector(".months")?.scrollLeft : null;
   for (const link of tabLinks) {
-    if (link.hash === "#" + tab) link.setAttribute("aria-current", "page");
+    if (link.hash === "#" + (tab === "picks" ? "today" : tab)) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   }
   if (pendingLoads) {

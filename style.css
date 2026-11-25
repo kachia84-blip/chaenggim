@@ -186,7 +186,21 @@ a { color: inherit; }
 
 .countdown { color: var(--ink); }
 
-.benefit-row .benefit-amount {
+.pick-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+.pick-kind {
+  padding: 0 8px;
+  border-radius: 10px;
+  background: var(--shade);
+  color: var(--secondary);
+  font-size: .75rem;
+  white-space: nowrap;
+}
+.pick-row .pick-amount {
   max-width: 108px;
   white-space: normal;
   overflow-wrap: anywhere;
