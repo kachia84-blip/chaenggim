@@ -665,3 +665,24 @@ loadData();
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(error => console.warn("오프라인 기능을 시작할 수 없어요.", error));
 }
+
+// 설치 · 크롬이 설치를 허락하면 바로 설치 창을 띄우고, 아니면 방법을 보여 준다.
+let installPrompt = null;
+const installButton = document.querySelector("#install-button");
+const installed = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+installButton.hidden = installed;
+addEventListener("beforeinstallprompt", event => { event.preventDefault(); installPrompt = event; });
+addEventListener("appinstalled", () => { installButton.hidden = true; installPrompt = null; });
+installButton.addEventListener("click", async () => {
+  if (installPrompt) {
+    installPrompt.prompt();
+    await installPrompt.userChoice.catch(() => {});
+    installPrompt = null;
+    return;
+  }
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const steps = ios ? ["사파리 아래쪽 공유 버튼을 눌러요", "‘홈 화면에 추가’를 눌러요"]
+    : ["크롬 오른쪽 위 점 세 개 메뉴를 눌러요", "‘앱 설치’ 또는 ‘홈 화면에 추가’를 눌러요"];
+  showSheet("앱으로 설치", el("p", null, "카카오톡이나 삼성 인터넷에서 열었다면 크롬으로 다시 열어 주세요."),
+    el("ol", "install-steps", ...steps.map(step => el("li", null, step))));
+});
