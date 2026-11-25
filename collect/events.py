@@ -1,4 +1,5 @@
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 from pathlib import Path
@@ -40,6 +41,9 @@ def map_event(item, detail):
     price = str(detail.get("price") or "").strip()
     realm = field("realmName")
     category = re.split(r"[/·]", realm, maxsplit=1)[0].strip()
+    image = str(item.get("thumbnail") or "").strip()
+    if image.startswith("http://"):
+        image = "https://" + image.removeprefix("http://")
     url = next((value for name in ("url", "homepage", "placeUrl")
                 if (value := str(detail.get(name) or "").strip()).startswith(("https://", "http://"))), CULTURE_HOME)
     return {
@@ -47,12 +51,16 @@ def map_event(item, detail):
         "sido": normalize_sido(field("area")), "sigungu": field("sigungu"),
         "start": _date(field("startDate")), "end": _date(field("endDate")),
         "realm": realm, "emoji": REALM_EMOJI.get(category, "🎟️"), "price": price[:60],
-        "free": is_free(price), "ticketOpen": None, "url": url,
+        "free": is_free(price), "ticketOpen": None, "url": url, "image": image,
     }
 
 
 def _request(endpoint, params):
-    response = http_get_json(f"{BASE_URL}/{endpoint}", params)
+    if endpoint == "detail2":
+        time.sleep(0.25)  # 초당 요청 한도(429) 피하기
+        response = http_get_json(f"{BASE_URL}/{endpoint}", params, retries=5, backoff=2.0)
+    else:
+        response = http_get_json(f"{BASE_URL}/{endpoint}", params)
     response = response.get("response", response)
     code = str(response.get("header", {}).get("resultCode", ""))
     if not code or not code.isdecimal() or int(code) != 0:
@@ -102,7 +110,7 @@ def collect(data_dir=DATA_DIR, today=None):
         except Exception:
             return None
 
-    with ThreadPoolExecutor(max_workers=2) as pool:  # 6개 동시 요청은 HTTP 429로 막혔다(2026-11-25)
+    with ThreadPoolExecutor(max_workers=1) as pool:  # 2개 동시 요청도 HTTP 429로 막혔다(2026-11-25) → 하나씩, 쉬어 가며
         events = list(pool.map(safe_detail, candidates.values()))
     failed = events.count(None)
     if failed > len(events) * 0.2:

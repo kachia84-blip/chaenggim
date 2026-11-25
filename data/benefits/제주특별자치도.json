@@ -8,6 +8,10 @@
     "amount": "○ 지원내용: 주택 중개보수 30만원(부가가치세 포함) 이내 지원\r\n○ 지원대상: 청년(만 19세~39세),",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2170966&bnefType=all&svcId=650000001138",
+    "amountWon": 300000000,
+    "amountText": "3억 원",
+    "plain": "주택 중개보수 30만원(부가가치세 포함) 이내 지원",
+    "who": "지원대상: 「주민등록법」상 제주특별자치도에 거주하는 사람 중 다음 각 호에 해당하는 사람",
     "deadline": "2026-12-31",
     "deadlineText": "2026.01.19~2026.12.31",
     "field": "주거·자립",
@@ -20,15 +24,8 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "무주택세대",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "무주택세대"
       ]
     }
   },
@@ -41,6 +38,10 @@
     "amount": "○ 아동건강체험활동비 지원\r\n -  (지급금액) 아동 1인당 월 5만원\r\n -  (지급방식) 탐나는전에 매월",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2127601&bnefType=all&svcId=650000001101",
+    "amountWon": 600000,
+    "amountText": "1인당 월 5만 원",
+    "plain": "(지급금액) 아동 1인당 월 5만원 (지급방식) 탐나는전에 매월 15일 충전",
+    "who": "9세 이상(아동수당 중지 대상자) 12세 이하(초등학생) 중 중위소득 120% 이하 가구의 아동",
     "deadline": "2026-12-31",
     "deadlineText": "2026.01.02~2026.12.31",
     "field": "보호·돌봄",
@@ -55,7 +56,9 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": []
+      "need": [
+        "초등학생"
+      ]
     }
   },
   {
@@ -67,6 +70,10 @@
     "amount": "○ 현장체험학습 실시할 경우 해당\r\n\r\n○ 지원금은 학교로 지급(학교기본운영경비)\r\n - 모든 초등학생 대상",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001829&bnefType=all&svcId=929000000211",
+    "amountWon": 40000,
+    "amountText": "1인당 4만 원",
+    "plain": "초등학생 대상으로 현장체험학습비 지원(1인당 4만원)",
+    "who": "제주도내 초등학교 113개교 1인당 4만원 지원",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -75,18 +82,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생"
       ]
     }
   },
@@ -99,6 +97,10 @@
     "amount": "o 사업명 : 2026년 페달보조방식 전기자전거 구입 보조금 지원 사업\r\no 지원금액 : 1인1대 최대 50",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2117307&bnefType=all&svcId=650000001091",
+    "amountWon": 500000,
+    "amountText": "최대 500,000 원",
+    "plain": "페달보조방식 전기자전거 구입 보조금 지원",
+    "who": "공고일 기준으로 제주특별자치도에 1년 이상 연속으로 주민등록을 두고 거주한 만 18세 이상인 제주도민",
     "deadline": null,
     "deadlineText": "2026.2.4. ~ 2.25.",
     "field": "문화·환경",
@@ -107,26 +109,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -138,6 +122,10 @@
     "amount": "○ 외래 및 입원진료\r\n - 4·3사건 당시 피해를 입고 정신적·육체적 고통의 세월을 살아가고 있는 생존희생",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000170&bnefType=all&svcId=O00107200002",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "4.3생존희생자·유족·며느리에게 각종 의료비 지원",
+    "who": "4.3생존희생자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -146,18 +134,8 @@
     "cond": {
       "ageMin": 68,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -171,6 +149,10 @@
     "amount": "○ 가정위탁아동 양육보조금 지원\r\n - 지원내용 : 가정위탁아동 양육에 따른 양육보조금 지원\r\n - 지원대상",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002507&bnefType=all&svcId=650000000253",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "가정위탁보호아동을 대상으로 양육보조금 지원",
+    "who": "가정위탁보호아동(만 18세 이후",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -179,26 +161,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 17,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -210,6 +174,10 @@
     "amount": "○ 가정위탁아동 세대 월동대책비 지원\r\n - 지원내용 : 동절기를 대비하기 위한 월동대책비 지원\r\n - 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002508&bnefType=all&svcId=650000000254",
+    "amountWon": 1800000,
+    "amountText": "월 15만 원",
+    "plain": "가정위탁보호아동을 위해 학습비, 문화활동비, 월동대책비 등 지원",
+    "who": "가정위탁보호아동 및 세대",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -218,26 +186,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 17,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -249,6 +199,10 @@
     "amount": "○ 자립준비청년(보호종료아동) 자립정착금 지원\r\n  - 지급대상 : 만 18세 이후 아동복지시설 및 가정위탁",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005646&bnefType=all&svcId=650000000307",
+    "amountWon": 10000000,
+    "amountText": "10,000,000 원",
+    "plain": "가정위탁 및 시설퇴소 아동에게 자립지원금 지급",
+    "who": "연령초과(만18세) 또는 보호종료신청으로 인한 시설퇴소 및 가정위탁보호 종료 아동",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -257,26 +211,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 17,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -288,6 +224,10 @@
     "amount": "○ 감염병(HIV환자 등) 진료를 위한 항공비 등 지원 : HIV 감염인 도외 의료기관 진료시 발생한 항공비",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005231&bnefType=all&svcId=650000000302",
+    "amountWon": 110000,
+    "amountText": "11만 원",
+    "plain": "HIV 감염인에게 도외 의료기관 진료시 발생한 항공비 지원",
+    "who": "관내 HIV 감염인 중 HIV 진료 및 치료 목적으로 도외 의료기관의 진료 및 치료를 받은 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -296,18 +236,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -320,6 +251,10 @@
     "amount": "○ 농업경영체로 등록한 농업인(농업경영체에 등록된 감자 재배지 기준)에게 가을 재배용 감자 종서 구입비 일부",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003398&bnefType=all&svcId=650000000278",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "농업인에게 가을 재배용 감자 종서 구입비 일부 지원",
+    "who": "농업경영체상 밭작물로 등록한 농업인(농업경영체에 등록된 감자 재배지 기준)",
     "deadline": null,
     "deadlineText": "매년 1~2월",
     "field": "생활안정",
@@ -328,18 +263,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -352,6 +278,10 @@
     "amount": "○ 저소득 가정의 아동을 대상으로 결식예방 및 영양개선을 위한 급식 지원",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002509&bnefType=all&svcId=650000000255",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "저소득 가정의 아동을 대상으로 급식 지원",
+    "who": "「국민기초생활보장법」 제2조제2호에 따른 수급자 가구의 아동",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -363,19 +293,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -387,6 +305,10 @@
     "amount": "○ 경계선지능 판정을 위한 병·의원, 치료기관 검사비 및 전문가 치료비 지원(2026년 기준)\r\n - 1학기",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2119911&bnefType=all&svcId=929000000218",
+    "amountWon": 1500000,
+    "amountText": "1인당 최대 150만 원",
+    "plain": "경계선지능 판정을 위한 병·의원, 치료기관 검사비 및 전문가 치료비 지원",
+    "who": "경계선지능 치료비 지원 대상자로 선정된 제주도내 초1 ~ 고3 재학생",
     "deadline": null,
     "deadlineText": "매달 15일까지 초등교육과로 공문 제출(2026년 기준) (예산소진시 까지)",
     "field": "보건·의료",
@@ -395,15 +317,13 @@
     "cond": {
       "ageMin": 7,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "장애인"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "장애인",
+        "질병/질환자"
       ]
     }
   },
@@ -416,6 +336,10 @@
     "amount": "경영이양 직접지불금 지급대상자 선정통지서를 받은 날부터 약정체결 전날까지 어촌계원 자격을 만 60세 이하의 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190626&bnefType=all&svcId=650000001166",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "어촌계원 자격이양시 직불금 지급",
+    "who": "｢농어업경영체 육성 및 지원에 관한 법률｣ 제4조 제3항 및 같은 법 시행령 제3조의2에 따라 어업경영체",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -424,18 +348,9 @@
     "cond": {
       "ageMin": 65,
       "ageMax": 79,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -448,6 +363,10 @@
     "amount": "○ 농업경영체에 등록한 밭작물 재배농지(과수원 제외)에 암반 존재할 경우 암반제거 비용 지원\r\n\r\n○ 200",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000757&bnefType=all&svcId=650000000229",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "밭작물 재배농지의 암반제거 비용 지원",
+    "who": "농업경영체에 등록한 밭작물 재배농지(과수원 제외)",
     "deadline": null,
     "deadlineText": "매년 1월 중",
     "field": "농림축산어업",
@@ -456,18 +375,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -480,6 +390,10 @@
     "amount": "○ 제주특별자치도에 주민등록 된 65세 이상 어르신 중 2019.6.12. 이후 운전면허 자진반납한 사람 대",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002359&bnefType=all&svcId=650000000234",
+    "amountWon": 200000,
+    "amountText": "20만 원",
+    "plain": "운전면허를 자진반납한 어르신(65세이상 제주도민)에게 교통비 지원",
+    "who": "신청일 현재 제주특별자치도에 주소(주민등록)를 두고 제1종",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -488,26 +402,8 @@
     "cond": {
       "ageMin": 65,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -519,6 +415,10 @@
     "amount": "○ 사업집행주체: 행정시\r\n○ 지원대상: 만 75세 이상 현업 고령해녀 중 은퇴를 희망하는 자\r\n○ 지원내용",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190524&bnefType=all&svcId=650000001158",
+    "amountWon": 6000000,
+    "amountText": "월 50만 원",
+    "plain": "만 75세 이상 은퇴해녀 월 50만원(3개년 간 지급)",
+    "who": "만 75세 이상 현업 고령해녀 중 은퇴를 희망하는 자",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -527,18 +427,9 @@
     "cond": {
       "ageMin": 75,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -551,6 +442,10 @@
     "amount": "○ 사업집행주체: 행정시\r\n○ 지원대상: 만 70세 이상 현업 고령해녀\r\n○ 지원금액 \r\n - 만 70세 이",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190527&bnefType=all&svcId=650000001161",
+    "amountWon": 2400000,
+    "amountText": "월 20만 원",
+    "plain": "만 70세 이상 현업 고령해녀 대상 수당 지원",
+    "who": "제주특별자치도 관내 만 70세 이상 현업 고령해녀",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -559,18 +454,9 @@
     "cond": {
       "ageMin": 70,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -583,6 +469,10 @@
     "amount": "○ 지원대상: 2026년 1월 ~ 12월 중 도외검진을 받은 고엽제 후유(의)증 환자\r\n  * 연 1회 등급",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005175&bnefType=all&svcId=650000000301",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "고엽제후유(의)증환자에게 연1회 등급판정을 위한 신체검사시 도외병원에 대한 수진교통비 지원",
+    "who": "지원대상: 2026년 1월 ~ 12월 중 도외검진을 받은 고엽제 후유(의)증 환자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -591,18 +481,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -616,6 +496,10 @@
     "amount": "○ 향토재래귤 관리 농가에 약제구입비 지원\r\n\r\n○ 감귤원 원지정비 농가에 생산자재비 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002590&bnefType=all&svcId=650000000272",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "향토재래귤 재배농가 등에 약제구입비, 생산자재비 등 지원",
+    "who": "향토재래귤 재배 및 관리농가",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -624,18 +508,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -648,6 +523,10 @@
     "amount": "○ 품질 기준 이상의 만감류(한라봉, 천혜향, 레드향, 황금향, 카라향)를 출하하는 농가에게 인센티브 제공",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000378&bnefType=all&svcId=650000000223",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "고품질 만감류 출하농가에 장려금 지원",
+    "who": "품질 기준 이상의 고품질 만감류를 출하하는 농가",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -656,18 +535,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -680,6 +550,10 @@
     "amount": "○ 주민등록상 관내 거주 만 30세 이상(당해년도 12월 31일 기준) 고혈압 당뇨병 환자 \r\n - 만 30",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003039&bnefType=all&svcId=650000000275",
+    "amountWon": 10000,
+    "amountText": "10,000 원",
+    "plain": "만 65세 이상 고혈압·당뇨병 질환자 월1회 진료비·약제비 지원",
+    "who": "주민등록상 관내 거주 만 30세 이상(당해년도 12월 31일 기준)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -688,18 +562,9 @@
     "cond": {
       "ageMin": 30,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -712,6 +577,10 @@
     "amount": "○ 공공자전거 대여 서비스 제공\r\n - 운영시간 : 07시 ~ 24시\r\n\r\n○ 공공자전거 스테이션 위치\r\n ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002360&bnefType=all&svcId=650000000235",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "자전거 이용자 누구나 이용 가능",
+    "who": "자전거 이용자 누구나",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -720,14 +589,8 @@
     "cond": {
       "ageMin": 1,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -739,6 +602,10 @@
     "amount": "○ 서귀포시 지역주민에게 불소양치용액을 무료로 제공",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005818&bnefType=all&svcId=650000000309",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "서귀포시 주민에게 불소양치용액 무료 제공",
+    "who": "서귀포시 지역주민",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -747,26 +614,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -778,6 +627,10 @@
     "amount": "○ 보훈특별고용\r\n - 고용인원이 1일 20인(제조업은 200인) 이상인 공사기업체와 \r\n - 교원을 제외한",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190425&bnefType=all&svcId=650000001153",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "국가유공자 및 유가족에게 능력과 적성에 맞는 취업 지원",
+    "who": "독립유공자 : 본인 및 배우자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -786,18 +639,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 65,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -811,6 +654,10 @@
     "amount": "○ 감면대상자\r\n  - 국가유공자, 국가유공자 유족, 참전유공자(6.25참전유공자, 월남참전자, 고엽제후유의",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002512&bnefType=all&svcId=650000000257",
+    "amountWon": 55200,
+    "amountText": "월 최대 4,600 원",
+    "plain": "국가유공자 및 대표유족 등에 대한 상수도 사용료 감면",
+    "who": "국가유공자 (국가유공자등예우및지원에관한법률 제4조)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -819,18 +666,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -844,6 +681,10 @@
     "amount": "○ 균음성 폐결핵 의심자 정밀검사(CT검사)비용 지원 :\r\n관내 노인·노숙인 등 결핵검진사업 대상자 중 X-",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002387&bnefType=all&svcId=650000000239",
+    "amountWon": 100000,
+    "amountText": "1인당 10만 원",
+    "plain": "결핵 유소견자에게 의료기관 CT검사 비용 지원",
+    "who": "관내 주소를 두고 있는 X-Ray 검진 소견 상 균음성 폐결핵 의심자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -852,18 +693,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -876,6 +708,10 @@
     "amount": "○ 지원내용\r\n - 공항체류객 대상 안내센터 설치·운영(외국어 통역)\r\n - 휴대폰 충전서비스, 휠체어 대여",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000610&bnefType=all&svcId=O00030400001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "기상악화 시 공항체류객에게 안내센터 편의물품 지원",
+    "who": "제주지방항공청에서 '관심'",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "행정·안전",
@@ -884,14 +720,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -903,6 +733,10 @@
     "amount": "○ 제주도내 주거안정을 위해기존주택 등을 매입하여 공공임대주택으로 공급\r\n\r\n○ 매입대상주택 : 다가구주택,",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001452&bnefType=all&svcId=O00030500002",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "기존주택 등 매입",
+    "who": "기존주택등 매도 신청자",
     "deadline": null,
     "deadlineText": "홈페이지 및 일간지 게시",
     "field": "주거·자립",
@@ -914,19 +748,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -938,6 +760,10 @@
     "amount": "○ 무주택 독거노인 가구에 주거비 지원(연 1회 지원)\r\n- 임대료에 따라 가구당 400,000원~700,0",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004664&bnefType=all&svcId=650000000296",
+    "amountWon": 3000000,
+    "amountText": "300만 원",
+    "plain": "무주택 독거노인 가구에 주거비 차등 지원( 연 1회)",
+    "who": "생계급여 또는 의료급여 수급권자 중 65세 이상 무주택 독거노인 가구 ('24",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -949,15 +775,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "무주택세대",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "무주택세대"
       ]
     }
   },
@@ -970,6 +789,10 @@
     "amount": "○  검정고시 학원비 연 45만원(3개월분) , 교재비  연 7만원, 사회진출금* 1회 20만원\r\n    *",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002416&bnefType=all&svcId=650000000245",
+    "amountWon": 450000,
+    "amountText": "연 45만 원",
+    "plain": "기초생활수급자 등에게 검정고시학습비 지원",
+    "who": "도내 검정고시준비생 중",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -981,19 +804,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1005,6 +816,10 @@
     "amount": "○ 도외 중,고교 신입생 교복비 1인 35만원(연 1회)     ※ 신입생 자녀가 자퇴·재입학·전학 시 추가",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002417&bnefType=all&svcId=650000000246",
+    "amountWon": 350000,
+    "amountText": "35만 원",
+    "plain": "저소득층 자녀 중 도외 중·고교 신입생에게 교복비 지원",
+    "who": "기초생활수급자 및 법정차상위계층* 중 도외 중․고등학교 신입생",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1016,11 +831,9 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1033,6 +846,10 @@
     "amount": "○ 농업경영체에 등록한 기타과수(감귤류 및 키위를 제외한 과수) 재배 농업인에게 생산기반시설(*비상발전기 외",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000365&bnefType=all&svcId=650000000222",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "기타과수 재배 농업인에게 비상발전기 외 10개사업 지원",
+    "who": "농업경영체에 등록한 기타과수(감귤류 및 키위를 제외한 과수) 재배면적이 1,000㎡ 이상인 농가",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -1041,18 +858,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -1065,6 +873,10 @@
     "amount": "○ 축산시설, 악취저감시설, 조경 등 지원\r\n\r\n○ 지원조건 : 보조 60%, 자부담 40%",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006294&bnefType=all&svcId=650000000315",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "깨끗한 축산농장 지정농가에 축산시설, 악취저감시설, 조경 등 지원",
+    "who": "깨끗한 축산농장 지정농가(농림부 지정)",
     "deadline": null,
     "deadlineText": "축산사업 추진계획에 의거 신청공고 및 사업신청접수",
     "field": "농림축산어업",
@@ -1073,18 +885,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -1097,6 +900,10 @@
     "amount": "○ 난독·난산 학생 판정을 위한 병·의원, 치료기관 검사비 및 전문가 치료비 지원(2026년 기준)\r\n - ",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001468&bnefType=all&svcId=929000000209",
+    "amountWon": 1500000,
+    "amountText": "1인당 최대 150만 원",
+    "plain": "초1 ~ 중3 대상으로 난독·난산 검사비 및 치료비 지원(2026년 기준)",
+    "who": "난독·난산 지원 대상자로 선정된 제주도내 초1 ~ 중3 재학생",
     "deadline": null,
     "deadlineText": "매달 15일까지 초등교육과로 공문 제출(2026년 기준) (예산소진시 까지)",
     "field": "보건·의료",
@@ -1105,18 +912,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생"
       ]
     }
   },
@@ -1129,6 +928,10 @@
     "amount": "○ 일부 및 전액 본인부담금, 비급여(배아동결비, 유산방지제, 착상보조제) 등 \r\n\r\n○ 시술비 25회(신선",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003032&bnefType=all&svcId=650000000273",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "난임부부에게 시술비 지원",
+    "who": "법적 혼인상태에 있거나",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -1137,18 +940,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "예비부모/난임"
       ]
     }
   },
@@ -1161,6 +955,10 @@
     "amount": "○ 연 300만원 한도의 학습권 및 건강권 지원(유,초,중,고 재적 기간 중 상한액 총 1,500만원)\r\n ",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001849&bnefType=all&svcId=929000000216",
+    "amountWon": 15000000,
+    "amountText": "1,500만 원",
+    "plain": "난치병학생 학습권 및 건강권 지원(연300만원한도, 재적기간 중 총 1,500만원 이내)",
+    "who": "도내 유치원에 재원 중인 난치병 유아",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1169,18 +967,9 @@
     "cond": {
       "ageMin": 3,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -1193,6 +982,10 @@
     "amount": "65세 이상 의료급여수급권자를 대상으로 노인건강진단 실시",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004576&bnefType=all&svcId=650000000294",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "65세 이상 의료급여수급권자 중 희망자에게 노인건강진단 지원",
+    "who": "65세 이상 의료급여 수급권자 중 희망자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1204,19 +997,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1228,6 +1009,10 @@
     "amount": "○ 사업대상: 만65세이상 노인 중 기초연금수급자, 기초생활수급자, 등록장애인, 국가유공자(본인)\r\n\r\n○ ",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005914&bnefType=all&svcId=650000000310",
+    "amountWon": 120000,
+    "amountText": "1인당 120천 원",
+    "plain": "만 65세 이상 노인에게 백내장 수술비(본인부담금) 지원 1안구 12만원 이내",
+    "who": "대상: 관할지역 주민으로 백내장 수술이 필요한 어르신으로 만65세이상 노인 중",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1239,11 +1024,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -1256,6 +1038,10 @@
     "amount": "○ 거동이 불편하지만 장기요양수급자로 판정을 받지 못한 등급외(A,B)노인의 안전한 보행과 낙상예방을 위해 ",
     "how": "정부24온라인신청||기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006639&bnefType=all&svcId=650000000324",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "장기요양등급외(A,B)노인, 성인용보행기, 안전손잡이, 미끄럼방지용품 지원",
+    "who": "선정기준: 서귀포시에 주소지를 두고 실제로 거주하는 65세 이상인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1264,26 +1050,8 @@
     "cond": {
       "ageMin": 65,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1295,6 +1063,10 @@
     "amount": "○ 의료급여수급권자 중 희망자에게 노인건강진단 지원\r\n ※1인당 150,000원 범위 내에서 검진 항목이 변",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002567&bnefType=all&svcId=650000000268",
+    "amountWon": 150000,
+    "amountText": "1인당 150,000 원",
+    "plain": "의료급여수급권자 중 희망자에게 노인건강진단 지원",
+    "who": "만 65세 이상 의료급여 수급권자 중 희망자",
     "deadline": null,
     "deadlineText": "노인건강진단 실시 계획 수립 후 읍면동 방문 신청",
     "field": "보건·의료",
@@ -1306,19 +1078,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1330,6 +1090,10 @@
     "amount": "연안어선의 노후된 기관 대체 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152564&bnefType=all&svcId=650000001128",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "연안어선 기관 대체 지원",
+    "who": "제주시 선적 연안어선",
     "deadline": null,
     "deadlineText": "제주시 공고 참조",
     "field": "농림축산어업",
@@ -1338,18 +1102,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -1362,6 +1117,10 @@
     "amount": "○ 농업인 안전재해보험 가입비 지원\r\n - 지원대상 : 공제가입일 현재 제주시 또는 서귀포시에 주소를 두고,",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004472&bnefType=all&svcId=650000000291",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "농업인에게 안전재해보험료 지원",
+    "who": "공제가입일 현재 제주시 또는 서귀포시에 주소를 두고",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "농림축산어업",
@@ -1370,18 +1129,9 @@
     "cond": {
       "ageMin": 15,
       "ageMax": 87,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -1394,6 +1144,10 @@
     "amount": "한국어 소통 어려움을 겪는 다문화가족을 대상으로 부모 언어 가정통신문 번역본 제공 서비스\r\n - 학교(기관)",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001432&bnefType=all&svcId=929000000208",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "다문화가정 가정통신문 번역 서비스 지원",
+    "who": "한국어 의사소통에 어려움을 겪는 다문화가정 제주특별자치도 관내 유 ·초·중·고(특수) 학생 학부모",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1402,21 +1156,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "다문화가족"
       ]
     }
   },
@@ -1429,6 +1171,10 @@
     "amount": "○ 의사소통 중심 한국어 기초교육 지원\r\n\r\n○ 교과학습용 한국어교육, 정서지원 및 상담 지원\r\n\r\n○ 한국",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001431&bnefType=all&svcId=929000000207",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "이주배경학생 대상 한국어교육, 정서지원 및 기초학력 보충 지원",
+    "who": "한국어 의사소통이 어렵거나 기초 학력이 낮은 중도입국 이주배경학생 또는 외국인 가정 이주배경학생",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1437,14 +1183,13 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "다문화가족"
+      ]
     }
   },
   {
@@ -1456,6 +1201,10 @@
     "amount": "○ 다자녀 가정 학생 교육비 지원\r\n - 방과후학교 자유수강권 1인당 연 60만원 이내 실비(읍면지역학교, ",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001830&bnefType=all&svcId=929000000212",
+    "amountWon": 600000,
+    "amountText": "1인당 연 60만 원",
+    "plain": "다자녀가정 학생 대상 방과후학교 자유수강권 등 교육비 지원",
+    "who": "다자녀 가정의 자녀 중 제주특별자치도 내에 소재하는「초･중등교육법」 제2조에 따른 학교에 재학 중인 학생",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1464,14 +1213,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
         "다자녀가구"
       ]
     }
@@ -1485,6 +1231,10 @@
     "amount": "배치 부서 특성에 맞는 현장업무 및 행정업무지원",
     "how": "기타 온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128288&bnefType=all&svcId=650000001105",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "배치 부서 특성에 맞는 현장업무 및 행정업무지원",
+    "who": "지원자격: 공고일 현재 본인 또는 부모가 서귀포시에 주민등록이 되어 있는 대학생 또는 청년",
     "deadline": null,
     "deadlineText": "매년 6월 중, 12월 중",
     "field": "생활안정",
@@ -1493,16 +1243,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 34,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1514,6 +1256,10 @@
     "amount": " 교복이 학칙 등 학교의 규정으로 되어있는 학교에 재학하는 학생으로 다음 각 항목에 해당하는 경우 학교주관",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001846&bnefType=all&svcId=929000000213",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "중·고·특수학교 학생 대상 교복 현물 지원",
+    "who": "교복을 입는 제주특별자치도교육청 소재 중·고·특수학교 1학년 학생",
     "deadline": null,
     "deadlineText": "전, 편입시",
     "field": "보육·교육",
@@ -1522,18 +1268,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1546,6 +1284,10 @@
     "amount": "○ 보리생산농가 수매가 차액 보전 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004579&bnefType=all&svcId=650000000295",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "보리 계약재배 농가 수매가 차액 보전 지원",
+    "who": "보리를 생산하고 농협과 계약재배를 한 농가",
     "deadline": null,
     "deadlineText": "지역농협의 보리 수매 계약재배 신청기간 내",
     "field": "농림축산어업",
@@ -1554,18 +1296,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -1578,6 +1311,10 @@
     "amount": "○ 지원대상 : 가정위탁 보호아동 및 국내입양아동 중 대학진학아동\r\n\r\n○ 지원내용 : 1인 1회 입학에 한",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006585&bnefType=all&svcId=650000000322",
+    "amountWon": 3000000,
+    "amountText": "3,000,000 원",
+    "plain": "가정위탁보호아동 및 국내입양아동을 위한 대학입학준비금 지원",
+    "who": "가정위탁 보호아동 및 국내입양아동 중",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1586,19 +1323,9 @@
     "cond": {
       "ageMin": 17,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "대학생"
       ]
     }
   },
@@ -1611,6 +1338,10 @@
     "amount": "○ 국가기관 등의 공공시설 내 식료품, 사무용품 등 일상용품 등의 판매를 위한 매점 또는 자동판매기 등 위탁",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2189146&bnefType=all&svcId=650000001150",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "국가기관 등의 공공시설 내 식료품, 사무용품 등 일상용품 등의 판매를 위한 매점 또는 자",
+    "who": "독립유공자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -1619,18 +1350,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -1644,6 +1365,10 @@
     "amount": "외래 및 입원진료",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000169&bnefType=all&svcId=O00107200001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "국가보훈대상자에게 외래 및 입원료 지원",
+    "who": "국비진료",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1652,18 +1377,8 @@
     "cond": {
       "ageMin": 75,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -1677,6 +1392,10 @@
     "amount": "○ 서비스내용\r\n - 전력, 통신 사용 여부를 분석하여 이상 감지 발생 시 읍면동에서 안부확인 서비스\r\n -",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000125&bnefType=all&svcId=650000000216",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "수급자 등에 속하는 1인가구를 대상으로 안부살피미 서비스 지원",
+    "who": "혼자 생활하는 1인 가구",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1688,15 +1407,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -1709,6 +1421,10 @@
     "amount": "ㅇ 대출상품명: 빛나는 제주 청년희망 대출 3.0\r\n ㅇ 융자지원 기간: 신용대출 융자지원은 융자기간 최대 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2154016&bnefType=all&svcId=650000001131",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "이차보전: 신용등급 1~3등급 3.5%, 신용등급 4~9등급 4.5%",
+    "who": "ㅇ 지원대상",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -1717,19 +1433,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "근로자/직장인"
       ]
     }
   },
@@ -1742,6 +1448,10 @@
     "amount": "산모신생아 건강관리 서비스 정부지원금 외 본인부담금 일부 지원\r\n\r\n○ 본인부담금의 50%지원: 최대 40만",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003935&bnefType=all&svcId=650000000283",
+    "amountWon": 400000,
+    "amountText": "최대 40만 원",
+    "plain": "출산가정에 산모신생아 건강관리 서비스 본인부담금 지원",
+    "who": "보건복지부「산모·신생아 건강관리 지원사업」서비스 이용자 중 신생아 출생일 기준",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -1750,18 +1460,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 54,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -1775,6 +1475,10 @@
     "amount": "○ 제주 관내 수요에 맞춘 자원봉사활동 운영\r\n - 환경정화활동, 행복밥차 운영, 주거환경개선 봉사, 물품기",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001269&bnefType=all&svcId=O00030500001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "제주 관내 수요에 맞춘 자원봉사활동 지원",
+    "who": "독거노인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1786,15 +1490,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -1807,6 +1504,10 @@
     "amount": "○ 객실 사용료 50%\r\n - 제주특별자치도가 주최ㆍ주관하는 행사\r\n - 제주4ㆍ3사건 진상규명 및 희생자 ",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2173221&bnefType=all&svcId=650000001143",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "선흘리 동백동산 에코촌 유스호스텔 사용료 감면기준",
+    "who": "객실 사용료 50%",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -1815,26 +1516,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1846,6 +1529,10 @@
     "amount": "소규모어가 범위에 해당하는 어업인에 어가당 120만원 지급",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190625&bnefType=all&svcId=650000001165",
+    "amountWon": 1200000,
+    "amountText": "120만 원",
+    "plain": "소규모어가 범위에 해당하는 어업인에 어가당 120만원 지급",
+    "who": "ㅇ ｢농어업경영체 육성 및 지원에 관한 법률｣ 제4조제1항제2호에 따라 어업경영 관련 정보 등을",
     "deadline": null,
     "deadlineText": "대상자 모집공고기간 내 신청",
     "field": "농림축산어업",
@@ -1854,14 +1541,10 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": [
+        "어업인"
+      ]
     }
   },
   {
@@ -1873,6 +1556,10 @@
     "amount": "- 신청대상: 도내 거주 국민기초생활 보장법에 따른 수급자\r\n- 신청기간 : 수급자 선정일 또는 전입일부터\r",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2103804&bnefType=all&svcId=650000000333",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "수급자 가정용 월 수도사용량의 10톤 해당하는 사용료 감면",
+    "who": "제주 도내에 주소를 둔 국민기초생활보장법 제2조에 따른 수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "문화·환경",
@@ -1884,19 +1571,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1908,6 +1583,10 @@
     "amount": "수산업경영인 선정 및 융자지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190623&bnefType=all&svcId=650000001163",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "수산업경영인 선정 및 융자지원",
+    "who": "어업인후계자",
     "deadline": null,
     "deadlineText": "사업대상자 모집공고기간 내 신청",
     "field": "고용·창업",
@@ -1916,26 +1595,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 50,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1947,6 +1608,10 @@
     "amount": "○ 농업경영체로 등록하였고 서귀포시 원예전문생산단지 소속 수출 참여 농가 및 생산자 단체 소속 수출 참여 농",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001237&bnefType=all&svcId=650000000233",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "수출 화훼농가에 수출용 화훼 종구(묘) 구입비 일부 지원",
+    "who": "농업경영체로 등록하였고 서귀포시 원예전문생산단지 소속 수출 참여 농가 및 생산자 단체 소속 수출 참여 농업인",
     "deadline": null,
     "deadlineText": "매년 1월 초부터 약 2주간",
     "field": "농림축산어업",
@@ -1955,18 +1620,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -1979,6 +1635,10 @@
     "amount": "○ 사업집행주체: 행정시\r\n○ 보조사업자: 어촌계\r\n○ 지원대상: 어촌계 신규가입 희망자로 어촌계 총회의 승",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190525&bnefType=all&svcId=650000001159",
+    "amountWon": 1000000,
+    "amountText": "1,000천 원",
+    "plain": "어촌계 신규가입 희망자에 가입비 지원 1,000천원/1인당(초과 가입비는 가입자 부담)",
+    "who": "어촌계 신규가입 희망자로 어촌계 총회의 승인을 받고",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -1987,18 +1647,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 60,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -2011,6 +1662,10 @@
     "amount": "○ 사업집행주체: 행정시\r\n○ 지원대상: 만 45세 미만 신규현직해녀\r\n - 제주특별자치도지사가 정한 「해녀",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190523&bnefType=all&svcId=650000001157",
+    "amountWon": 6000000,
+    "amountText": "1인당 월 50만 원",
+    "plain": "제주특별자치도내 신규해녀 1인당 월 50만원(3개년 간 지원)",
+    "who": "제주특별자치도지사가 정한 「해녀」의 자격을 취득하고 현재 해녀 어업에 종사하는 만 45세 미만의 현직해녀(단",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -2019,18 +1674,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -2043,6 +1689,10 @@
     "amount": "○ 혈관 및 복막투석비 : 투석비용 중 본인부담액의 50%\r\n\r\n○ 이식수술 사전검사비 : 이식검사비 중 본",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006425&bnefType=all&svcId=650000000319",
+    "amountWon": 1000000,
+    "amountText": "연 최대 100만 원",
+    "plain": "신장장애인에게 의료비 지원",
+    "who": "혈관 및 복막투석비 : 도내 의료기관에서 투석받고 있는 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2057,11 +1707,7 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -2075,6 +1721,10 @@
     "amount": "○ 지역아동센터, 드림스타트를 이용하는 아동을 대상으로 건강검진 검사비 지원 \r\n - 지역아동센터, 드림스타",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000657&bnefType=all&svcId=O00107100003",
+    "amountWon": 120000,
+    "amountText": "12만 원",
+    "plain": "지역아동센터 및 드림스타트 아동에게 건강검진 검사비 지원",
+    "who": "지역아동센터 및 드림스타트를 이용하는 아동",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "보건·의료",
@@ -2086,19 +1736,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2110,6 +1748,10 @@
     "amount": "○ 만 3개월~만 12세 이하 아동대상 아이돌봄서비스 이용가정 본인부담금의 20~40% 도비로 지원\r\n\r\n○",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002565&bnefType=all&svcId=650000000266",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "아이돌봄서비스 이용가정에 본인부담금의 일부 지원",
+    "who": "만3개월~만12세 이하 아동대상 아이돌봄서비스 이용가정",
     "deadline": null,
     "deadlineText": "아이돌봄서비스 지원시 연계지원",
     "field": "보육·교육",
@@ -2118,26 +1760,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 12,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2149,6 +1773,10 @@
     "amount": "○ 제공물품 : 아토피 보습제(로션, 크림 등)\r\n\r\n○ 제공기준 : 1회/2개월",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006641&bnefType=all&svcId=650000000325",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "아토피 환아를 위한 보습제 지원",
+    "who": "대상: 관한 지역내 거주자 중 알레르기질환(아토피피부염",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2157,18 +1785,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -2181,6 +1800,10 @@
     "amount": "○ 운영비 지원 : 해조류 종자 구입지원, 양식품종 다양화 종자 구입 지원 등",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002415&bnefType=all&svcId=650000000244",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "양식어가 등에 운영비, 시설 등 육성 및 관리 지원",
+    "who": "제주시 관내 양식어가 등",
     "deadline": null,
     "deadlineText": "제주시 공고  참조",
     "field": "농림축산어업",
@@ -2189,18 +1812,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -2213,6 +1827,10 @@
     "amount": "○ 대상: 만 65세 이상 노인(제주시내 거주자)\r\n○ 내용\r\n - 연 1회 무료 스케일링 및 불소도포 서비",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152119&bnefType=all&svcId=650000001126",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "만65세 이상 어르신 대상 무료스케일링·불소도포 및 구강용품 제공",
+    "who": "제주시 내 주소를 둔 만 65세 이상 어르신 누구나",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2221,8 +1839,8 @@
     "cond": {
       "ageMin": 65,
       "ageMax": 120,
-      "income": [],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2234,6 +1852,10 @@
     "amount": "○  1인 월 11,000원 지원 \r\n  -  이․미용료 : 1인당 5,000원/월, (년 60,000원)\r",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000178&bnefType=all&svcId=650000000217",
+    "amountWon": 132000,
+    "amountText": "월 11,000 원",
+    "plain": "기초생활수급권자(생계급여 또는 의료급여) 노인에게 이·미용료 및 목욕료 지원",
+    "who": "국민기초생활보장법에 의한 생계급여 또는 의료급여 수급자 중 65세 이상 노인(생일이 도래한 달부터 지급)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2245,19 +1867,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2269,6 +1879,10 @@
     "amount": "○틀니\r\n- 완전틀니(악당) 시술 비용: 의사 처방에 따라 상악, 하악 또는 양악\r\n- 시술비용 건강보험 급",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000455&bnefType=all&svcId=650000000225",
+    "amountWon": 500000,
+    "amountText": "최대 50만 원",
+    "plain": "어르신에게 틀니 및 보청기 지원",
+    "who": "기초연금 수급자 중 틀니 75세 이상",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2281,19 +1895,7 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2305,6 +1907,10 @@
     "amount": "○ 생애 최초 어린이집 입학 영유아 1인 당 연 7만 5천원 지원 \r\n\r\n※ 영유아 상해보험료 1만원 차감\r",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159752&bnefType=all&svcId=650000001136",
+    "amountWon": 75000,
+    "amountText": "연 7만 5천 원",
+    "plain": "생애 최초 어린이집 입학 영유아 1인 당 연 7만 5천원 지원",
+    "who": "어린이집",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -2313,18 +1919,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 5,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2336,6 +1932,10 @@
     "amount": "어선자동조타기,  자동투양묘기, 조수기, 채낚기자동투승기 등 어선자동화 장비 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152562&bnefType=all&svcId=650000001127",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "어선자동화시설 장비 지원",
+    "who": "제주시 선적 연근해어선",
     "deadline": null,
     "deadlineText": "제주시 공고 참조",
     "field": "농림축산어업",
@@ -2344,18 +1944,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -2368,6 +1959,10 @@
     "amount": "○ 검진비용 지원: 22만원 기준 자부담 2만원 내외\r\n○ 검진항목(5영역 10항목) : 근골격계, 심혈관계",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123501&bnefType=all&svcId=650000001099",
+    "amountWon": 220000,
+    "amountText": "22만 원",
+    "plain": "근골격계, 심혈관계질환 등 여성농업인이 취약한 질환에 대한 건강검진 및 예방상담 지원",
+    "who": "짝수년도에 출생한 51세~80세 여성농업인(26년 1월 1일 기준 46.1.1.~75.12.31.기간 출생자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2376,14 +1971,8 @@
     "cond": {
       "ageMin": 51,
       "ageMax": 80,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2395,6 +1984,10 @@
     "amount": "여성장애인 가구에 주2회~5회(1회 평균 2~5시간) 가사도우미  지원으로 임신․출산․양육, 외출, 가사지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004027&bnefType=all&svcId=650000000284",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "여성장애인(저소득층 우선)을 위한 가사도우미 지원",
+    "who": "관내 여성장애인(저소득층 우선)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2406,11 +1999,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -2424,6 +2013,10 @@
     "amount": "○ 의사상자 지원제도\r\n- 직무외의 행위로 위해에 처한 다른 사람의 생명, 신체 또는 재산을 구하다가 사망하",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004459&bnefType=all&svcId=650000000290",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "의사상자를 위한 보상금 지급",
+    "who": "직무 외의 행위로 위해에 처한 다른 사람의 생명",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -2432,14 +2025,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2451,6 +2038,10 @@
     "amount": "○ 톱밥배지, 표고자목 운송비 지원",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005048&bnefType=all&svcId=650000000298",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "임업인 등에게 톱밥배지, 표고자목 운송비 지원",
+    "who": "서귀포시 관내 임산물 생산지를 둔 임업인 또는 임업인 단체",
     "deadline": null,
     "deadlineText": "매년 초(공고 시)",
     "field": "농림축산어업",
@@ -2459,18 +2050,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "임업인"
       ]
     }
   },
@@ -2483,6 +2065,10 @@
     "amount": "○ 취약 출산가정 임산부 방문 교육 및 상담 실시",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003038&bnefType=all&svcId=650000000274",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "취약 출산가정 방문 및 전화상담 건강관리 서비스 제공 임산부 프로그램 운영 등",
+    "who": "제주도내 주민등록을 두고 거주하는 산모",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -2491,15 +2077,10 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "출산/입양"
+      "income": null,
+      "need": [
+        "출산/입양",
+        "다문화가족"
       ]
     }
   },
@@ -2512,6 +2093,10 @@
     "amount": "○ 지원대상 \r\n - 국내입양특례법에 의해 입양이 성립된 아동(민사 입양 지원 제외)\r\n - 입양신고일 당시",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004694&bnefType=all&svcId=650000000297",
+    "amountWon": 7000000,
+    "amountText": "700만 원",
+    "plain": "아동을 입양한 가정에 축하금 지원",
+    "who": "국내입양특례법에 의해 입양이 성립된 아동(민사 입양 지원 제외)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2520,18 +2105,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 12,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -2545,6 +2120,10 @@
     "amount": "○ 지원대상 : 입양신고일 당시 제주도에 1년 이상 주민등록을 두고 실제 거주하면서 보호대상아동을 입양한 가",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003841&bnefType=all&svcId=650000000281",
+    "amountWon": 7000000,
+    "amountText": "700만 원",
+    "plain": "입양가정에 입양 축하금 지원",
+    "who": "입양신고일 당시 우리도에 지속적으로 1년이상 주민등록을 두고 실제 거주하면서 보호대상아동을 입양한 가정",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -2553,18 +2132,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -2578,6 +2147,10 @@
     "amount": "○ 자활사업참여자에 대한 이사비용 1회 60만원 범위내 실비 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006571&bnefType=all&svcId=650000000321",
+    "amountWon": 600000,
+    "amountText": "60만 원",
+    "plain": "자활사업에 참여하고 있는 수급자 등에게 이사비용 지원",
+    "who": "자활근로사업에 참여하고 있는 사업에 참여하고 있는 기초생활수급자 및 차상위계층 등",
     "deadline": null,
     "deadlineText": "상시신청(예산범위내에서 조기마감될수 있음)",
     "field": "주거·자립",
@@ -2589,19 +2162,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2613,6 +2174,10 @@
     "amount": "○ 자활사업(자활근로사업, 자활기업)에 참여하는 기초수급자 및 차상위계층 중 자격증 필기시험에 합격한 자에대",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002532&bnefType=all&svcId=650000000258",
+    "amountWon": 800000,
+    "amountText": "80만 원",
+    "plain": "자활사업참여자를 대상으로 국가 자격증 취득을 위한 실기학원비 지원(80만원 이내)",
+    "who": "읍면동 및 지역자활센터의 자활근로사업 참여자(기초생활보장수급자 및 자상위계층) 및 자활기업 참여자",
     "deadline": null,
     "deadlineText": "상시신청(예산소진시 지원 마감)",
     "field": "생활안정",
@@ -2624,12 +2189,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "구직자/실업자",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "구직자/실업자"
       ]
     }
   },
@@ -2642,6 +2203,10 @@
     "amount": "○ 외래진료\r\n - 도내 거주하는 해녀들이 조업환경 등으로 인해 겪게 되는 각종 질환에 대해 진료비를 지원",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000171&bnefType=all&svcId=O00107200003",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "해녀에게 각종 질환에 대한 진료비 지원",
+    "who": "대상 : 해녀증을 소지하고 있는 해녀",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2650,18 +2215,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -2674,6 +2230,10 @@
     "amount": "○ 1인 월 25,000원 장수수당 지원\r\n\r\n○ 지급시기 및 지급방법\r\n - 지급시기: 매월 20일\r\n -",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002511&bnefType=all&svcId=650000000256",
+    "amountWon": 300000,
+    "amountText": "월 25,000 원",
+    "plain": "80세 이상 노인에게 장수수당 지원",
+    "who": "제주특별자치도(서귀포시)에 주민등록을 둔 80세 이상 노인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2682,26 +2242,8 @@
     "cond": {
       "ageMin": 80,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2713,6 +2255,10 @@
     "amount": "○ 사회복지시설을 이용하거나 거주하는 장애인을 대상으로 건강검진 검사비 지원\r\n - 일반혈액검사, 생화학검사",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000656&bnefType=all&svcId=O00107100002",
+    "amountWon": 120000,
+    "amountText": "12만 원",
+    "plain": "사회복지시설 또는 거주 장애인에게 건강검진 검사비 지원",
+    "who": "사회복지시설을 이용하거나 거주하는 장애인",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "보건·의료",
@@ -2721,18 +2267,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -2746,6 +2282,10 @@
     "amount": "○ 운전면허 제 1,2종 보통 : 1인당 50만원 이내\r\n\r\n○ 운전면허 대형 : 1인당 65만원 이내\r\n ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002506&bnefType=all&svcId=650000000252",
+    "amountWon": 650000,
+    "amountText": "1인당 65만 원",
+    "plain": "운전면허를 취득한 장애인에게 운전면허 취득교육비 지원",
+    "who": "도내 등록 장애인 중 운전면허 취득한 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -2754,18 +2294,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -2779,6 +2309,10 @@
     "amount": "장애인활동지원 기본 시간 소멸 이후 추가지원 요건 충족 장애인에게 월 30시간 ~ 90시간 지원 \r\n\r\n<추",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004520&bnefType=all&svcId=650000000292",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "시간이 부족한 장애인활동지원 대상자에게 활동지원급여 추가 지원",
+    "who": "장애인활동지원서비스 이용자로서 아래의 추가지원 요건 중 어느 하나를 충족하는 장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2787,18 +2321,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -2812,6 +2336,10 @@
     "amount": "독립유공자와 유족들을 위로 격려하여 국가유공자 예우 및 유족 자긍심 고취",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2184216&bnefType=all&svcId=650000001146",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "독립유공자 관련 행사시 관계 유족 상품권 지급",
+    "who": "독립유공자와 그 유족",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -2820,18 +2348,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -2845,6 +2363,10 @@
     "amount": "○ 협약방송사(㈜KCTV제주방송)의 디지털방송 기본요금 및 STB(Set Top Box) 사용료에 대하여 월",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002505&bnefType=all&svcId=650000000251",
+    "amountWon": 92400,
+    "amountText": "월 7,700 원",
+    "plain": "저소득 중증장애인에게 유료방송 이용요금 지원",
+    "who": "제주특별자치도에 실제 거주하면서 주민등록이 되어 있는 장애인연금법에 따른 중증장애인*을 구성원으로 하는",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -2856,11 +2378,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -2874,6 +2392,10 @@
     "amount": "○ 한부모가족 세대주 직업훈련비 지원 : 1인/월 30만원(최대 6개월 지원)\r\n\r\n\r\n○ 한부모가족 중지 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005498&bnefType=all&svcId=650000000305",
+    "amountWon": 3000000,
+    "amountText": "300만 원",
+    "plain": "저소득 한부모가족에게 중·고교 자녀학습비, 세대주 직업훈련비, 월동준비금 등 자립 지원",
+    "who": "세대주 직업훈련비 : 취.창업 준비를 위한 직업훈련기관",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -2882,22 +2404,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "한부모가정"
       ]
     }
   },
@@ -2910,6 +2419,10 @@
     "amount": "○ 지원내용: 「의료급여법」에 따른 의료급여수급권자(1종, 2종) 및 기타의료수급자(국가유공자, 이재민 등)",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006157&bnefType=all&svcId=650000000313",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "의료급여수급자의 장기요양급여 비용및 관리 운영 비용에 대한 지자체 부담금 지원",
+    "who": "「의료급여법」에 따른 의료급여수급권자(1종",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -2921,19 +2434,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2945,6 +2446,10 @@
     "amount": "○  생계비 지원(최대 12개월) \r\n - 1인가구 :256,420원,  2인가구 :419,930원,  3인",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002418&bnefType=all&svcId=650000000247",
+    "amountWon": 855600,
+    "amountText": "855,600 원",
+    "plain": "비수급 저소득주민에게 특별생계비 지원",
+    "who": "(1순위) 국민기초생활보장수급권자가 기초생계급여를 신청하여 제외되거나 부양의무자 등으로 인하여 중지된 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -2957,19 +2462,7 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -2981,6 +2474,10 @@
     "amount": "○ 지원기준 : 간병인부임 지원\r\n - 8시간 기준  : 30,000원(주간, 야간 공통) \r\n - 12시간",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002535&bnefType=all&svcId=650000000260",
+    "amountWon": 900000,
+    "amountText": "900,000 원",
+    "plain": "기초생활보장수급자 등 보호자가 없는 저소득층이 병원 입원 시 간병비 지원",
+    "who": "도내 병원에 입원중인 자 중 부양의무자*가 없거나",
     "deadline": null,
     "deadlineText": "상시신청이나 예산 조기소진시 지원 불가",
     "field": "보건·의료",
@@ -2992,15 +2489,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -3013,6 +2503,10 @@
     "amount": "○ 지원대상: 제주특별자치도에 주소를 둔 건강보험공단 가입자 중 「의료급여법」제3조에 따른 수급권자가 아닌 ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004390&bnefType=all&svcId=650000000287",
+    "amountWon": 20160,
+    "amountText": "20,160 원",
+    "plain": "저소득 노인, 장애인 1세대당 건강보험료(장기요양보험료 포함) 전액 지원",
+    "who": "제주특별자치도에 주소를 둔 건강보험공단 가입자 중 「의료급여법」제3조에 따른 수급권자가 아닌 자로서",
     "deadline": null,
     "deadlineText": "국민건강보험공단에서 매월 대상자 선정",
     "field": "보건·의료",
@@ -3024,16 +2518,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -3045,6 +2530,10 @@
     "amount": "○ 위기상황이 발생한 기준 중위소득 100% 이하가구에 생계비, 의료비, 장제비 등 지원\r\n - 생계비 : ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002537&bnefType=all&svcId=650000000262",
+    "amountWon": 3000000,
+    "amountText": "300만 원",
+    "plain": "위기상황 발생가구에 생계비, 의료비, 장제비 등 지원",
+    "who": "기준중위소득 100% 이하의 위기상황 발생 후 1년 이내 가정으로서 다음 사항을 모두 충족하는 경우",
     "deadline": null,
     "deadlineText": "상시신청이나 예산 조기 소진시 지원불가",
     "field": "생활안정",
@@ -3058,19 +2547,7 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -3082,6 +2559,10 @@
     "amount": "○ 1인당 안경(렌즈 등) 구입비 최대 10만원 범위내(1년)",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2172017&bnefType=all&svcId=650000001140",
+    "amountWon": 100000,
+    "amountText": "최대 10만 원",
+    "plain": "저소득층 자녀 안경구입비 지원 (1인/연 10만원)",
+    "who": "기초생활보장수급자 및 법정차상위계층*",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -3094,12 +2575,7 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
-      ]
+      "need": []
     }
   },
   {
@@ -3111,6 +2587,10 @@
     "amount": "○ 도외 병원 진료를 위한 항공료 또는 선박료 실비(KTX, 열차비 등 현지교통비 제외)\r\n ○ 연 12회(",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000062&bnefType=all&svcId=650000000214",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "저소득층 희귀난치성질환 및 중증질환자에게 항공비 및 선박비 지원",
+    "who": "의료급여수급자 및 차상위 본인경감대상자 중 산정특례자로 등록된 희귀난치성질환 및 중증질환자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -3122,11 +2602,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -3139,6 +2616,10 @@
     "amount": "○ 정신건강검진 및 상담 \r\n - 대상: 정신건강검진이 필요한 서귀포시민 누구나\r\n- 지원기준: 정신건강의학",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002388&bnefType=all&svcId=650000000240",
+    "amountWon": 57900,
+    "amountText": "1인당 최대 57,900 원",
+    "plain": "정신건강검진이 필요한 시민에게 1인당 최대 57,900원까지 정신건강 상담 및 검진비 지원",
+    "who": "제주도민",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -3147,18 +2628,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   },
@@ -3171,6 +2643,10 @@
     "amount": "○ 정신건강의학과 병의원 치료비 1인당 70만원(입원비 별도 300만원)이내 실비 지원\r\n ※ 지원금액내 본",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001411&bnefType=all&svcId=929000000205",
+    "amountWon": 3000000,
+    "amountText": "300만 원",
+    "plain": "유·초·중·고등학생 및 학령기의 학교밖 청소년 대상, 병의원 치료비·약제비·입원비 지원",
+    "who": "도내 유·초·중·고등학생 및 학령기의 학교밖 청소년 중 정신건강의학과 전문의에 의해 검사 및 치료가 필요한",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -3179,18 +2655,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -3203,6 +2672,10 @@
     "amount": "○ 정신장애인 등급을 받은 자 및 조현병, 분열 및 망상장애, 기분(정동)장애를 가진 정신질환자 중 3개월 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000582&bnefType=all&svcId=650000000226",
+    "amountWon": 1350000,
+    "amountText": "월 225,000 원 · 최대 6개월",
+    "plain": "취업을 3개월 이상 유지한 정신질환자에게 취업자립촉진비 지원",
+    "who": "정신건강복지센터",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "고용·창업",
@@ -3211,18 +2684,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -3236,6 +2699,10 @@
     "amount": "○ 지원대상: 정책서민금융 상품(사업 공고 시 확인) 중 최소 1개의 상품을 1년 이상 이용하며 원리금을 상",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2121307&bnefType=all&svcId=650000001094",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "정책서민금융상품(사업 공고 시 확인)) 대출금 상환 중인 금융취약 도민의 이자지원",
+    "who": "(기본요건) 정책서민금융상품(사업 공고 시 확인) 중 최소 1개의 상품을 1년 이상 이용하며 현재 원리금",
     "deadline": null,
     "deadlineText": "별도 공고",
     "field": "생활안정",
@@ -3244,14 +2711,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3263,6 +2724,10 @@
     "amount": "○3만원 주택 \r\n - 지원대상:  모든 세대원이 무주택자로 제주도 소재  공공임대주택에 입주하고 있는 자로",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2143516&bnefType=all&svcId=650000001121",
+    "amountWon": 30000,
+    "amountText": "3만 원",
+    "plain": "공공임대주택에 임대차 계약을 완료한 자에게 본인 부담금 3만원을 제외한 차액 지원",
+    "who": "3만원 주택",
     "deadline": null,
     "deadlineText": "2026년 9월 16일 ~ 10월 9일, 18:00",
     "field": "주거·자립",
@@ -3271,14 +2736,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
+      "income": null,
+      "need": [
         "무주택세대"
       ]
     }
@@ -3292,6 +2751,10 @@
     "amount": "○  휠체어 무료 대여\r\n - 휠체어가 필요한 고령자, 장애인, 어린이 등 이동 약자 대상 \r\n○  정기적인",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000659&bnefType=all&svcId=O00030400003",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "제주 관광 이동약자를 위한 휠체어 무료대여",
+    "who": "제주를 방문하는 내외국인 관광객",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "문화·환경",
@@ -3300,18 +2763,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -3325,6 +2778,10 @@
     "amount": "○ 소비자\r\n - 탐나는전 카드 및 모바일 결제 시 결제액의 일정비율 포인트 적립(캐시백)\r\n  (적립) 연",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005366&bnefType=all&svcId=650000000303",
+    "amountWon": 1000000000,
+    "amountText": "10억 원",
+    "plain": "소비자에게 할인 및 소득공제 혜택, 가맹점에 수수료 절감 혜택 등 제공",
+    "who": "만 14세 이상이면 누구든지 발급 가능",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -3333,14 +2790,8 @@
     "cond": {
       "ageMin": 14,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3352,6 +2803,10 @@
     "amount": "○제주 청년 희망충전 월세 지원\r\n - 지원대상: 부모와 별도 거주하는 35~39세 무주택 청년 세대주   ",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2130316&bnefType=all&svcId=650000001119",
+    "amountWon": 102002000,
+    "amountText": "1억 2천 2백만 원",
+    "plain": "무주택 청년 세대주(35~39세)에게 임차료 월 20만원 이하 지원(최대 12개월)",
+    "who": "제주 청년 희망충전 월세 지원",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -3364,15 +2819,8 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "무주택세대",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "무주택세대"
       ]
     }
   },
@@ -3385,6 +2833,10 @@
     "amount": "○ 무상지원 기준 및 한도\r\n\r\n - 기준 중위소득 120% 이하(기초생활수급자, 차상위계층, 기초(장애인)",
     "how": "기타 온라인신청||방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159748&bnefType=all&svcId=650000001135",
+    "amountWon": 1500000,
+    "amountText": "연 150만 원",
+    "plain": "생활돌봄, 주거편의 서비스 제공",
+    "who": "돌봄이 필요한 제주도민",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -3398,19 +2850,7 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -3422,6 +2862,10 @@
     "amount": "○ 어린이(6  ~ 12세) ,청소년(13 ~ 18세)  제주도 내 노선 버스 요금 면제(급행, 리무진 포함",
     "how": "기타 온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159746&bnefType=all&svcId=650000001134",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "어린이(6 ~ 12세) ,청소년(13 ~ 18세) 제주도 내 노선 버스 요금 면제",
+    "who": "제주특별자치도에 주민등록 된 6~18세",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -3430,19 +2874,8 @@
     "cond": {
       "ageMin": 6,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3454,6 +2887,10 @@
     "amount": "○ 대학생 장학금 지원\r\n - 제주도민 또는 제주도민의 자녀인 대학생 등록금 지원(연간 최대 300만원/1인",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001763&bnefType=all&svcId=O00030500003",
+    "amountWon": 3000000,
+    "amountText": "연간 최대 300만 원",
+    "plain": "제주도민 중·고·대학생 및 스포츠꿈나무 대상 장학금 지원",
+    "who": "대학생",
     "deadline": null,
     "deadlineText": "www.jpdc.co.kr 공고문 참조",
     "field": "보육·교육",
@@ -3462,19 +2899,12 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -3487,6 +2917,10 @@
     "amount": "1. 산후조리원비 지원\r\n○ 「제주특별자치도 산후조리비 지원 조례」 제7조(지원대상)의 각 호의 요건을 모두",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123413&bnefType=all&svcId=650000001096",
+    "amountWon": 400000,
+    "amountText": "최대 40만 원",
+    "plain": "산후조리원 혹은 산모신생아건강관리 본인부담금 택1 지원(최대 40만원)",
+    "who": "1",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -3495,17 +2929,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -3519,6 +2944,10 @@
     "amount": "> 제주 에너지대전환 교육 프로그램 운영\r\n   ㆍ (방문객, 요청자) 제주 에너지 정책과 연계한 교육‧홍보",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001512&bnefType=all&svcId=O00030300001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "제주 에너지대전환 교육 프로그램 운영",
+    "who": "전국민(도민 및 관광객 등)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -3527,14 +2956,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3546,6 +2969,10 @@
     "amount": "○ 성취장학금\r\n - 학업성적이 우수한 국내 대학(원)생 등록금 지원 장학금\r\n\r\n○ 희망장학금\r\n - 학업",
     "how": "기타 온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001508&bnefType=all&svcId=O00107000001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "제주도민 및 재외 제주도민 대상 장학금 지급(종류별 장학금 상이)",
+    "who": "제주인재육성장학금 신청자격에 부합하는 자(제주평생교육장학진흥원 홈페이지 공고문 참조)",
     "deadline": null,
     "deadlineText": "매년 5월 초 ~ 6월 중순 공고 및 접수",
     "field": "보육·교육",
@@ -3554,19 +2981,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -3579,6 +2997,10 @@
     "amount": "○  제주 청년 희망사다리 재형저축 사업 : 중소기업 근로자( 15세 ~  39세) 10만원, 기업 15만원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003411&bnefType=all&svcId=650000000279",
+    "amountWon": 30000000,
+    "amountText": "3,000만 원",
+    "plain": "중소기업 근로자( 15세 ~ 39세) 대상 재형저축 사업",
+    "who": "제주 청년 희망사다리 재형저축 사업 : 중소기업 근로자( 15세 ~ 39세) 10만원",
     "deadline": null,
     "deadlineText": "재형저축 사업 공고시",
     "field": "고용·창업",
@@ -3592,12 +3014,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "근로자/직장인",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "근로자/직장인"
       ]
     }
   },
@@ -3610,6 +3028,10 @@
     "amount": "50세 이상 의료급여수급권자 대상 대상포진 예방접종 1회 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2154327&bnefType=all&svcId=650000001133",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "50세 이상 의료급여수급권자 대상 대상포진 예방접종 1회 지원",
+    "who": "제주특별자치도에 주민등록을 두고 거주하는 50세 이상 「의료급여법」 제3조에 따른 의료급여수급권자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -3623,16 +3045,7 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -3644,6 +3057,10 @@
     "amount": "○ 폭발･화재･붕괴·산사태·감전사고 상해사망1,500만원\r\n○ 폭발･화재･붕괴·산사태·감전사고 상해후유장해1",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2189144&bnefType=all&svcId=650000001149",
+    "amountWon": 15000000,
+    "amountText": "1,500만 원",
+    "plain": "대상: 제주도에 주민등록을 둔 모든도민(등록외국인 포함) 콜센터: 1522-3556",
+    "who": "제주특별자치도에 주민등록을 둔 모든 도민(등록외국인 포함)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -3652,26 +3069,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3683,6 +3082,10 @@
     "amount": "○ 보훈예우수당: 제주특별자치도에 주소를 둔 국가유공자(유족)에게 매월 수당 지급 \r\n\r\n○ 사망위로금: 보",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003918&bnefType=all&svcId=650000000282",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "국가유공자(유족) 등을 위해 보훈예우수당, 사망위로금, 현충수당, 호국수당 지원",
+    "who": "보훈예우수당",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -3691,18 +3094,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -3716,6 +3109,10 @@
     "amount": "출산 후 제주특별자치도내 산후조리원을 이용한 경우 지출한 금액의 최대 40만원 이내 지원",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2154326&bnefType=all&svcId=650000001132",
+    "amountWon": 400000,
+    "amountText": "최대 40만 원",
+    "plain": "출산 후 도내 산후조리원을 이용한 경우 지출한 금액의 최대 40만원 이내 지원",
+    "who": "「제주특별자치도 산후조리비 지원 조례」 제7조(지원대상)의 각 호의 요건을 모두 충족하는 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -3724,17 +3121,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -3748,6 +3136,10 @@
     "amount": " (지원내용) 손자녀를 돌보는 (외)조부모에게 돌봄수당 지원\r\n  지원대상: 부모를 대신해 손자녀를 돌보",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2172016&bnefType=all&svcId=650000001139",
+    "amountWon": 3600000,
+    "amountText": "월 30만 원",
+    "plain": " (지원내용) 손자녀(24 ~ 47개월 이하) 를 돌보는 (외)조부모에게 돌봄수당 지원",
+    "who": " (지원내용) 손자녀를 돌보는 (외)조부모에게 돌봄수당 지원",
     "deadline": null,
     "deadlineText": "매월 1일~15일",
     "field": "보호·돌봄",
@@ -3762,7 +3154,7 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": []
+      "need": []
     }
   },
   {
@@ -3774,6 +3166,10 @@
     "amount": "2년 이상 계속 제주도에 주소를 두고 거주하고 1년 이상 어업경영정보에 등록한 전업 어업인에 대하여 수당 지",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2132116&bnefType=all&svcId=650000001120",
+    "amountWon": 500000,
+    "amountText": "1인당 연 50만 원",
+    "plain": "어업인 1인당 연 50만원 지급방법: 지역화폐(탐나는전 카드 충전)",
+    "who": "지급대상: 2년 이상 계속 제주도에 주소를 두고 거주하고 1년 이상 어업경영정보에 등록한 전업 어업인",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "생활안정",
@@ -3782,18 +3178,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -3806,6 +3193,10 @@
     "amount": "❍ 1인당 연간 20만원의 문화여가비 지원\r\n  - 유흥업종, 건강보험 적용 병의원·약국, 사이버거래, 사행",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2130116&bnefType=all&svcId=650000001118",
+    "amountWon": 200000,
+    "amountText": "1인당 연간 20만 원",
+    "plain": "❍ 1인당 연간 20만원의 문화여가비 지원",
+    "who": "❍ 도내 주소를 두고 실제 어업에 종사하는 연나이 21세 이상 ~ 연 나이 70세 이하의 여성어업인",
     "deadline": null,
     "deadlineText": "2026. 3. 9. ~ 10. 31.",
     "field": "생활안정",
@@ -3814,18 +3205,9 @@
     "cond": {
       "ageMin": 21,
       "ageMax": 70,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -3838,6 +3220,10 @@
     "amount": "참전명예수당, 사망위로금  및 배우자 수당 지급",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=807788&bnefType=all&svcId=650000000327",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "제주특별자치도 거주 참전유공자에게 매월 수당 지급",
+    "who": "참전명예수당",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -3846,26 +3232,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3877,6 +3245,10 @@
     "amount": "○ 지원대상: 농업경영정보를 등록한 도내 출산(예정)* 여성농업인\r\n    * 임신 4개월(85일) 이후 발",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002589&bnefType=all&svcId=650000000271",
+    "amountWon": 5779200,
+    "amountText": "최대 5,779,200 원",
+    "plain": "도내 출산(예정) 여성농업인을 대상으로 출산 전후 영농도우미 이용 금액 정액 지원",
+    "who": "지원대상: 사업 신청일 현재 농업에 실제 종사하는 출산(예정) 도내 여성농업인으로서 농업경영정보를 등록한 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -3885,18 +3257,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -3910,6 +3272,10 @@
     "amount": "○ 한국장학재단과의 분할상환약정체결을 위한 초입금(채무금액의 10%) 지원\r\n○ 초입금 지원으로 완제 여부와",
     "how": "정부24온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2121707&bnefType=all&svcId=650000001095",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "신용유의자 해제를 위한 분할상환 약정 체결 시 필요한 초입금(채무금액의 10%)지원",
+    "who": "신청일 기준 6개월 이전부터 제주도에 주민등록이 되어 있는 19세~39세 청년으로 한국장학재단 학자금 대출로",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "보육·교육",
@@ -3918,26 +3284,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -3949,6 +3297,10 @@
     "amount": "<2026년 제주특별자치도 하반기 학자금 대출이자 지원사업>\r\n - 2010년 이후부터 한국장학재단을 통해 ",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002534&bnefType=all&svcId=650000000259",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "대학(원)생 및 졸업생 학자금 대출이자 지원",
+    "who": "ㅇ 지원대상",
     "deadline": null,
     "deadlineText": "상반기: 1~4월, 하반기: 7~9월",
     "field": "보육·교육",
@@ -3957,19 +3309,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 40,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "대학생"
       ]
     }
   },
@@ -3982,6 +3324,10 @@
     "amount": "제주특별자치도 읍면동 지역(도 농어촌지역 고시 지역에 한함) 거주 어업인에 어가당 80만원 * 어업인(80%",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190624&bnefType=all&svcId=650000001164",
+    "amountWon": 800000,
+    "amountText": "80만 원",
+    "plain": "제주특별자치도 읍면동 지역(도 농어촌지역 고시 지역에 한함) 거주 어업인에 직불금 지급",
+    "who": "ㅇ 조건불리지역(사업대상 지역)에 거주하는 어업인으로서 법 제8조에 따라 신청연도의 직전연도를 기준으로",
     "deadline": null,
     "deadlineText": "대상자 모집공고기간 내 신청",
     "field": "농림축산어업",
@@ -3990,14 +3336,10 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": [
+        "어업인"
+      ]
     }
   },
   {
@@ -4009,6 +3351,10 @@
     "amount": "○ 조손 가정 아동 교육 : 학습, 미술교육, NIE프로그램",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000781&bnefType=all&svcId=650000000230",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "경제적으로 어려운 조손 가정에 아동 교육 프로그램 지원",
+    "who": "경제적으로 어려운 조손 가정",
     "deadline": null,
     "deadlineText": "보조사업으로 공모를 통해 신청(통상적 공모시기 : 2월)",
     "field": "보육·교육",
@@ -4017,22 +3363,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "한부모가정"
       ]
     }
   },
@@ -4045,6 +3378,10 @@
     "amount": "한부모가족 직업훈련비, 월동준비금, 자립정착금, 자녀학습비, 대학교 신입생 자녀 입학지원금, 조손가정 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005938&bnefType=all&svcId=650000000311",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "조손가정 내 배움지도사(학습지도사)를 파견하여 학습지도, 정서지원 등",
+    "who": "제주특별자치도 조손가정지원조례에 따른 조손가정",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -4057,15 +3394,8 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "한부모가정"
       ]
     }
   },
@@ -4078,6 +3408,10 @@
     "amount": "○ 주거복지 상담과 주거지원 서비스\r\n - 주거문제 해결을 위한 상담과 주거지원 서비스\r\n - 공공 주거복지",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001784&bnefType=all&svcId=O00030500005",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "주거 약자에게 주거복지 상담과 주거지원 서비스 제공",
+    "who": "제주특별자치도에 주소를 두고 거주하는 주거약자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -4089,19 +3423,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -4113,6 +3435,10 @@
     "amount": "○ 무주택 자녀출산 가구 주거 임차비 지원 \r\n - '21. 1. 1일이후 둘째자녀 이상 출산(입양) 무주택",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002587&bnefType=all&svcId=650000000269",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "무주택 가구 등에 주거임차비, 전세자금 대출이자 등 지원",
+    "who": "무주택 자녀출산 가구 주거 임차비 지원",
     "deadline": null,
     "deadlineText": "연월세 지원: 상시/전세지원:도청홈페이지 공고 접수기간 참고/주거임차비: 상시",
     "field": "주거·자립",
@@ -4127,15 +3453,8 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "무주택세대",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "무주택세대"
       ]
     }
   },
@@ -4148,6 +3467,10 @@
     "amount": "○ (중장년) 중소기업 장기재직 재형저축 사업 : 중소기업 근로자( 40세 ~  64세) 10만원, 기업 1",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000995&bnefType=all&svcId=650000000231",
+    "amountWon": 20400000,
+    "amountText": "2,040만 원",
+    "plain": "중소기업 근로자( 40세 ~ 64세)를 대상으로 장기재직 시 재형저축 지원",
+    "who": "(중장년) 중소기업 장기재직 재형저축 사업 : 도내 중소기업 근로자(40세 ~ 64세)",
     "deadline": null,
     "deadlineText": "제주도청 홈페이지에 참여기업 및 근로자 모집 공고",
     "field": "생활안정",
@@ -4156,19 +3479,9 @@
     "cond": {
       "ageMin": 40,
       "ageMax": 64,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "근로자/직장인"
       ]
     }
   },
@@ -4181,6 +3494,10 @@
     "amount": "○ 1인 월 25,000원 지원\r\n - 분기별 본인 통장 입금(3·6·9·12월)",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000668&bnefType=all&svcId=650000000227",
+    "amountWon": 300000,
+    "amountText": "월 25,000 원",
+    "plain": "중증장애인 1인 월 25,000원 교통비 분기별 지원",
+    "who": "심한장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -4189,18 +3506,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -4214,6 +3521,10 @@
     "amount": "○ 본인 상해로 인한 사망시(15세 미만 제외) : 1,000만원\r\n     ※ 단,「상법」제732조에 따라",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002420&bnefType=all&svcId=650000000249",
+    "amountWon": 10000000,
+    "amountText": "1,000만 원",
+    "plain": "제주시 거주 중증장애인을 위한 상해보험 가입 지원",
+    "who": "제주시 거주 전 연령 중증장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -4222,18 +3533,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -4247,6 +3548,10 @@
     "amount": "○ 외래시 : 본인부담 의료비 중 타 법령에 의해 지급되는 비용을 제외한 금액 전액 지원\r\n\r\n○ 입원시 :",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002419&bnefType=all&svcId=650000000248",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "중증장애인에게 외래, 입원 등 의료비 지원",
+    "who": "국민건강보험대상자로 중증장애인 중 기존지원대상자('19.7.1이전 1급 장애인)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -4255,18 +3560,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -4280,6 +3575,10 @@
     "amount": "1인 월 30,000원 중증장애인 추가수당 지원(2019.7.1이전  1급 장애인)",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002421&bnefType=all&svcId=650000000250",
+    "amountWon": 360000,
+    "amountText": "월 30,000 원",
+    "plain": "수급자 및 차상위장애인 중 ('19.7.1.이전) 1급 장애인에게 추가수당 지원",
+    "who": "국민기초생활보장법에 의한 생계",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -4291,11 +3590,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -4309,6 +3604,10 @@
     "amount": "○ 지원대상: 6.25 및 월남참전유공자 * 순수 참전용사만 해당\r\n○ 지원금액: 1세대 당 월 2,500원",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000305&bnefType=all&svcId=650000000221",
+    "amountWon": 30000,
+    "amountText": "월 2,500 원",
+    "plain": "6.25 및 월남참전유공자에게 TV수신료 지원",
+    "who": "지원대상: 6.25 및 월남참전유공자(순수 참전용사만 해당)",
     "deadline": null,
     "deadlineText": "신청 불필요",
     "field": "생활안정",
@@ -4317,18 +3616,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -4342,6 +3631,10 @@
     "amount": "○ 서귀포시 동부/서부 지역 등록 임산부 대상으로 산부인과 방문검진 진료비 및 검사비 지원 \r\n - 서귀포시",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000034&bnefType=all&svcId=O00107100001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "서귀포시 동부/서부 지역 등록 임산부에게 의료비 지원",
+    "who": "서귀포시 동부/서부 지역 등록임산부",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "임신·출산",
@@ -4350,18 +3643,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "임산부"
       ]
     }
@@ -4375,6 +3658,10 @@
     "amount": "○ 1인 월 33,300원 지원\r\n - 인터넷 사용료 30,000원, 기본요금 3,300원\r\n - 매 분기마",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005791&bnefType=all&svcId=650000000308",
+    "amountWon": 399600,
+    "amountText": "월 33,300 원",
+    "plain": "청각 및 언어장애인에게 영상전화 사용료 지원",
+    "who": "청각·언어장애인으로 등록된 장애인 중 영상전화기 보유자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -4383,18 +3670,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -4408,6 +3685,10 @@
     "amount": "○ 수술비 지원 : 수술에 소요되는 비용으로 1인당 700만원 이내\r\n\r\n○ 재활·매핑 치료비 : 수술 다음",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005154&bnefType=all&svcId=650000000300",
+    "amountWon": 7000000,
+    "amountText": "1인당 700만 원",
+    "plain": "청각장애인에게 인공달팽이관 수술 및 재활·매핑 치료비 지원",
+    "who": "국민기초생활보장수급자 및 차상위계층으로서 시설·재가 청각장애인 중 수술적격자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -4419,11 +3700,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -4437,6 +3714,10 @@
     "amount": "- 영농정착 지원금 지급: 영농경력에 따라 차등 지급\r\n     (독립경영 1년차 월 110만원, 2년차 월",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2129022&bnefType=all&svcId=650000001116",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "영농정착 지원금 지급: 영농경력에 따라 차등 지급",
+    "who": "ㅇ (사업 대상) 독립경영 3년 이하 또는 독립영농 예정자",
     "deadline": null,
     "deadlineText": "사업시행 전년도 11~12월 신청(농식품부 지침에 따라 변경될 수 있음)",
     "field": "농림축산어업",
@@ -4445,18 +3726,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -4469,6 +3741,10 @@
     "amount": "ㅇ(대상) 만40세 미만 어업경력 3년 이하 창업(예정)자\r\n ㅇ(규모) 1인당 최대 월 110만원 최장 3",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190622&bnefType=all&svcId=650000001162",
+    "amountWon": 13200000,
+    "amountText": "1인당 최대 월 110만 원",
+    "plain": "청년어업인 대상 최대 월 110만원 최장 3년 지원",
+    "who": "만40세 미만 어업경력 3년 이하 창업(예정)자",
     "deadline": null,
     "deadlineText": "사업대상자 모집공고기간 내 신청",
     "field": "농림축산어업",
@@ -4477,18 +3753,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -4501,6 +3768,10 @@
     "amount": "(대상) 청년이어드림 정책상담(상담-정책참여-피드백)을 완료한 청년\r\n(지급수단) 지역화폐(탐나는전) 지급\r",
     "how": "정부24온라인신청||기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128550&bnefType=all&svcId=650000001112",
+    "amountWon": 600000,
+    "amountText": "60만 원",
+    "plain": "정책 코디네이팅을 희망하는 도내 청년에게 지원금 제공",
+    "who": "제주특별자치도 내에 주소지를 둔 청년(19~39세)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -4509,26 +3780,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -4540,6 +3793,10 @@
     "amount": "방과후학교 자유수강권, 교육정보화(PC,인터넷통신비), 고교 저녁급식비, 수학여행비 지원",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001848&bnefType=all&svcId=929000000215",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "저소득층 학생 대상 방과후학교 자유수강권 등 교육비 지원",
+    "who": "국민기초생활수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -4551,11 +3808,10 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4568,6 +3824,10 @@
     "amount": "○ 수련활동 실시할 경우 해당\r\n\r\n○ 지원금은 학교로 지급(목적경비), 지원금 내 실비 지원\r\n - 초·중",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001847&bnefType=all&svcId=929000000214",
+    "amountWon": 40000,
+    "amountText": "1인당 4만 원",
+    "plain": "모든 초·중·고 학생 대상 학교급별 1회 지원",
+    "who": "수련활동을 실시하는 학교 학생 모두에게 지원",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -4576,18 +3836,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4600,6 +3853,10 @@
     "amount": "○ 수학여행 실시할 경우 해당\r\n\r\n○ 지원금은 학교로 지급(목적사업비)\r\n - 초 1인당 8만 5천원, 중",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000583&bnefType=all&svcId=929000000202",
+    "amountWon": 385000,
+    "amountText": "1인당 38만 5천 원",
+    "plain": "모든 초·중·고 학생 대상 학교급별 1회 지원(대상별 지원금 상이)",
+    "who": "수학여행을 실시하는 학교에 다니는 학생에게 지원",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -4608,18 +3865,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4632,6 +3882,10 @@
     "amount": "- 출산, 육아용품 대여 \r\n- 도내 거주 임산부 안전벨트 무상대여",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2153817&bnefType=all&svcId=650000001130",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "출산·육아용품 상설 대여점 운영 : 2개소(제주점, 서귀포점)",
+    "who": "일반이용자(대여료지불)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -4640,19 +3894,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 5,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "출산/입양"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -4664,6 +3907,10 @@
     "amount": "출산여성 한약 구입비 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2153816&bnefType=all&svcId=650000001129",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "출산여성 한약 구입비 지원",
+    "who": "가",
     "deadline": null,
     "deadlineText": "※ 증서의 교부 기간은 임신 30주 ~ 출산일로부터 4개월까지",
     "field": "임신·출산",
@@ -4672,17 +3919,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 49,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -4696,6 +3934,10 @@
     "amount": "○ 서비스내용 : 건강음료 전문판매원 활용, 건강음료 배달 시 안부확인을 병행하여 1인 가구의 건강한 삶 지",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002563&bnefType=all&svcId=650000000264",
+    "amountWon": 2000,
+    "amountText": "2,000 원",
+    "plain": "고독사 위험군 1인가구를 대상으로 건강음료 배달 및 안부 확인",
+    "who": "혼자 생활하는 1인 가구 중 지원이 필요한 가구",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -4707,15 +3949,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -4728,6 +3963,10 @@
     "amount": "자격증 등 응시료 실비 지원(1인 10만원 범위 내 횟수제한없이 지원 가능)",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128290&bnefType=all&svcId=650000001106",
+    "amountWon": 100000,
+    "amountText": "10만 원",
+    "plain": "자격증 등 응시료 실비 지원(1인 10만원 범위 내 횟수제한없이 지원 가능)",
+    "who": "서귀포시 대학생 및 미취업(구직) 19세~39세 청년",
     "deadline": null,
     "deadlineText": "매년 2월~예산소진 시까지",
     "field": "생활안정",
@@ -4736,16 +3975,10 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "구직자/실업자",
-        "대학생"
+      "income": null,
+      "need": [
+        "대학생",
+        "구직자/실업자"
       ]
     }
   },
@@ -4758,6 +3991,10 @@
     "amount": "- (일반형) 제주도에 최초 전입하는 경우 - 10만원\r\n- (U턴형)  과거 연속 5년 이상 제주도 주민등",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2161821&bnefType=all&svcId=650000001137",
+    "amountWon": 200000,
+    "amountText": "20만 원",
+    "plain": "지역화폐 탐나는전 모바일 충전",
+    "who": "(신청대상) 전입일 기준 19-39세 청년",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -4766,21 +4003,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 39,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "신규전입"
       ]
     }
   },
@@ -4793,6 +4018,10 @@
     "amount": "○ 고교생 - 수업료  학교운영지원비(무상교육 제외, 1인 2백 5십만원 이내)\r\n○ 대학생 - 등록장학금(",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002566&bnefType=all&svcId=650000000267",
+    "amountWon": 1000000,
+    "amountText": "1백만 원",
+    "plain": "기초생활수급자 등 어려운 고등학생 및 대학생, 학교밖청소년에게 장학금 지원",
+    "who": "(등록금장학금)",
     "deadline": null,
     "deadlineText": "매년 3월(공고일에 따라 달라질 수 있음)",
     "field": "보육·교육",
@@ -4801,19 +4030,10 @@
     "cond": {
       "ageMin": 17,
       "ageMax": 34,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -4826,6 +4046,10 @@
     "amount": "○ 지원 대상 특수교육대상자에게 치료 바우처카드 또는 병의원 치료비 지원\r\n - 재활치료 또는 병·의원치료비",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000585&bnefType=all&svcId=929000000203",
+    "amountWon": 1920000,
+    "amountText": "월 16만 원",
+    "plain": "특수교육대상자에게 치료 바우처카드 또는 병의원 치료비 지원",
+    "who": "개별화교육지원팀회의를 통하여 치료 지원 대상자로 결정된 특수교육대상자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -4834,18 +4058,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4858,6 +4075,10 @@
     "amount": "○ 지원 대상 특수교육대상자 및 보호자에게 통학비 지원\r\n - 등·하교를 위한 대중교통비(일반버스카드) 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001412&bnefType=all&svcId=929000000206",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "특수교육대상자 및 보호자에게 통학비 지원(출석일수, 버스요금 기준)",
+    "who": "개별화교육지원팀회의를 통하여 통학비 지원 대상자로 결정된 특수교육대상자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -4866,18 +4087,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4890,6 +4104,10 @@
     "amount": "기숙사 실비, 급식비 실비(조식, 방학중중식, 석식), 방과후학교자유수강권(연 60만원 이내 실비), 수학여",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000608&bnefType=all&svcId=929000000204",
+    "amountWon": 600000,
+    "amountText": "연 60만 원",
+    "plain": "특목고 기회균등전형대상자 대상 교육비 지원",
+    "who": "사회통합전형 기회균등전형대상자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -4901,11 +4119,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "고등학생"
       ]
     }
   },
@@ -4918,6 +4133,10 @@
     "amount": "- 정서 위기 지원: 심리치료비, 상담비, 진단검사비, 강사비 등\r\n- 기초학력 향상: 교재비, 상담비, 프",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=808435&bnefType=all&svcId=929000000014",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "정서 위기, 경제적 빈곤 등 복합적 위기요인을 가진 학생에 대한 맞춤형 통합지원",
+    "who": "제주 도내 전체 초중고(187교)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -4930,11 +4149,10 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -4947,6 +4165,10 @@
     "amount": "○ 장비지원 : 제주시 관내 해녀에게 해녀복 및 테왁 보호망 지원\r\n\r\n○ 해녀육성 : 신규해녀 어촌계 가입",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004548&bnefType=all&svcId=650000000293",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "해녀 대상 장비, 어촌계 가입비, 안전공제 가입비 지원",
+    "who": "제주시 관내 해녀",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -4955,18 +4177,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -4979,6 +4192,10 @@
     "amount": "○ 사업집행주체: 행정시\r\n○ 지원대상: 해녀증을 소지한 해녀\r\n○ 진료기관: 행정시장이 지정한 병․의원 \r",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190526&bnefType=all&svcId=650000001160",
+    "amountWon": 4000000,
+    "amountText": "1인당 연간 4,000천 원",
+    "plain": "전현직 해녀 대상「국민건강보험법」상 요양 급여대상 외래진료비의 본인부담금 지원",
+    "who": "해녀증을 소지한 전현직 해녀",
     "deadline": null,
     "deadlineText": "해당없음",
     "field": "보건·의료",
@@ -4987,18 +4204,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -5011,6 +4219,10 @@
     "amount": "○ 사업내용 및 지원조건\r\n - 사업집행주체: 행정시\r\n - 지원대상: 현직해녀 \r\n - 지원내용: 마을어업",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2190522&bnefType=all&svcId=650000001156",
+    "amountWon": 380000,
+    "amountText": "380천 원",
+    "plain": "해녀들에게 해녀복 및 잠수장비를 지원",
+    "who": "제주특별자치도 관내 마을어업에 종사하는 현직 해녀",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -5019,18 +4231,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "어업인"
       ]
     }
   },
@@ -5043,6 +4246,10 @@
     "amount": "○ 첫째아 육아지원금 : 5년간 500만원(0세 50만원, 1~2세120만원,3세 110만원, 4세100만원",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002562&bnefType=all&svcId=650000000263",
+    "amountWon": 10000000,
+    "amountText": "1,000만 원",
+    "plain": "첫째아 또는 둘째아를 출산,양육하는 부모에게 육아지원금 지급",
+    "who": "첫째아 육아지원금",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -5051,18 +4258,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -5076,6 +4273,10 @@
     "amount": "○ 냉난방비 1인당 연 100,000원 지원\r\n - 에너지드림 바우처카드 지급 원칙 \r\n - 전기요금 예외 ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003455&bnefType=all&svcId=650000000280",
+    "amountWon": 100000,
+    "amountText": "1인당 연 100,000 원",
+    "plain": "노인맞춤돌봄서비스 대상자 중 차상위계층, 기초연금수급 홀로 사는 노인에게 냉난방비 지원",
+    "who": "노인맞춤돌봄서비스 대상자 중 차상위계층 또는 기초연금 수급자이면서 홀로 사는 노인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -5088,15 +4289,8 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -5109,6 +4303,10 @@
     "amount": "- 홀로 사는 노인 발굴 및 인식 개선 사업\r\n   - 고독사 예방 사업\r\n   - 홀로 사는 노인의 외부 ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005061&bnefType=all&svcId=650000000299",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "홀로사는 노인 발굴 및 인식개선 사업, 고독사예방사업 등 다양한 프로그램 지원",
+    "who": "만65세이상의 홀로사는 노인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -5117,19 +4315,9 @@
     "cond": {
       "ageMin": 65,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "1인가구",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "1인가구"
       ]
     }
   },
@@ -5142,6 +4330,10 @@
     "amount": "○ 지원대상 : 희귀난치성질환자 및 중증질환으로 등록된 의료급여수급자 및 차상위본인부담경감대상자\r\n\r\n○ 지",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002536&bnefType=all&svcId=650000000261",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "희귀중증질환자으로 등록된 의료급여수급에게 도외 교통 항공료 또는 선박비 지원",
+    "who": "의료급여수급자 및 차상위본인부담경감대상자 중 산정특례자로 등록된 희귀난치성질환자 및 중증질환자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -5150,18 +4342,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "질병/질환자"
       ]
     }
   }

@@ -8,6 +8,10 @@
     "amount": "○ (신청자격) 신청일 기준 세종시에 주민등록상 주소지를 두고있는 19세 이상 등록장애인(2007년 12월 ",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2122102&bnefType=all&svcId=569000000384",
+    "amountWon": 350000,
+    "amountText": "1인당 연간 35만 원",
+    "plain": "세종시 거주 19세 이상 장애인 대상으로 평생교육이용권 지원(1인 연간 35만원)",
+    "who": "(신청자격) 신청일 기준 주민등록상 주소지가 세종시에 있는 19세 이상 성인 중 등록장애인",
     "deadline": null,
     "deadlineText": "2026년 7월 15일 10:00~2026년 7월 30일 17:00",
     "field": "보육·교육",
@@ -16,18 +20,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -41,6 +35,10 @@
     "amount": "3명 이상 자녀를 둔 가구 중 1명 이상의 19세 미만 자녀가 있는 가구에  상수도요금 월2천원 감면",
     "how": "정부24온라인신청||방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2124502&bnefType=all&svcId=569000000387",
+    "amountWon": 24000,
+    "amountText": "월 2천 원",
+    "plain": "3명 이상 자녀를 둔 가구 중 1명 이상의 19세 미만 자녀가 있는 가구 상수도감면",
+    "who": "3명 이상 자녀를 둔 가구 중 1명 이상의 19세 미만 자녀가 있는 가구",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -49,14 +47,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
+      "income": null,
+      "need": [
         "다자녀가구"
       ]
     }
@@ -70,6 +62,10 @@
     "amount": "○ GAP 인증에 필요한 토양, 용수, 잔류농약, 중금속 검사비 지원\r\n - 신청비와 출장비 제외",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000441&bnefType=all&svcId=569000000329",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "농가에 GAP 인증에 필요한 토양, 용수, 잔류농약 등 검사비 지원",
+    "who": "GAP 인증을 받은 자 또는 받기 위해 안전성 검사를 실시하고 그 비용을 부담한 자(농업경영체)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "농림축산어업",
@@ -78,18 +74,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -102,6 +89,10 @@
     "amount": "○ 가정위탁아동 양육보조금 지원\r\n - 7세 미만 30만원\r\n - 7세 ~ 12세 미만 40만원\r\n - 13",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003138&bnefType=all&svcId=569000000347",
+    "amountWon": 500000,
+    "amountText": "50만 원",
+    "plain": "가정위탁아동에게 양육보조금 지원",
+    "who": "가정위탁아동",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -110,26 +101,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 17,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -141,6 +114,10 @@
     "amount": "○ 1인당 60~100만원 장학금 지급\r\n - 중 : 60만원 / 고 : 90만원 / 대 : 100만원",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000345&bnefType=all&svcId=O00088400002",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "국가유공자, 의사상자 본인 또는 자녀에게 장학금 지원",
+    "who": "국가유공자·의사상자 본인이나 자녀인 세종시 중·고·대학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 1회",
     "field": "보육·교육",
@@ -149,19 +126,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "중학생",
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -174,6 +143,10 @@
     "amount": "○ 세종시에 주소를 두고 농업경영체를 등록한 농업인에게 과수시설채소 영농자재 구매용 체크카드, 과실봉지, 미",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002702&bnefType=all&svcId=569000000337",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "농가별, 품목별 희망 영농자재 공급 지원",
+    "who": "세종시에 주소와 농지를 두고 농업경영체를 등록한 농업인",
     "deadline": null,
     "deadlineText": "매년 11월~1월 중 접수, 필요시 읍면을 통해 추가 접수",
     "field": "농림축산어업",
@@ -182,18 +155,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -206,6 +170,10 @@
     "amount": "○ 국민임대주택에 거주하는 수급자 가구에 공동전기료 지원",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004090&bnefType=all&svcId=569000000350",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "국민임대주택에 거주하는 수급자 가구에 공동전기료 지원",
+    "who": "국민임대주택에 거주하는 수급자 가구",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -217,19 +185,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -241,6 +197,10 @@
     "amount": "○ 세종시 위기가구 학생 장학금 지원\r\n - 1인당 200만원 장학금 지급",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2001438&bnefType=all&svcId=O00088400012",
+    "amountWon": 2000000,
+    "amountText": "1인당 200만 원",
+    "plain": "세종시 위기가구 학생에게 장학금 지원",
+    "who": "긴급복지지원법 제2조에 따른 위기가구 세종시 초·중·고·대학생(거주 및 재학 모두)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -253,12 +213,11 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -271,6 +230,10 @@
     "amount": "○ 세종시에 주소를 두고 농업경영체 등록한 농업인에게 농업기계 가격집에 등재된 농업기계 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004937&bnefType=all&svcId=569000000360",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "농업인에게 농업기계 지원으로 경영비 절감 및 농업기계화율 제고",
+    "who": "세종시에 주소를 두고 거주를 하고 있으며 관내 해당작목 1,000㎡ 이상 재배 농업경영체",
     "deadline": null,
     "deadlineText": "매년 1월 중",
     "field": "농림축산어업",
@@ -284,11 +247,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -301,6 +261,10 @@
     "amount": "요건 충족 농가에 세대당 농업인 수당 60만원(1년) 지급\r\n- 여민전 충전카드 30만원×2매",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2113905&bnefType=all&svcId=569000000378",
+    "amountWon": 600000,
+    "amountText": "60만 원",
+    "plain": "요건 충족 농가에 세대당 농업인 수당 60만원(1년) 지급 여민전 충전카드 30만원×2",
+    "who": "신청연도 이전 3년전 1월 1일부터 신청일까지 주민등록상 세종시 거주(부득이한 사유의 3개원 단기 전출",
     "deadline": null,
     "deadlineText": "접수기관 별 상이",
     "field": "농림축산어업",
@@ -309,18 +273,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -333,6 +288,10 @@
     "amount": "○ 다문화 가정 및 북한이탈주민의 자녀 대상 지급 장학금\r\n○ 1인당 30~100만원 장학금 지급\r\n - 초",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000211&bnefType=all&svcId=O00088400001",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주 다문화가정 또는 북한이탈주민 대상으로 장학금 지원",
+    "who": "다문화가정 및 북한이탈주민 중 세종시 초·중·고·대학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -341,15 +300,14 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "대학생",
+        "다문화가족",
+        "북한이탈주민"
       ]
     }
   },
@@ -362,6 +320,10 @@
     "amount": "○ 의료비 본인부담금 지원",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006295&bnefType=all&svcId=569000000366",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "독립유공자 및 유족에게 의료비 본인부담금을 지원 (비급여 부분 의료비 지원 불가)",
+    "who": "독립유공자 및 독립유공자 유족 의료비 본인부담금 지원",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -370,18 +332,8 @@
     "cond": {
       "ageMin": 60,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "국가보훈대상자"
       ]
     }
@@ -395,6 +347,10 @@
     "amount": "○ 명절위문금 지원",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004091&bnefType=all&svcId=569000000351",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "기초수급자, 차상위계층 등에게 명절위문금 지원",
+    "who": "기초수급자",
     "deadline": null,
     "deadlineText": "명절기간",
     "field": "보호·돌봄",
@@ -406,19 +362,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -430,6 +374,10 @@
     "amount": "○ 저소득 세종시 거주 대학생의 교육기회 평등을 위한 장학금 지원\r\n - 1인당 100만원 장학금 지급(생활",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000433&bnefType=all&svcId=O00088400004",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주 저소득 대학생 대상으로 장학금 지원(1인당 100만원)",
+    "who": "한국장학재단 최근 소득분위 6구간 이하의 세종시 거주 1년 이상 대학생",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -443,12 +391,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "대학생"
       ]
     }
   },
@@ -461,6 +405,10 @@
     "amount": "○ 저소득 세종시 초·중·고등학생의 교육기회 평등을 위한 장학금 지원\r\n\r\n○ 1인당 30~90만원 장학금 ",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000534&bnefType=all&svcId=O00088400011",
+    "amountWon": 900000,
+    "amountText": "1인당 90만 원",
+    "plain": "세종시 거주 저소득 초·중·고등학생 대상으로 장학금 지원(차등지급)",
+    "who": "기준중위소득 이하의 가정 세종시 초·중·고등학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -474,11 +422,10 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -491,6 +438,10 @@
     "amount": "○ 방과후학교자유수강권\r\n - 지원대상 : 초중등교육법 제60조의4부터 제60조의 10에 의한 교육비 지원 ",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2102411&bnefType=all&svcId=930000000014",
+    "amountWon": 600000,
+    "amountText": "1인당 연간 60만 원",
+    "plain": "초·중·고 저소득층학생 방과후학교자유수강권 지원",
+    "who": "국민기초생활수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -503,11 +454,10 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -520,6 +470,10 @@
     "amount": "○ 관내주소를 두고 실거주하면서 관내농지에서 벼를 재배하는 경영체 등록농가 직불금 지원\r\n - 지원단가 : ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004357&bnefType=all&svcId=569000000354",
+    "amountWon": 400000,
+    "amountText": "400천 원",
+    "plain": "벼 재배농가에 농정심의회에서 정한 단가로 직불금 지원",
+    "who": "벼 재배농가",
     "deadline": null,
     "deadlineText": "하반기",
     "field": "농림축산어업",
@@ -528,18 +482,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -552,6 +497,10 @@
     "amount": "○ 18세 이상 보호종료아동에게 1,000만원 지원(1회)",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005170&bnefType=all&svcId=569000000361",
+    "amountWon": 10000000,
+    "amountText": "1,000만 원",
+    "plain": "18세 이상 보호종료아동에게 자립정착금 지원",
+    "who": "18세 이상 보호종료아동(아동복지시설 퇴소",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -560,26 +509,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 19,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -591,6 +522,10 @@
     "amount": "○ 지원대상 : 기초생활수급자 또는 차상위계층 중 부부장애인\r\n\r\n○ 지원금액 : 월 5만원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000746&bnefType=all&svcId=569000000333",
+    "amountWon": 600000,
+    "amountText": "월 5만 원",
+    "plain": "기초생활수급자 또는 차상위계층의 부부장애인에게 수당 지급",
+    "who": "기초생활수급자 또는 차상위계층 중 부부장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -602,11 +537,7 @@
       "income": [
         "JA0204"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -620,6 +551,10 @@
     "amount": "○ 우수정액 활용을 통한 관내 사슴 개량 촉진 및 생산성 증대\r\n○ 일괄 인공수정 추진을 통한 농가 안전성 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004358&bnefType=all&svcId=569000000355",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "인공수정료 지원",
+    "who": "관내 사슴 사육농가(가축사육업 등록농가)",
     "deadline": null,
     "deadlineText": "매년 연초",
     "field": "농림축산어업",
@@ -634,11 +569,8 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -651,6 +583,10 @@
     "amount": "○ 2022.12.31.이전부터 계속하여 세종특별자치시에 주민등록을 두고 거주하는 1937.12.31.이전 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000667&bnefType=all&svcId=569000000330",
+    "amountWon": 600000,
+    "amountText": "매월 5만 원",
+    "plain": "85세 이상(1937. 12. 31. 이전 출생) 어르신에게 사회활동장려금 지급",
+    "who": "2022.12.31.이전부터 계속하여 세종시에 주민등록을 두고 거주하고 있는 1937.12.31.이전",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -659,26 +595,8 @@
     "cond": {
       "ageMin": 85,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -690,6 +608,10 @@
     "amount": "○ 지원내용 : 산모·신생아 건강관리사가 일정 기간 출산가정을 방문하여 산후관리를 도와주는 산모·신생아 건강",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004389&bnefType=all&svcId=569000000356",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "산모에게 건강관리를 위한 서비스 이용권 지급",
+    "who": "국내에 주민등록 또는 외국인 등록을 둔 출산 가정",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -698,18 +620,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -723,6 +635,10 @@
     "amount": "1. 사 업 명  : 전세보증금반환보증 보증료 지원사업\r\n\r\n2. 지원대상 : 무주택 임차인 중 신청일 기준",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2108201&bnefType=all&svcId=569000000375",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "실제 납부한 전세보증금반환보증 보증료 지원(최대 40만원)",
+    "who": "1",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -731,22 +647,9 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "무주택세대",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "무주택세대"
       ]
     }
   },
@@ -759,6 +662,10 @@
     "amount": "○ 소비자가 상품권을 구매(월 30만원)하여 지역내 가맹점에서 결제 시 결제금액의 10% 캐시백 지급\r\n ※",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004093&bnefType=all&svcId=569000000353",
+    "amountWon": 3600000,
+    "amountText": "월 30만 원",
+    "plain": "만 14세 이상 사용자가 여민전 결제 시 10% 캐시백 지원",
+    "who": "만 14세 이상 상품권을 충전하여 사용하는 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -767,14 +674,8 @@
     "cond": {
       "ageMin": 14,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -786,6 +687,10 @@
     "amount": "현장 방문 면접 정장 대여(정장대여실 운영)",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128547&bnefType=all&svcId=569000000391",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "현장 방문 면접 정장 대여(정장대여실 운영)",
+    "who": "세종시 거주 중인 19세~39세 미취업 청년 중 워크넷 구직 등록자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "고용·창업",
@@ -800,13 +705,10 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "구직자/실업자",
+      "need": [
+        "고등학생",
         "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+        "구직자/실업자"
       ]
     }
   },
@@ -819,6 +721,10 @@
     "amount": "월 50만원씩 최대 6개월 간 지원(총 300만원)\r\n※ 지원금 총액 300만원 한도 내에서 조기취업성공금(",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128546&bnefType=all&svcId=569000000390",
+    "amountWon": 3000000,
+    "amountText": "월 50만 원 · 최대 6개월",
+    "plain": "월 50만원씩 최대 6개월 간 지원(총 300만원)",
+    "who": "(거주) 공고일 기준 세종시 거주(주민등록)된 자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "고용·창업",
@@ -833,12 +739,8 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "구직자/실업자",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "구직자/실업자"
       ]
     }
   },
@@ -851,6 +753,10 @@
     "amount": "○ (보험대상) 세종시민(등록외국인* 포함)\r\n   * 「출입국관리법」에 의거 세종특별자치시를 체류지로 신고",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2129050&bnefType=all&svcId=569000000392",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "각종 재난·사고 등으로 인한 사망 또는 후유장해, 부상을 입은 시민들에게 보험금 지급",
+    "who": "세종시민(등록외국인* 포함) *「출입국관리법」에 의거 세종특별자치시를 체류지로 신고한 외국인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -859,26 +765,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 100,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -890,6 +778,10 @@
     "amount": "○ 실제 생활이 어려우나 부양의무자 기준, 재산기준 등 법정요건이 맞지 않아 정부 보호를 받지 못하는 비수급",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006168&bnefType=all&svcId=569000000364",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "비수급 저소득층 가구에 기초생계급여를 지원",
+    "who": "1개월 이상 세종시 거주시민으로 가구의 소득인정액이 기준 중위소득 44%이하 및 부양의무자 기준 동시",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "생활안정",
@@ -901,19 +793,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -925,6 +805,10 @@
     "amount": "○ 입주 순위에 따라 시중 시세의 30∼50% 수준의 임대 조건으로 공급\r\n\r\n - 1순위 : 시중 시세의 ",
     "how": "방문신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159281&bnefType=all&svcId=569000000402",
+    "amountWon": 3000000,
+    "amountText": "300만 원",
+    "plain": "저소득 청년에게 저렴한 임대 주택을 공급하여 청년 주거 복지 향상",
+    "who": "입주자 모집 공고일 현재 무주택자인 미혼 청년으로서 소득 및 자산 기준을 충족",
     "deadline": null,
     "deadlineText": "수시(입주 잔여세대 감소 시)",
     "field": "주거·자립",
@@ -933,22 +817,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "장애인"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -960,6 +830,10 @@
     "amount": "○ 신혼부부 건강검진 검사항목 : 매독, 에이즈, 혈액형, B형간염, 헤모글로빈, 풍진항체검사(여성한정)\r\n",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159280&bnefType=all&svcId=569000000401",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "평생 1회에 한해 신혼부부 건강 검진, 초기 임신부 건강 검진을 지원",
+    "who": "세종시 거주 임신 준비 중인 신혼부부 및 임신 12주 이내 임산부",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -968,16 +842,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 55,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
+      "income": null,
+      "need": [
+        "예비부모/난임",
         "임산부"
       ]
     }
@@ -991,6 +858,10 @@
     "amount": "○ 급식카드 사용 아동 :  매월(1일) 급식비 충전(지원 단가 : 1식 9,500원)/학기 중 토·공휴일 ",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159275&bnefType=all&svcId=569000000398",
+    "amountWon": 9500,
+    "amountText": "9,500 원",
+    "plain": "급식 지원 등을 통해 결식 예방 및 영양 개선",
+    "who": "만 18세미만의 취학 및 미취학 아동(아동복지법 제3조) ※ 18세 이상인 경우 학교에 재학 중인 아동 및",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1003,12 +874,7 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
-      ]
+      "need": []
     }
   },
   {
@@ -1020,6 +886,10 @@
     "amount": "세종시에 거주하는 육아 휴직을 신청한 남성에게 월 30만원씩 최대 6개월간 장려금을 지원",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123213&bnefType=all&svcId=569000000385",
+    "amountWon": 1800000,
+    "amountText": "월 30만 원 · 최대 6개월",
+    "plain": "세종시에 거주하는 육아 휴직을 신청한 남성에게 월30만원씩 6개월간 장려금 지원",
+    "who": "다음 조건을 모두 충족하는 남성 육아 휴직자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -1028,16 +898,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "출산/입양"
+      "income": null,
+      "need": [
+        "출산/입양",
+        "근로자/직장인"
       ]
     }
   },
@@ -1050,6 +914,10 @@
     "amount": "○ 닭에서 생산성 저하를 유발하는 가축질병을 예방, 구제하는 백신약품 지원(저병원성 AI 혼합백신, 산란계농",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002705&bnefType=all&svcId=569000000340",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "닭 사육농가에 가축질병을 예방 및 구제하는 백신약품 지원",
+    "who": "닭 사육농가 (산란계",
     "deadline": null,
     "deadlineText": "가축방역사업지침 시행일로부터 지정기간",
     "field": "농림축산어업",
@@ -1058,18 +926,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -1082,6 +941,10 @@
     "amount": "○ 사료요구율을 개선시켜 농가 생산성 향상 및 축사내 악취저감 효과",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004778&bnefType=all&svcId=569000000359",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "양계 축산농가에 생산성 향상 등을 위한 환경개선제 지원",
+    "who": "가금사육농가",
     "deadline": null,
     "deadlineText": "매년 연초",
     "field": "농림축산어업",
@@ -1095,11 +958,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -1112,6 +972,10 @@
     "amount": "○ 돼지에서 만성소모성 질환인 생식기호흡기증구훈 예방약 지원\r\n - 지원단가 : 농가별 상이",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002706&bnefType=all&svcId=569000000341",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "양돈농가에 돼지 생식기호흡기증후군 예방약을 지원",
+    "who": "양돈농가",
     "deadline": null,
     "deadlineText": "가축방역사업 시행 일로부터 지정일까지",
     "field": "농림축산어업",
@@ -1120,18 +984,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -1144,6 +999,10 @@
     "amount": "○ 양돈농가 환경개선 시설, 장비 지원을 통해 악취 저감",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001125&bnefType=all&svcId=569000000334",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "양돈농가 환경개선 시설, 장비 지원을 통해 악취 저감",
+    "who": "관내 양돈농가(종돈장 직접 운영농가 제외)",
     "deadline": null,
     "deadlineText": "매년 연초",
     "field": "농림축산어업",
@@ -1157,11 +1016,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -1174,6 +1030,10 @@
     "amount": "○ 지원대상 : 신청일을 기준으로 3개월 전부터 세종특별자치시에 거주하며 만 24개월 이하 자녀를 양육하는 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006059&bnefType=all&svcId=569000000363",
+    "amountWon": 1200000,
+    "amountText": "월 10만 원",
+    "plain": "여성장애인에게 양육지원금 지급",
+    "who": "신청일을 기준으로 3개월 전부터 세종특별자치시에 거주하며 만24개월 이하 자녀를 양육하는 여성장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1182,18 +1042,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -1207,6 +1057,10 @@
     "amount": "○ 지원대상 : 자녀 출생일을 기준으로 3개월 전부터 세종특별자치시에 거주하는 여성장애인\r\n\r\n○ 지원금액 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005599&bnefType=all&svcId=569000000362",
+    "amountWon": 1000000,
+    "amountText": "100만 원",
+    "plain": "여성장애인에게 출산지원금 지급",
+    "who": "자녀 출생일을 기준으로 3개월 전부터 세종특별자치시에 거주하는 여성장애인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -1215,18 +1069,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -1240,6 +1084,10 @@
     "amount": "세종시 소재 고등학교 재학생 성적우수자 대상 1인당 70만원 장학금 지급",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000452&bnefType=all&svcId=O00088400010",
+    "amountWon": 700000,
+    "amountText": "1인당 70만 원",
+    "plain": "세종시 소재 성적이 우수한 고등학생에게 장학금 지원",
+    "who": "세종시 소재 고등학교 재학생 중 석차 5%이내로 학교장 추천",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -1248,18 +1096,9 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "고등학생"
       ]
     }
   },
@@ -1272,6 +1111,10 @@
     "amount": "○ 대상기종 : 화물차 탑재 가능 기종 \r\n\r\n○ 지원단가 : 편도70,000원(지원 50,000원 자부담 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159272&bnefType=all&svcId=569000000395",
+    "amountWon": 100000,
+    "amountText": "100,000 원",
+    "plain": "1톤기준 자부담 20,000원 지원(편도) 2톤기준 자부담 30,000원 지원(편도)",
+    "who": "세종시에 주소지를 두고 농지를 보유한 농업인",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "농림축산어업",
@@ -1280,18 +1123,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -1304,6 +1138,10 @@
     "amount": "○ 세종시에 주민등록한 임산부 영양제 지원(엽산제, 철분제)\r\n\r\n○ 지원 내용\r\n - 엽산제 지원 : 임신",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003135&bnefType=all&svcId=569000000344",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "세종시에 주민등록된 임산부에 엽산제와 철분제 지원",
+    "who": "세종특별자치시에 주민등록 및 보건소 등록 임신부",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -1312,18 +1150,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "임산부"
       ]
     }
@@ -1337,6 +1165,10 @@
     "amount": "○ 학용품, 도서 등 입학에 필요한 비용을 연령 별 차등 지원 \r\n\r\n - 어린이집 및 유치원: 20만 원 ",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159277&bnefType=all&svcId=569000000399",
+    "amountWon": 500000,
+    "amountText": "50만 원",
+    "plain": "학용품, 도서 등 입학에 필요한 비용을 연령 별 차등 지원",
+    "who": "입양 가정 중 아래의 조건을 모두 충족",
     "deadline": null,
     "deadlineText": "입양아동의 입학일로부터 1개월 이내 신청",
     "field": "보호·돌봄",
@@ -1345,16 +1177,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 55,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "무주택세대",
-        "다자녀가구",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -1368,6 +1192,10 @@
     "amount": "○ 진로상담지원단을 통한 전문 진로상담 제공\r\n - 주중 진로상담: 매주 화요일 2회 운영, 회당 50분\r\n",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000451&bnefType=all&svcId=930000000008",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "학생 및 학부모 대상으로 진로교육원 방문 진로상담 제공",
+    "who": "초 5~6학년",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1376,18 +1204,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1400,6 +1221,10 @@
     "amount": "(금액)취, 창업후 6개월 근속시 50만원(1회차), 이후 6개월 추가 근속시 100만원(2회차) 지급\r\n\r",
     "how": "기타 온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149936&bnefType=all&svcId=569000000394",
+    "amountWon": 1000000,
+    "amountText": "100만 원",
+    "plain": "취, 창업후 6개월 근속시 50만원(1회차), 이후 6개월 추가 근속시 100만원(2회차)",
+    "who": "지원대상 : 자활참여이력",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -1408,26 +1233,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1439,6 +1246,10 @@
     "amount": "○ 지원대상 : 장루요루장애인(저소득 우선)\r\n\r\n○ 지원금액 : 1인 20만원 이내\r\n ※ 연 1회 대상자",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003133&bnefType=all&svcId=569000000342",
+    "amountWon": 200000,
+    "amountText": "20만 원",
+    "plain": "장루요루장애인에게 의료케어제품 구입비 지원",
+    "who": "장루요루장애인(저소득 우선)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1447,18 +1258,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -1472,6 +1273,10 @@
     "amount": "○  만 100세가 되는 어르신에게 1회로 한정 30만원 지급",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006661&bnefType=all&svcId=569000000370",
+    "amountWon": 300000,
+    "amountText": "30만 원",
+    "plain": "만 100세가 되는 어르신에게 장수축하금 지급",
+    "who": "세종시에 주민등록이 된 만 100세가 되는 어르신",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1480,26 +1285,8 @@
     "cond": {
       "ageMin": 100,
       "ageMax": 100,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1511,6 +1298,10 @@
     "amount": "○ 1인당 30~100만원 장학금 지급\r\n - 초 : 30만원 / 중 : 60만원 / 고 : 90만원 / 대",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000435&bnefType=all&svcId=O00088400006",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주 사회적배려계층(장애인) 대상 초·중·고·대학생에게 장학금 지원",
+    "who": "장애인으로 등록된 세종시 초·중·고·대학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -1519,19 +1310,12 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -1544,6 +1328,10 @@
     "amount": "○ 전국대회 3위 이상 입상 세종시 장애 초·중·고·대학생 장학금 지원\r\n - 1인당 100만원 장학금 지급",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000436&bnefType=all&svcId=O00088400007",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주, 전국대회에서 3위 이상 입상한 장애 초·중·고·대학생에게 장학금 지원",
+    "who": "전국대회 입상 장애인 중 세종시 초·중·고·대학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -1552,19 +1340,12 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생",
+        "대학생"
       ]
     }
   },
@@ -1577,6 +1358,10 @@
     "amount": "장애인 또는 몸이 불편한 시민이 회관 방문시 장애인콜 버튼을 누르거나 보안실로 연락하면 직원이 고객의 위치로",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000380&bnefType=all&svcId=O00082900001",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "사회적 취약계층 대상 장애인콜 버튼 호출 시 1:1 편의 서비스 제공",
+    "who": "세종문화회관을 방문한 모든사람",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1585,14 +1370,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -1604,6 +1383,10 @@
     "amount": "○ 지원대상 : 장애인 활동지원 서비스 국비지원대상자 중 시간부족으로 추가지원이 필요한 자\r\n\r\n○ 지원급여",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003465&bnefType=all&svcId=569000000348",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "장애인 활동지원 서비스 대상자에게 활동보조 추가 지원",
+    "who": "장애인 활동지원 서비스 국비지원대상자 중 시간부족으로 추가지원이 필요한 자",
     "deadline": null,
     "deadlineText": "연말 신청",
     "field": "보호·돌봄",
@@ -1612,18 +1395,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -1637,6 +1410,10 @@
     "amount": "○ 보장구 출고시에 장착된 부품과 충전기에 한하여 수리지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004092&bnefType=all&svcId=569000000352",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "전동휠체어, 스쿠터 등을 이용하는 장애인에게 수리서비스 지원",
+    "who": "시 거주 등록장애인으로 수동․전동휠체어",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1645,18 +1422,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "장애인"
       ]
     }
@@ -1670,6 +1437,10 @@
     "amount": "○ 가정 형편이 어렵거나 부득이한 사정으로 식사를 거를 우려가 있는 60세 이상 노인에게 무료 급식 제공",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002703&bnefType=all&svcId=569000000338",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "결식우려 노인에게 식사배달 제공",
+    "who": "60세 이상 노인 중 기초생활수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -1682,19 +1453,7 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1706,6 +1465,10 @@
     "amount": "○ 저소득층 고등학생 학기중 석식 무상 지원 \r\n - 지원대상 :「국민기초생활 보장법」에 의한 국민기초생활보",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000456&bnefType=all&svcId=930000000010",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "저소득층 고등학생 대상으로 학기 중 석식 지원(학교별상이)",
+    "who": "관내 고등학교 재학생 중 국민기초생활수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1717,11 +1480,8 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "고등학생"
       ]
     }
   },
@@ -1734,6 +1494,10 @@
     "amount": "○ 건강보험료 지원",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001192&bnefType=all&svcId=569000000335",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "노인, 등록장애인, 한부모가족 등의 세대에게 건강보험료 지원",
+    "who": "노인세대",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보건·의료",
@@ -1745,14 +1509,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "need": []
     }
   },
   {
@@ -1764,6 +1521,10 @@
     "amount": "○ 저소득층 교육정보화 지원\r\n - 지원대상 : 초1~고3 학생 중 국민기초생활수급자, 한부모가족보호대상자,",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000268&bnefType=all&svcId=930000000005",
+    "amountWon": 231000,
+    "amountText": "월 19,250 원",
+    "plain": "저소득층 학생 대상으로 인터넷통신비 지원",
+    "who": "국민기초생활수급자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1775,11 +1536,10 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1792,6 +1552,10 @@
     "amount": "○ 저소득층 교육정보화 지원\r\n - 지원대상 : 국민기초생활수급자 가정 초1~고1 학생(특수 포함)\r\n - ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000267&bnefType=all&svcId=930000000004",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "저소득층 학생 대상으로 컴퓨터 지원",
+    "who": "국민기초생활수급자",
     "deadline": null,
     "deadlineText": "입학, 전·편입시 신청",
     "field": "보육·교육",
@@ -1803,11 +1567,10 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1820,6 +1583,10 @@
     "amount": "○ 중·고·특수학교 무상교복 지원\r\n - 지원대상 : 교복을 착용하는 세종시 관내 중·고·특수학교 신입생 및",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000265&bnefType=all&svcId=930000000002",
+    "amountWon": 344550,
+    "amountText": "344,550 원",
+    "plain": "중·고·특수학교 신입생 및 1~3학년 전·편입생에게 무상교복 지원",
+    "who": "세종시 관내 중·고·특수 신입생 및 1~3학년 전편입생",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -1828,18 +1595,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1852,6 +1611,10 @@
     "amount": "○ 중·고·특수학교 체육복비 지원\r\n - 지원대상 : 체육복을 착용하는 세종시 관내 중·고·특수학교 신입생과",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000266&bnefType=all&svcId=930000000003",
+    "amountWon": 130000,
+    "amountText": "13만 원",
+    "plain": "중·고·특수학교 신입생 및 1학년 전·편입생에게 체육복비 지원",
+    "who": "세종시 관내 중·고·특수학교 신입생 및 1학년 전·편입학생",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -1860,18 +1623,10 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -1884,6 +1639,10 @@
     "amount": "○ 지원대상 : 기초생활수급자 또는 차상위계층 중 중증장애인가구\r\n\r\n○ 지원금액 : 연 14만원(상하반기 ",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004617&bnefType=all&svcId=569000000357",
+    "amountWon": 140000,
+    "amountText": "연 14만 원",
+    "plain": "기초생활수급자 및 차상위계층의 중증장애인 가구에 월동비 지급 ※ 난방비 지원사업",
+    "who": "기초생활수급자 및 차상위계층 중 중증장애인 가구",
     "deadline": null,
     "deadlineText": "지자체에서 확인 지원 (별도 신청 불필요)",
     "field": "보호·돌봄",
@@ -1895,11 +1654,7 @@
       "income": [
         "JA0201"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "need": [
         "장애인"
       ]
     }
@@ -1913,6 +1668,10 @@
     "amount": "* 기존 대상자만 신청 가능합니다. 해당되지 않는 경우 신청을 삼가주시기 바랍니다.\r\n(신규신청은 복지로 홈",
     "how": "정부24온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2133621&bnefType=all&svcId=569000000393",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "부모와 별도거주하는 무주택 청년의 월세 최대 20만원 최대 24회 지원",
+    "who": "기존 청년월세지원 대상자 중 변경신청을 원하는 청년(19~34세)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -1921,14 +1680,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 34,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
+      "income": null,
+      "need": [
         "무주택세대"
       ]
     }
@@ -1942,6 +1695,10 @@
     "amount": "※ 청년월세 지원사업 중지 신청 대상자에 한하여 신청해 주시기 바랍니다.\r\n('26년도 신규 모집은 종료되었",
     "how": "정부24온라인신청||직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2188016&bnefType=all&svcId=569000000412",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "부모와 별도거주하는 무주택 청년의 월세 최대 20만원 최대 24회 지원",
+    "who": "※ 청년월세 지원사업 중지 신청 대상자에 한하여 신청해 주시기 바랍니다",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "주거·자립",
@@ -1950,14 +1707,8 @@
     "cond": {
       "ageMin": 19,
       "ageMax": 34,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
+      "income": null,
+      "need": [
         "무주택세대"
       ]
     }
@@ -1971,6 +1722,10 @@
     "amount": "○ 1인 연 10만 원 ※ 바우처카드 발급 및 포인트 충전\r\n\r\n○사용기간 : 2026년 3월 30일 ~ 1",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159274&bnefType=all&svcId=569000000397",
+    "amountWon": 100000,
+    "amountText": "연 10만 원",
+    "plain": "1인 연 10만 원 상당 바우처 카드 지급",
+    "who": "신청일 기준 세종시에 주민등록이 되어 있는 중학교 1학년 재학생(13세 학교 밖 청소년 포함)",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -1979,18 +1734,9 @@
     "cond": {
       "ageMin": 13,
       "ageMax": 13,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "중학생"
       ]
     }
   },
@@ -2003,6 +1749,10 @@
     "amount": "○ 초·중·고·특수학교 저소득층 학생 현장체험학습비 지원\r\n - 지원대상 : 세종시 관내 초중고특수학교 저소",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000455&bnefType=all&svcId=930000000009",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "초·중·고·특수학교 저소득층 학생에게 현장체험학습비 지원",
+    "who": "국민기초생활수급자",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -2015,11 +1765,10 @@
         "JA0201",
         "JA0202"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -2032,6 +1781,10 @@
     "amount": "○ 초·중·고·특수 현장체험학습비 지원 (급별 각 1회 지원)\r\n - 수학여행비\r\n  · 지원대상 : 세종시",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000449&bnefType=all&svcId=930000000006",
+    "amountWon": 300000,
+    "amountText": "30만 원",
+    "plain": "초·중·고·특수학생 재학 중 학교급별 현장체험학습(수학여행,수련활동,1일형체험학습) 각1회",
+    "who": "세종시 관내 초·중·고·특수학교 재학생",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -2040,18 +1793,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -2064,6 +1810,10 @@
     "amount": "○ 가축전염병 차단을 위한 축사 구서(해충, 쥐 등) 위생관리 지원\r\n - 지원단가 : 농가당 사업비 1,6",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002704&bnefType=all&svcId=569000000339",
+    "amountWon": 1600000,
+    "amountText": "1,600천 원",
+    "plain": "축산농가에 해충, 쥐 등을 방제하는데 필요한 위생관리 지원",
+    "who": "양돈",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "농림축산어업",
@@ -2077,11 +1827,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "축산업인"
       ]
     }
   },
@@ -2094,6 +1841,10 @@
     "amount": "○ 출생아 1인당 120만원(지역화폐 여민전) 일시금 지급\r\n※수령자는 출산자 또는 배우자 가능",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003134&bnefType=all&svcId=569000000343",
+    "amountWon": 1200000,
+    "amountText": "1인당 120만 원",
+    "plain": "세종시 거주요건을 충족하는 부 또는 모에게 출산축하금 지원",
+    "who": "(지원대상)세종특별자치시에 출생 신고를 하고 아래 기준 중 하나에 해당하는 사람",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "임신·출산",
@@ -2102,18 +1853,8 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 44,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
+      "income": null,
+      "need": [
         "출산/입양"
       ]
     }
@@ -2127,6 +1868,10 @@
     "amount": "○ 생태보전직불금 : 세종시 주소 및 실거주, 관내 농지에서 친환경농산물 인증을 받은 경영체 등록 농가 지원",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003136&bnefType=all&svcId=569000000345",
+    "amountWon": 600000,
+    "amountText": "600천 원",
+    "plain": "친환경인증 농가에 생태보전직불금 지원",
+    "who": "세종시 주소 및 실거주",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "농림축산어업",
@@ -2135,18 +1880,9 @@
     "cond": {
       "ageMin": 18,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "농업인"
       ]
     }
   },
@@ -2159,6 +1895,10 @@
     "amount": "세종시 거주 전국대회 3위 이상 입상자(초,중,고,대) 대상 1인당 100만원 장학금 지급",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000439&bnefType=all&svcId=O00088400009",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주 전국대회 3위 이상 입상한 학생 대상으로 장학금 지원",
+    "who": "전국대회 3위이내 입상자 중 세종시 초·중·고·대학생(거주 또는 재학)",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "보육·교육",
@@ -2167,18 +1907,11 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "income": null,
+      "need": [
+        "초등학생",
+        "중학생",
+        "고등학생"
       ]
     }
   },
@@ -2191,6 +1924,10 @@
     "amount": "○ 학기 중 수업일 급식비 지원\r\n - 지원대상 : 운동기능의 심한 장애 등으로 학교에서 교육받기 곤란한 재",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000450&bnefType=all&svcId=930000000007",
+    "amountWon": 10000,
+    "amountText": "10,000 원",
+    "plain": "특수교육 재택순회교육 대상자에게 학기중 급식비 지원",
+    "who": "운동기능의 심한 장애 등으로 인하여 학교에서 교육받기 곤란한 특수교육대상자 및 특수교육대상 영아",
     "deadline": null,
     "deadlineText": "별도의 신청절차가 없음",
     "field": "보육·교육",
@@ -2199,26 +1936,8 @@
     "cond": {
       "ageMin": 3,
       "ageMax": 5,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2230,6 +1949,10 @@
     "amount": "1인당 100만원 장학금 지급",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000437&bnefType=all&svcId=O00088400008",
+    "amountWon": 1000000,
+    "amountText": "1인당 100만 원",
+    "plain": "세종시 거주 학교를 다니지 않는 청소년 대상으로 장학금 지급",
+    "who": "학교를 다니지 않는 세종시 거주 청소년",
     "deadline": null,
     "deadlineText": "개인별 별도의 신청절차가 없으며, 매해 시기는 상이함",
     "field": "보육·교육",
@@ -2238,25 +1961,8 @@
     "cond": {
       "ageMin": 9,
       "ageMax": 24,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2268,6 +1974,10 @@
     "amount": "○ 자살·자해 시도학생 및 정신건강 고위험학생 치료비 지원(학부모가 치료비 선납→직접 방문하여 영수증 제출→",
     "how": "직접입력",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2102408&bnefType=all&svcId=930000000011",
+    "amountWon": 2000000,
+    "amountText": "200만 원",
+    "plain": "자살 시도·자해 등 고위기학생 상담.치료비 지원 및 사후 관리",
+    "who": "자살·자해 시도 학생",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보육·교육",
@@ -2276,14 +1986,8 @@
     "cond": {
       "ageMin": 13,
       "ageMax": 18,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": []
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2295,6 +1999,10 @@
     "amount": "한국장학재단 학자금 대출에 따른 이자 대리상환 지원",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000386&bnefType=all&svcId=O00088400003",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "세종시 거주 시민들의 학자금 대출 이자 대리상환 지원",
+    "who": "국내 대학교 및 대학원 학생(재학",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "생활안정",
@@ -2309,12 +2017,8 @@
         "JA0203",
         "JA0204"
       ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "대학생"
       ]
     }
   },
@@ -2327,6 +2031,10 @@
     "amount": "한국장학재단 학자금 대출에 따른 원금 대리상환 지원",
     "how": "기타 온라인신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000434&bnefType=all&svcId=O00088400005",
+    "amountWon": null,
+    "amountText": "",
+    "plain": "세종시 거주 대학생의 학자금 대출 원금 대리상환 지원",
+    "who": "한국장학재단 6구간 이하의 세종시 거주 1년 이상 대학생",
     "deadline": null,
     "deadlineText": "상,하반기 각 1회",
     "field": "생활안정",
@@ -2340,12 +2048,8 @@
         "JA0202",
         "JA0203"
       ],
-      "flags": [
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정"
+      "need": [
+        "대학생"
       ]
     }
   },
@@ -2358,6 +2062,10 @@
     "amount": "1. 주거안정지원사업\r\n\r\n○ 긴급 임시주택 지원: 화재피해 이재민, 임시 거주 시설(3개월, 읍‧면‧동 주",
     "how": "신청불필요",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159273&bnefType=all&svcId=569000000396",
+    "amountWon": 2000000,
+    "amountText": "200만 원",
+    "plain": "주거안정지원사업, 긴급구호지원사업, 화재피해가정지원",
+    "who": "세종시에 주소를 두고",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "행정·안전",
@@ -2366,26 +2074,8 @@
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "1인가구",
-        "무주택세대",
-        "다자녀가구",
-        "한부모가정",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
-      ]
+      "income": null,
+      "need": []
     }
   },
   {
@@ -2397,6 +2087,10 @@
     "amount": "○ 3세대 이상의 가족이 세종특별자치시 안의 동일한 주소지에 주민등록을 두고 거주하며 85세 이상의 부모 등",
     "how": "방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000703&bnefType=all&svcId=569000000332",
+    "amountWon": 1200000,
+    "amountText": "월 10만 원",
+    "plain": "85세 이상의 부모 등을 부양하는 3세대 이상 가족에게 효행장려금 지급",
+    "who": "3세대 이상의 가족이 85세 이상의 부모 등을 부양하는 경우 부양자",
     "deadline": null,
     "deadlineText": "상시신청",
     "field": "보호·돌봄",
@@ -2405,21 +2099,9 @@
     "cond": {
       "ageMin": 80,
       "ageMax": 120,
-      "income": [
-        "JA0201",
-        "JA0202",
-        "JA0203",
-        "JA0204",
-        "JA0205"
-      ],
-      "flags": [
-        "근로자/직장인",
-        "구직자/실업자",
-        "대학생",
-        "임산부",
-        "출산/입양",
-        "장애인",
-        "국가보훈대상자"
+      "income": null,
+      "need": [
+        "확대가족"
       ]
     }
   }

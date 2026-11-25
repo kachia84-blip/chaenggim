@@ -2,13 +2,13 @@
 
 const scope = new URL(self.registration.scope);
 const cachePrefix = "chaenggim:" + scope.pathname + ":";
-const cacheName = cachePrefix + "v5";
+const cacheName = cachePrefix + "v6";
 const shell = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icons/icon.svg",
   "./fonts/fonts.css", "./fonts/pretendard.woff2",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"
 ];
-const jsonFiles = ["benefits", "events", "taxes", "tips", "meta"].map(name => "./data/" + name + ".json");
+const jsonFiles = ["benefits", "events", "taxes", "tips", "dormant", "meta"].map(name => "./data/" + name + ".json");
 const nationalBenefits = "./data/benefits/전국.json";
 const shellPaths = new Set(shell.map(path => new URL(path, scope).pathname));
 

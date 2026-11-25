@@ -1,6 +1,7 @@
 import os
 import re
 from datetime import date
+from decimal import Decimal
 from pathlib import Path
 from shutil import copyfile
 from tempfile import TemporaryDirectory
@@ -41,11 +42,34 @@ FIELD_EMOJI = {
     "행정·안전": "🏛️", "임신·출산": "🍼", "보호·돌봄": "🤝", "문화·환경": "🎨", "농림축산어업": "🌾",
 }
 FLAG_NAMES = {
-    "JA0326": "근로자/직장인", "JA0327": "구직자/실업자", "JA0320": "대학생", "JA0404": "1인가구",
-    "JA0412": "무주택세대", "JA0411": "다자녀가구", "JA0403": "한부모가정", "JA0302": "임산부",
-    "JA0303": "출산/입양", "JA0328": "장애인", "JA0329": "국가보훈대상자",
+    "JA0301": "예비부모/난임", "JA0302": "임산부", "JA0303": "출산/입양",
+    "JA0313": "농업인", "JA0314": "어업인", "JA0315": "축산업인", "JA0316": "임업인",
+    "JA0317": "초등학생", "JA0318": "중학생", "JA0319": "고등학생", "JA0320": "대학생",
+    "JA0322": "해당사항없음", "JA0326": "근로자/직장인", "JA0327": "구직자/실업자",
+    "JA0328": "장애인", "JA0329": "국가보훈대상자", "JA0330": "질병/질환자",
+    "JA0401": "다문화가족", "JA0402": "북한이탈주민", "JA0403": "한부모가정", "JA0404": "1인가구",
+    "JA0410": "해당사항없음", "JA0411": "다자녀가구", "JA0412": "무주택세대",
+    "JA0413": "신규전입", "JA0414": "확대가족",
+}
+TRAIT_GROUPS = {
+    "JA0322": tuple(code for code in FLAG_NAMES if code.startswith("JA03")),
+    "JA0410": tuple(code for code in FLAG_NAMES if code.startswith("JA04")),
 }
 INCOME_CODES = ("JA0201", "JA0202", "JA0203", "JA0204", "JA0205")
+NUMBER = r"(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?"
+UNIT = r"억|천\s*만|백\s*만|십\s*만|만|천|백|십"
+MONEY = re.compile(
+    rf"(?<!\d)(?<!\d[.,])(?P<prefix>(?:(?:매월|월|연간|연|1인당|최대)\s*)*)"
+    rf"(?:{NUMBER}\s*(?:{UNIT})?\s*원?\s*[~～∼–-]\s*)?"
+    rf"(?P<figure>(?:{NUMBER}\s*(?:{UNIT})\s*)*{NUMBER}\s*(?:{UNIT})?\s*)원"
+    r"(?:\s*(?P<equivalent>상당))?"
+)
+MONEY_PART = re.compile(rf"({NUMBER})\s*({UNIT})?")
+WON_UNITS = {"억": 100_000_000, "천만": 10_000_000, "백만": 1_000_000, "십만": 100_000,
+             "만": 10_000, "천": 1_000, "백": 100, "십": 10, "": 1}
+MONTHS = re.compile(r"(\d+)\s*개월(?!\s*(?:미만|이상|이하|초과))(?:\s*(?:간|까지|동안))?")
+BULLET = re.compile(r"^[ \t○□]*-(?!\d)|[○□]", re.MULTILINE)
+CLAUSE_END = re.compile(r"[\r\n;]|(?<!\d),(?!\d)|,(?=\s)|\.(?=\s|$)")
 
 
 def normalize_sido(value):
@@ -91,6 +115,52 @@ def _age(value):
     return None
 
 
+def _needed_traits(conditions):
+    return [FLAG_NAMES[code]
+            for unrestricted, codes in TRAIT_GROUPS.items()
+            if conditions.get(unrestricted) != "Y" and not all(conditions.get(code) == "Y" for code in codes)
+            for code in codes if conditions.get(code) == "Y"]
+
+
+def _short_text(text, limit):
+    text = " ".join(BULLET.sub(" ", text).split())
+    if len(text) <= limit:
+        return text
+    return text[:limit + 1].rpartition(" ")[0].rstrip(" ,;·")
+
+
+def parse_amount(support, name=""):
+    if re.search(r"융자|대출|보증(?!금)|\bloan\b", f"{name} {support}", re.IGNORECASE):
+        return None, ""
+    for source in (support, name):
+        best = (None, "")
+        for clause in re.split(r"[\r\n;○□]", source):
+            matches = list(MONEY.finditer(clause))
+            for index, match in enumerate(matches):
+                parts = MONEY_PART.findall(match["figure"])
+                won = int(sum(Decimal(number.replace(",", "")) * WON_UNITS["".join(unit.split())]
+                              for number, unit in parts))
+                if won <= 0:
+                    continue
+                label = " ".join(match["prefix"].split())
+                figure = " ".join(match["figure"].split()) + " 원"
+                text = " ".join(part for part in (label, figure, match["equivalent"]) if part)
+                if "월" in label:
+                    next_start = matches[index + 1].start() if index + 1 < len(matches) else len(clause)
+                    duration = MONTHS.search(clause, match.end(), next_start)
+                    if duration is None and index == 0:
+                        duration = next((period for period in MONTHS.finditer(clause, 0, match.start())
+                                         if not clause[period.end():match.start()].strip()), None)
+                    won *= int(duration[1]) if duration else 12
+                    if duration:
+                        text += f" · 최대 {duration[1]}개월"
+                if won > (best[0] or 0):
+                    best = (won, text if len(text) <= 30 else figure if len(figure) <= 30 else "")
+        if best[0] is not None:
+            return best
+    return None, ""
+
+
 def map_benefit(service, conditions, sigungu):
     def field(name):
         return (service.get(name) or "").strip()
@@ -101,17 +171,23 @@ def map_benefit(service, conditions, sigungu):
         age_min = age_max = None
     category = field("서비스분야")
     deadline_text = field("신청기한")
+    income = [code for code in INCOME_CODES if conditions.get(code) == "Y"]
+    amount_won, amount_text = parse_amount(field("지원내용"), field("서비스명"))
+    target = field("지원대상")
+    first_clause = next((clause for clause in CLAUSE_END.split(BULLET.sub(" ", target)) if clause.strip()), "")
     return {
         "id": field("서비스ID"), "name": field("서비스명"), "org": field("소관기관명"),
         "summary": field("서비스목적요약")[:70], "target": field("지원대상")[:70],
         "amount": field("지원내용")[:60], "how": field("신청방법")[:40], "url": field("상세조회URL"),
+        "amountWon": amount_won, "amountText": amount_text,
+        "plain": _short_text(field("서비스목적요약"), 60), "who": _short_text(first_clause, 60),
         "deadline": parse_deadline(deadline_text), "deadlineText": deadline_text[:60],
         "field": category, "emoji": FIELD_EMOJI.get(category, "📌"),
         "sigungu": sigungu,
         "cond": {
             "ageMin": age_min, "ageMax": age_max,
-            "income": [code for code in INCOME_CODES if conditions.get(code) == "Y"],
-            "flags": [name for code, name in FLAG_NAMES.items() if conditions.get(code) == "Y"],
+            "income": income if 0 < len(income) < len(INCOME_CODES) else None,
+            "need": _needed_traits(conditions),
         },
     }
 

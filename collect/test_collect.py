@@ -27,6 +27,7 @@ CONDITIONS = {
 EVENT = {
     "seq": "001", "title": "가을 공연", "startDate": "20261125", "endDate": "2026-12-01",
     "place": "공연장", "realmName": "음악/콘서트", "area": "서울", "sigungu": "종로구",
+    "thumbnail": "http://images.invalid/poster.jpg",
 }
 
 
@@ -74,13 +75,71 @@ class BenefitTests(unittest.TestCase):
         self.assertEqual(item["emoji"], "🏠")
         self.assertEqual([len(item[key]) for key in ("summary", "target", "amount", "how")], [70, 70, 60, 40])  # 휴대폰 용량 때문에 목록 설명을 줄임
         self.assertEqual(item["cond"], {
-            "ageMin": 19, "ageMax": 34, "income": ["JA0201"], "flags": ["근로자/직장인", "무주택세대"],
+            "ageMin": 19, "ageMax": 34, "income": ["JA0201"], "need": ["근로자/직장인", "무주택세대"],
         })
         for conditions in ({}, {"JA0110": 0, "JA0111": 0}):
             with self.subTest(conditions=conditions):
                 self.assertEqual(benefits.map_benefit(SERVICE, conditions, "")["cond"], {
-                    "ageMin": None, "ageMax": None, "income": [], "flags": [],
+                    "ageMin": None, "ageMax": None, "income": None, "need": [],
                 })
+
+    def test_trait_groups(self):
+        personal = {f"JA{code:04}": "Y" for code in (301, 302, 303, *range(313, 321), 322, *range(326, 331))}
+        household = {f"JA{code:04}": "Y" for code in (401, 402, 403, 404, *range(410, 415))}
+        cases = [
+            ({**personal, **household}, []),
+            ({**personal, "JA0412": "Y"}, ["무주택세대"]),
+            ({**household, "JA0328": "Y"}, ["장애인"]),
+            ({"JA0322": "Y", "JA0328": "Y", "JA0313": "Y", "JA0401": "Y"}, ["다문화가족"]),
+            ({"JA0410": "Y", "JA0412": "Y", "JA0314": "Y"}, ["어업인"]),
+            ({"JA0330": "Y", "JA0413": "Y", "JA0414": "N"}, ["질병/질환자", "신규전입"]),
+        ]
+        for conditions, expected in cases:
+            with self.subTest(conditions=conditions):
+                self.assertEqual(benefits.map_benefit(SERVICE, conditions, "")["cond"]["need"], expected)
+
+    def test_income_restrictions(self):
+        for selected, expected in [([], None), (range(1, 6), None), ([1, 2], ["JA0201", "JA0202"]), ([3], ["JA0203"])]:
+            with self.subTest(selected=selected):
+                conditions = {f"JA020{i}": "Y" if i in selected else "N" for i in range(1, 6)}
+                self.assertEqual(benefits.map_benefit(SERVICE, conditions, "")["cond"]["income"], expected)
+
+    def test_amount_parsing(self):
+        cases = [
+            ("월 20만원", "", 2_400_000, "월 20만 원"),
+            ("월 최대 20만 원, 최대 12개월", "", 2_400_000, "월 최대 20만 원 · 최대 12개월"),
+            ("월 20만원씩 6개월간", "", 1_200_000, "월 20만 원 · 최대 6개월"),
+            ("3개월간 월 20만원", "", 600_000, "월 20만 원 · 최대 3개월"),
+            ("월 10만 원~20만 원씩 3개월간", "", 600_000, "월 20만 원 · 최대 3개월"),
+            ("연 36만원", "", 360_000, "연 36만 원"),
+            ("최대 300만원", "", 3_000_000, "최대 300만 원"),
+            ("1인당 10만원", "", 100_000, "1인당 10만 원"),
+            ("50만원 상당", "", 500_000, "50만 원 상당"),
+            ("최대 1억 2천만 원", "", 120_000_000, "최대 1억 2천만 원"),
+            ("최대 1.5억 원", "", 150_000_000, "최대 1.5억 원"),
+            ("연 1,234,000원", "", 1_234_000, "연 1,234,000 원"),
+            ("보증금 2천만 원 지원", "", 20_000_000, "2천만 원"),
+            ("연 200만원 또는 월 30만원, 최대 6개월", "", 2_000_000, "연 200만 원"),
+            ("금액 미정", "최대 100만원 지원", 1_000_000, "최대 100만 원"),
+            ("최대 300만원", "소상공인 융자", None, ""),
+            ("대출 보증 한도 2억원", "", None, ""),
+            ("최대 100만원", "Startup loan", None, ""),
+            ("본인 부담액의 30%", "", None, ""),
+        ]
+        for support, name, expected, label in cases:
+            with self.subTest(support=support, name=name):
+                self.assertEqual(benefits.parse_amount(support, name), (expected, label))
+                self.assertLessEqual(len(label), 30)
+
+    def test_short_copy_uses_whole_words_and_first_target_clause(self):
+        summary = "○  지원 내용\r\n□ - " + "가나다라마바사 아자차카타파하 " * 5
+        service = {**SERVICE, "서비스목적요약": summary, "지원대상": "○ 기초생활수급자 및 차상위계층, 6세 이상\r\n- 추가 기준",
+                   "지원내용": "지원 대상자에게 " * 10 + "최대 300만원 지급"}
+        item = benefits.map_benefit(service, {}, "")
+        self.assertEqual(item["who"], "기초생활수급자 및 차상위계층")
+        self.assertEqual(item["plain"], "지원 내용 " + ("가나다라마바사 아자차카타파하 " * 3).strip())
+        self.assertLessEqual(len(item["plain"]), 60)
+        self.assertEqual(item["amountWon"], 3_000_000)
 
     def test_deadline_parsing(self):
         examples = {
@@ -125,7 +184,7 @@ class BenefitTests(unittest.TestCase):
             self.assertEqual(_read(directory / "서울특별시.json")[0]["cond"]["ageMin"], 19)
             nationwide = _read(directory / "전국.json")
             self.assertEqual([item["id"] for item in nationwide[:2]], ["CENTRAL-0", "CENTRAL-1"])
-            self.assertEqual(nationwide[1]["cond"]["flags"], ["대학생"])
+            self.assertEqual(nationwide[1]["cond"]["need"], ["대학생"])
             index = _read(directory / "index.json")
             self.assertEqual((len(index), index["전국"], index["서울특별시"], index["경기도"]), (17, 49, 1, 0))  # 광주·전남이 전남광주통합특별시로 합쳐짐
             self.assertEqual(_read(directory / "경기도.json"), [])
@@ -170,6 +229,8 @@ class EventTests(unittest.TestCase):
         self.assertEqual(len(item["price"]), 60)
         self.assertIsNone(item["ticketOpen"])
         self.assertEqual(item["url"], "https://venue.invalid/")
+        self.assertEqual(item["image"], "https://images.invalid/poster.jpg")
+        self.assertEqual(events.map_event({**EVENT, "thumbnail": ""}, {"thumbnail": "http://ignored.invalid"})["image"], "")
         self.assertEqual(events.map_event(EVENT, {})["url"], events.CULTURE_HOME)
 
     def test_collect_reads_xml_pages_and_details(self):

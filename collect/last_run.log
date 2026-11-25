@@ -1,2 +1,8 @@
 2026-11-25T21:04:21+09:00 benefits: collected 8919
 2026-11-25T21:04:21+09:00 events: https://apis.data.go.kr/B553457/cultureinfo/detail2: HTTP 429
+2026-11-25T21:46:26+09:00 benefits: collected 9168
+2026-11-25T21:46:26+09:00 events: 문화정보 detail2: 539/985건 실패
+2026-11-25T21:49:19+09:00 benefits: collected 9168
+2026-11-25T21:49:19+09:00 events: 문화정보 detail2: 343/987건 실패
+2026-11-25T22:04:27+09:00 benefits: collected 9168
+2026-11-25T22:04:27+09:00 events: collected 996
