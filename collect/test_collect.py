@@ -233,6 +233,69 @@ class EventTests(unittest.TestCase):
         self.assertEqual(events.map_event({**EVENT, "thumbnail": ""}, {"thumbnail": "http://ignored.invalid"})["image"], "")
         self.assertEqual(events.map_event(EVENT, {})["url"], events.CULTURE_HOME)
 
+    def test_detail_keeps_time_address_and_short_plain_description(self):
+        item = events.map_event(EVENT, {
+            "contents1": "<p>시작 시각: 19:00</p><p>전시 &amp; 공연</p>" + "소개 " * 100,
+            "placeAddr": " 서울특별시 종로구 세종대로 175 ",
+        })
+        self.assertEqual(item["time"], "19:00")
+        self.assertEqual(item["placeAddr"], "서울특별시 종로구 세종대로 175")
+        self.assertTrue(item["description"].startswith("시작 시각: 19:00 전시 & 공연"))
+        self.assertLessEqual(len(item["description"]), 180)
+        self.assertNotIn("time", events.map_event(EVENT, {}))
+
+    def test_entry_from_price_description_and_url(self):
+        cases = [
+            ({"price": "무료, 선착순 예약"}, "예약 필요"),
+            ({"contents1": "누구나 참여 가능, 사전 접수"}, "예약 필요"),
+            ({"contents1": "신청 필요"}, "예약 필요"),
+            ({"url": "https://event.invalid/%EC%98%88%EC%95%BD"}, "예약 필요"),
+            ({"contents1": "사전 신청 없이 자유 관람"}, "자유 입장"),
+            ({"price": "무료, 현장 입장"}, "자유 입장"),
+            ({"contents1": "누구나 참여"}, "자유 입장"),
+            ({"price": "무료"}, ""),
+            ({"contents1": "예약 불가"}, ""),
+        ]
+        for detail, expected in cases:
+            with self.subTest(detail=detail):
+                self.assertEqual(events.map_event(EVENT, detail)["entry"], expected)
+
+    def test_application_deadline_requires_application_context(self):
+        cases = {
+            "사전 신청 마감일: 2026년 12월 3일": "2026-12-03",
+            "접수 기간: 2026.11.25. ~ 2026.12.01.": "2026-12-01",
+            "예약: 2026-12-02 (수) 18:00까지": "2026-12-02",
+            "2026/12/03 (목)까지 신청": "2026-12-03",
+            "무료 (신청 마감 2026.12.3.)": "2026-12-03",
+            "전시 기간: 2026.11.25~2026.12.01": None,
+            "자유 관람 2026-12-03까지": None,
+            "신청: 2026-11-25부터": None,
+            "신청 기간: 2026-11-25 ~": None,
+            "신청 마감: 2026-02-30": None,
+            "신청 마감: 12월 3일": None,
+            "접수 마감: 2026-12-02\n현장 신청 마감: 2026-12-03": None,
+        }
+        for copy, expected in cases.items():
+            with self.subTest(copy=copy):
+                self.assertEqual(events.map_event(EVENT, {"contents1": copy})["applyEnd"], expected)
+        self.assertEqual(events.map_event(EVENT, {"price": "무료 (신청 기한: 2026.12.3)"})["applyEnd"], "2026-12-03")
+        detail = {"url": "https://event.invalid/?%EC%8B%A0%EC%B2%AD%EB%A7%88%EA%B0%90=2026-12-03"}
+        self.assertEqual(events.map_event(EVENT, detail)["applyEnd"], "2026-12-03")
+
+    def test_sigungu_only(self):
+        cases = [
+            ("서울", "  서울특별시 강남구  ", "강남구"),
+            ("서울", "서울시/종로구", "종로구"),
+            ("서울", "서울특별시", ""),
+            ("서울", " 강남구 ", "강남구"),
+            ("경기", "경기도 수원시  영통구 이의동", "수원시 영통구"),
+            ("경기", "경기도성남시", "성남시"),
+            ("경기", "광주시", "광주시"),
+        ]
+        for area, sigungu, expected in cases:
+            with self.subTest(sigungu=sigungu):
+                self.assertEqual(events.map_event({**EVENT, "area": area, "sigungu": sigungu}, {})["sigungu"], expected)
+
     def test_collect_reads_xml_pages_and_details(self):
         def open_fixture(url, timeout):
             endpoint = urlsplit(url).path.rsplit("/", 1)[-1]

@@ -9,6 +9,7 @@ const seoul = new Intl.DateTimeFormat("en-CA", {
 const koreanDate = new Intl.DateTimeFormat("ko-KR", {
   timeZone: "UTC", month: "long", day: "numeric", weekday: "long"
 });
+const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 const koreanTime = new Intl.DateTimeFormat("ko-KR", {
   timeZone: "Asia/Seoul", hour: "numeric", minute: "2-digit", hourCycle: "h23"
 });
@@ -281,6 +282,7 @@ function showProfileStep(step, draft) {
     }
     const previousSido = benefitSido();
     profile = draft;
+    homeEventDay = null;
     benefitLimit = BENEFIT_PAGE_SIZE;
     sheet.close();
     if (benefitSido() !== previousSido) {
@@ -295,8 +297,6 @@ function showProfileStep(step, draft) {
 
 // 추천 · 프로필로 확인할 수 있는 조건과 추가로 확인할 조건을 구분한다.
 const pickKinds = ["받는 돈", "아끼는 돈"];
-const koreanAmount = new Intl.NumberFormat("ko-KR", { maximumFractionDigits: 0 });
-const manLabel = won => koreanAmount.format(won / 10_000) + "만";
 
 function pickStatus(item, person, today = seoulDay()) {
   const who = item.who ?? {};
@@ -343,21 +343,8 @@ function visiblePicks(today) {
       (second.yearlyWon ?? -1) - (first.yearlyWon ?? -1));
 }
 
-function heroCard(items) {
-  if (!hasProfile()) {
-    return el("section", "card hero", el("h2", "row-sub", "내 조건을 넣으면 받을 수 있는 돈을 계산해 드려요"),
-      button("내 조건 넣기", "action", openProfile));
-  }
-  const eligible = items.filter(item => item.status === "ok");
-  const [received, saved] = pickKinds.map(kind => eligible.filter(item => item.kind === kind)
-    .reduce((sum, item) => sum + (item.yearlyWon ?? 0), 0));
-  return el("section", "card hero", el("h2", "row-sub", "내 조건으로 챙길 수 있는 돈"),
-    el("p", "hero-amount", "연 약 " + manLabel(received + saved) + " 원"),
-    el("p", "row-sub", `받는 돈 ${manLabel(received)} · 아끼는 돈 ${manLabel(saved)} · ${eligible.length}가지`));
-}
-
-function tabLink(tab, label) {
-  const link = el("a", "quiet-button text-button card-link", label);
+function tabLink(tab, label, className) {
+  const link = el("a", className, label);
   link.href = "#" + tab;
   return link;
 }
@@ -391,13 +378,6 @@ function pickRow(item) {
     el("span", "status pick-amount", item.amountText));
 }
 
-function topPicksCard(items) {
-  return el("section", "card", el("h2", null, "지금 챙기면 이득"),
-    items.length ? listing(items.slice(0, 5).map(pickRow))
-      : el("p", "state", "조건에 맞는 추천이 없어요"),
-    tabLink("picks", `전체 ${items.length}가지 보기`));
-}
-
 function renderPicks(today) {
   const items = visiblePicks(today);
   const groups = pickKinds.map(kind => {
@@ -409,11 +389,15 @@ function renderPicks(today) {
       : el("p", "state", "조건에 맞는 추천이 없어요")];
 }
 
-function dormantCard() {
+function dormantCount() {
+  return data.dormant.filter(item => Object.hasOwn(dormantChecks, item.id)).length;
+}
+
+function openDormant() {
   const progress = el("p", "row-meta");
   progress.setAttribute("aria-live", "polite");
   const updateProgress = () => {
-    const count = data.dormant.filter(item => Object.hasOwn(dormantChecks, item.id)).length;
+    const count = dormantCount();
     const first = Object.values(dormantChecks).sort()[0];
     const again = first ? `${Number(first.slice(0, 4)) + 1}년 ${Number(first.slice(5, 7))}월` : "";
     progress.textContent = count === data.dormant.length && again
@@ -439,6 +423,8 @@ function dormantCard() {
       }
       dormantChecks = next;
       updateProgress();
+      const counter = document.querySelector("#dormant-count");
+      if (counter) counter.textContent = `${dormantCount()}/5`;
     });
     const detail = button("", "row dormant-detail", () => showDetail(item.emoji, item.title, false, [
       ["무엇", item.what], ["어디서", item.where], ["어떻게", item.how]
@@ -447,34 +433,88 @@ function dormantCard() {
       el("span", "row-meta", dormantDue.has(item.id) ? item.where + " · 1년이 지나 다시 확인해요" : item.where)));
     return el("div", "dormant-row", el("label", "check-target", check), detail);
   });
-  return el("section", "card", el("div", "heading-line", el("h2", null, "잠자는 내 돈 찾기"), progress), listing(rows));
+  showSheet("잠자는 내 돈 5곳", progress,
+    rows.length ? listing(rows) : el("p", "state", "확인할 목록을 불러오지 못했어요"));
 }
 
-function weekendEventsCard(today) {
-  const weekday = dayDate(today).getUTCDay();
-  const saturday = today + (weekday === 0 ? -1 : 6 - weekday);
-  const sido = benefitSido();
-  const events = upcomingEvents(today).filter(item => item.free === true && item.startDay <= saturday + 1 &&
-    item.endDay >= saturday && (!sido || item.sido === sido)).slice(0, 3);
-  const cards = events.map(item => {
-    const imageBlock = el("span", "weekend-image");
-    if (item.image) {
-      const image = el("img");
-      image.alt = item.title;
-      image.loading = "lazy";
-      image.addEventListener("error", () => image.remove(), { once: true });
-      image.src = item.image;
-      imageBlock.append(image);
-    }
-    const day = Math.max(today, saturday, item.startDay) === saturday ? "토" : "일";
-    return rowControl(item, "weekend-event", imageBlock, el("span", "row-title", item.title),
-      el("span", "row-meta", [day, item.venue].filter(Boolean).join(" · ")), sampleLabel(item));
-  });
-  const more = tabLink("events", "공연 더 보기");
+let homeEventDay = null;
+
+function inDistrict(item, sigungu) {
+  return item.sigungu === sigungu || item.sigungu?.startsWith(sigungu + " ");
+}
+
+function weeklyEvents(today, sido, sigungu) {
+  const sunday = today + (7 - dayDate(today).getUTCDay()) % 7;
+  const events = upcomingEvents(today)
+    .filter(item => item.free === true && item.startDay <= sunday && (!sido || item.sido === sido))
+    .map(item => ({ ...item, day: Math.max(today, item.startDay), applyDay: dayNumber(item.applyEnd) }))
+    .sort((a, b) => a.day - b.day ||
+      (a.applyDay >= today ? a.applyDay : Infinity) - (b.applyDay >= today ? b.applyDay : Infinity) ||
+      b.startDay - a.startDay);
+  if (!sigungu) return events;
+  const local = events.filter(item => inDistrict(item, sigungu));
+  if (!sido || local.length >= 5) return local;
+  const nearby = events.filter(item => !inDistrict(item, sigungu) && item.sigungu).slice(0, 5 - local.length);
+  const selected = new Set([...local, ...nearby]);
+  return events.filter(item => selected.has(item));
+}
+
+function homeEventRow(item, today, sigungu) {
+  const thumbnail = el("span", "home-event-image");
+  if (item.image) {
+    const image = el("img");
+    image.alt = "";
+    image.loading = "lazy";
+    image.addEventListener("error", () => image.remove(), { once: true });
+    image.src = item.image;
+    thumbnail.append(image);
+  }
+  const [, month, day] = dateParts(item.endDay);
+  const multiDay = item.startDay !== item.endDay ? `~${month}.${day}까지` : "";
+  const nearby = sigungu && !inDistrict(item, sigungu) ? item.sigungu : "";
+  const meta = [item.time, item.venue || item.placeAddr, multiDay, nearby].filter(Boolean).join(" · ");
+  const status = item.applyDay >= today
+    ? el("span", "status countdown", `신청 D-${item.applyDay - today}`)
+    : el("span", "status", item.applyDay < today ? "신청 마감" : item.entry);
+  return rowControl(item, "row home-event-row", thumbnail,
+    el("span", "row-text", el("span", "row-title", item.title), meta && el("span", "row-meta", meta), sampleLabel(item)),
+    status.textContent ? status : null);
+}
+
+function homeEvents(today, sido, sigungu) {
+  const events = weeklyEvents(today, sido, sigungu);
+  const counts = new Map();
+  for (const item of events) counts.set(item.day, (counts.get(item.day) ?? 0) + 1);
+  if (!counts.has(homeEventDay)) homeEventDay = null;
+  const filters = el("div", "filters home-filters");
+  filters.setAttribute("role", "group");
+  filters.setAttribute("aria-label", "행사 요일");
+  const chip = (day, label) => {
+    const control = button(label, "chip", () => {
+      homeEventDay = day;
+      render({ focusFilter: control.dataset.filter });
+    });
+    control.dataset.filter = day ?? "all";
+    control.setAttribute("aria-pressed", String(homeEventDay === day));
+    return control;
+  };
+  filters.append(chip(null, `전체 ${events.length}`));
+  for (const [day, count] of counts) {
+    const label = day === today ? "오늘" : day === today + 1 ? "내일" : weekdays[dayDate(day).getUTCDay()];
+    filters.append(chip(day, `${label} ${count}`));
+  }
+  const groups = new Map();
+  for (const item of events.filter(item => homeEventDay === null || item.day === homeEventDay).slice(0, 12)) {
+    if (!groups.has(item.day)) groups.set(item.day, []);
+    groups.get(item.day).push(homeEventRow(item, today, sigungu));
+  }
+  const more = tabLink("events", "공연 탭에서 더 보기", "quiet-button text-button card-link");
   more.addEventListener("click", () => { eventFilter = "free"; });
-  return el("section", "card", el("h2", null, "이번 주말 무료 공연"),
-    cards.length ? el("div", "weekend-events", ...cards)
-      : el("p", "state", "이번 주말 무료 공연이 아직 없어요"), more);
+  return [filters, !sido && !sigungu ? el("div", "home-location", el("p", null, "내 동네를 넣으면 가까운 행사만 보여요"),
+    button("동네 설정", "quiet-button text-button", openProfile)) : null, dataNotice(["events"]),
+    groups.size ? el("div", "home-event-groups", ...Array.from(groups, ([day, rows]) => el("section", null,
+      el("h2", "section-label", weekdays[dayDate(day).getUTCDay()] + "요일 " + dateLabel(day)), listing(rows))))
+      : el("p", "state", "이번 주 무료 행사가 없어요"), more];
 }
 
 function tipCard(today) {
@@ -489,17 +529,33 @@ function tipCard(today) {
 }
 
 function renderToday(today) {
-  const items = visiblePicks(today);
+  const sido = profile.sido === "모름" ? "" : profile.sido;
+  const sigungu = profile.sigungu === "모름" ? "" : profile.sigungu;
   const tax = upcomingTaxes(today, true)[0];
+  const due = matchingBenefits(today).filter(item => item.endDay - today <= 14 && readyToReceive(item, today)).length;
+  const dueLink = tabLink("benefits", null, "row quiet-row");
+  dueLink.append(el("span", "row-title", "신청 마감 임박"), el("span", "status", `${due}건`));
+  dueLink.addEventListener("click", () => {
+    benefitSortByDeadline = true;
+    benefitQuery = "";
+    benefitLimit = BENEFIT_PAGE_SIZE;
+  });
+  const counter = el("span", "status", `${dormantCount()}/5`);
+  counter.id = "dormant-count";
+  const dormant = button("", "row quiet-row", openDormant);
+  dormant.id = "dormant-button";
+  dormant.append(el("span", "row-title", "잠자는 내 돈 5곳"), counter);
+  const picks = tabLink("picks", `이득 보는 제도 ${visiblePicks(today).length}가지`, "row quiet-row row-title");
+  const taxRow = tax ? rowControl({ open: () => openTax(tax) }, "row quiet-row",
+    el("span", "row-text", el("span", "row-title", "다가오는 세금"), el("span", "row-meta", tax.title)),
+    statusText(taxStatus(tax, today))) : null;
   const date = el("time", null, koreanDate.format(dayDate(today)));
   date.dateTime = dayDate(today).toISOString().slice(0, 10);
-  return [pageHead("오늘", el("p", null, date)),
-    dataNotice(dataKeys.filter(key => key !== "benefits")), el("div", "stack", heroCard(items), topPicksCard(items),
-      data.dormant.length ? dormantCard() : null, weekendEventsCard(today),
-      tax ? el("section", "card tax-preview", el("h2", null, "다가오는 세금"),
-        rowControl({ open: () => openTax(tax) }, "row", emoji(tax.emoji),
-          el("span", "row-title", tax.title), statusText(taxStatus(tax, today)))) : null,
-      tipCard(today))];
+  return [pageHead("이번 주 무료 행사", el("p", null, (sigungu || sido || "전국") + " · ", date)),
+    ...homeEvents(today, sido, sigungu), el("div", "stack home-extras",
+      el("section", null, el("h2", "section-label", "그 밖에 챙길 것"),
+        listing(taxRow ? [dueLink, dormant, picks, taxRow] : [dueLink, dormant, picks]),
+        dataNotice(dataKeys.filter(key => key !== "events"))), tipCard(today))];
 }
 
 // 지원금 · 이전 수집본에도 금액과 조건을 표시한다.
@@ -513,6 +569,7 @@ const narrowTraits = new Set([
 const BENEFIT_PAGE_SIZE = 40;
 let benefitLimit = BENEFIT_PAGE_SIZE;
 let benefitQuery = "";
+let benefitSortByDeadline = false;
 const legacyWonUnits = { 억: 100_000_000, 천만: 10_000_000, 백만: 1_000_000, 십만: 100_000, 만: 10_000,
   천: 1_000, 백: 100, 십: 10, "": 1 };
 const wonNumber = "(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?";
@@ -632,6 +689,19 @@ function matchingBenefits(today) {
       first.name.localeCompare(second.name, "ko"));
 }
 
+function readyToReceive(item, today) {
+  const cond = item.cond;
+  const [year, month, day] = dateParts(today);
+  const age = year - profile.birthYear;
+  const youngest = age - Number(month !== 12 || day !== 31);
+  const hasAgeLimits = cond.ageMin != null || cond.ageMax != null;
+  const ageConfirmed = Number.isInteger(profile.birthYear) && profile.birthYear > 0 && age >= 0 &&
+    youngest >= (cond.ageMin ?? 0) && age <= (cond.ageMax ?? Infinity);
+  return !item.sample && !item.unconfirmed &&
+    (!item.sigungu || item.sigungu === profile.sigungu) &&
+    (!hasAgeLimits || ageConfirmed) && !cond.income?.length && !cond.incomeMax;
+}
+
 function openBenefit(item) {
   showDetail(item.emoji, item.name, item.sample, [
     ["무엇", item.plain || item.summary], ["누가", detailCopy(item.who, item.target)],
@@ -689,6 +759,7 @@ function benefitResults(items, today) {
 
 function renderBenefits(today) {
   const items = matchingBenefits(today);
+  if (benefitSortByDeadline) items.sort((first, second) => first.endDay - second.endDay);
   const edit = button("내 조건 바꾸기", "quiet-button text-button", openProfile);
   edit.id = "benefit-profile-button";
   const results = el("div", null, benefitResults(items, today));
@@ -925,7 +996,8 @@ function sampleLabel(item) {
 }
 
 function statusText(status) {
-  return el("span", status.startsWith("D-") ? "status countdown" : "status", status);
+  const countdown = status.startsWith("D-") || status === "오늘 마감" || status === "오늘 열림";
+  return el("span", countdown ? "status countdown" : "status", status);
 }
 
 function rowControl(item, className, ...content) {
@@ -989,6 +1061,7 @@ function scheduleRefresh() {
 
 document.querySelector("#profile-button").addEventListener("click", openProfile);
 window.addEventListener("hashchange", () => {
+  if (location.hash !== "#benefits") benefitSortByDeadline = false;
   window.scrollTo(0, 0);
   render({ focusMain: true });
 });

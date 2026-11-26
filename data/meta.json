@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-26T07:12:18+09:00",
+  "updated": "2026-11-26T21:09:02+09:00",
   "sources": {
     "benefits": {
       "count": 9172,
       "ok": true
     },
     "events": {
-      "count": 972,
+      "count": 999,
       "ok": true
     }
   }

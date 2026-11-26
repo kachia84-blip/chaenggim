@@ -2,9 +2,11 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
+from html import unescape
 from pathlib import Path
+from urllib.parse import unquote_plus
 
-from .benefits import normalize_sido
+from .benefits import DISTRICT_PREFIX, REGION_PREFIX, normalize_sido
 from .common import DATA_DIR, atomic_write_json, get_key, http_get_json, kst_today, log, require_minimum
 
 
@@ -18,6 +20,29 @@ REALM_EMOJI = {
     "축제": "🎪", "교육": "🧩", "체험": "🧩",
 }
 WON_AMOUNT = re.compile(r"\d[\d,.\s]*(?:억|만|천|백)?\s*원")
+APPLICATION = r"(?:사전\s*)?(?:신청|접수|예약)"
+NO_BOOKING = re.compile(rf"{APPLICATION}(?:[이가])?\s*(?:없이|불필요|필요\s*없(?:음|습니다))")
+OPEN_ENTRY = re.compile(r"자유\s*(?:관람|입장)|현장\s*입장|누구나")
+REQUIRED_ENTRY = re.compile(rf"{APPLICATION}\s*(?:필수|필요)|사전\s*(?:예약|신청|접수)")
+BOOKED_ENTRY = re.compile(r"예약(?!\s*불가)|(?:신청|접수)\s*(?:마감|종료|기한|기간)")
+DATE_SEPARATOR = r"(?:\s*[./-]\s*|\s*년\s*)"
+APPLICATION_DATE = (
+    rf"(?<!\d)(?P<year>\d{{4}}){DATE_SEPARATOR}(?P<month>\d{{1,2}})"
+    rf"(?:\s*[./-]\s*|\s*월\s*)(?P<day>\d{{1,2}})(?!\d)(?:\s*일|\.(?!\d))?"
+)
+DATE_RANGE = rf"(?:{APPLICATION_DATE.replace('P<', 'P<start_')}\s*[~～–—-]\s*)?{APPLICATION_DATE}"
+DEADLINE_LABEL = r"(?:마감\s*(?:일시|일)?|종료\s*(?:일시|일)?|기한)"
+DATE_NOTE = r"(?:[ \t]*\([월화수목금토일](?:요일)?\))?(?:[ \t]+\d{1,2}:\d{2})?"
+APPLY_DEADLINE = re.compile(
+    rf"{APPLICATION}\s*(?P<label>{DEADLINE_LABEL}|기간)?\s*(?:[:：=]\s*)?{DATE_RANGE}"
+    rf"{DATE_NOTE}(?P<until>\s*까지)?(?!\d)"
+)
+APPLY_DATE_FIRST = re.compile(rf"{APPLICATION_DATE}{DATE_NOTE}\s*(?:까지\s*{APPLICATION}|{APPLICATION}\s*{DEADLINE_LABEL})")
+EVENT_TIME = re.compile(
+    r"(?:(?:[•○]|(?<!\S))(?:시작\s*(?:시각|시간)|(?:공연|행사|관람|운영)\s*시간)|^[ \t]*시간)"
+    r"[ \t]*[:：][ \t]*(\S[^\r\n]*)",
+    re.M,
+)
 
 
 def is_free(price):
@@ -34,11 +59,78 @@ def _date(value):
         return None
 
 
+def _plain_text(value):
+    text = unescape(str(value or ""))
+    text = re.sub(r"<(?:br\b[^>]*|/?(?:p|li|div|tr|td|th)\b[^>]*)>", "\n", text, flags=re.I)
+    return re.sub(r"<[^>]+>", "", text).strip()
+
+
+def _normalize_sigungu(value, sido):
+    province = REGION_PREFIX.match(value)
+    remaining = value
+    if province:
+        after_prefix = value[province.end():].lstrip(" (,·/")
+        if after_prefix or province[1] != "광주시" or normalize_sido(province[1]) == sido:
+            remaining = after_prefix
+    elif sido and value.startswith(sido):
+        remaining = value[len(sido):]
+    district = DISTRICT_PREFIX.match(remaining)
+    if not district:
+        return ""
+    # 수원시 영통구처럼 자치구가 아닌 구도 시 이름과 함께 보존한다.
+    subdistrict = DISTRICT_PREFIX.match(remaining[district.end():].strip())
+    name = district[1]
+    if name.endswith("시") and subdistrict and subdistrict[1].endswith("구"):
+        return f"{name} {subdistrict[1]}"
+    return name
+
+
+def _entry(text):
+    without_exceptions = NO_BOOKING.sub("", text)
+    if REQUIRED_ENTRY.search(without_exceptions):
+        return "예약 필요"
+    if OPEN_ENTRY.search(text) or NO_BOOKING.search(text):
+        return "자유 입장"
+    return "예약 필요" if BOOKED_ENTRY.search(without_exceptions) else ""
+
+
+def _apply_end(text):
+    deadlines = set()
+    for line in text.splitlines():
+        for match in APPLY_DEADLINE.finditer(line):
+            if not (match["until"] or match["start_year"] or match["label"] not in (None, "기간")):
+                continue
+            if re.match(r"\s*(?:[~～–—-]|부터|이후)", line[match.end():]):
+                continue
+            deadlines.add(_matched_date(match))
+        for match in APPLY_DATE_FIRST.finditer(line):
+            deadlines.add(_matched_date(match))
+    deadlines.discard(None)
+    return deadlines.pop() if len(deadlines) == 1 else None
+
+
+def _matched_date(match):
+    try:
+        return date(*(int(match[key]) for key in ("year", "month", "day"))).isoformat()
+    except ValueError:
+        return None
+
+
 def map_event(item, detail):
     def field(name):
         return str(item.get(name) or detail.get(name) or "").strip()
 
     price = str(detail.get("price") or "").strip()
+    sido = normalize_sido(field("area"))
+    description = _plain_text(detail.get("contents1"))
+    booking_text = "\n".join((_plain_text(price), description, unquote_plus(_plain_text(detail.get("url")))))
+    time_match = EVENT_TIME.search(description)
+    time_text = str(detail.get("startTime") or detail.get("time") or (time_match[1] if time_match else ""))
+    extra = {
+        "time": " ".join(time_text.split())[:80],
+        "placeAddr": field("placeAddr"),
+        "description": " ".join(description.split())[:180],
+    }
     realm = field("realmName")
     category = re.split(r"[/·]", realm, maxsplit=1)[0].strip()
     image = str(item.get("thumbnail") or "").strip()
@@ -48,10 +140,12 @@ def map_event(item, detail):
                 if (value := str(detail.get(name) or "").strip()).startswith(("https://", "http://"))), CULTURE_HOME)
     return {
         "id": field("seq"), "title": field("title"), "venue": field("place"),
-        "sido": normalize_sido(field("area")), "sigungu": field("sigungu"),
+        "sido": sido, "sigungu": _normalize_sigungu(field("sigungu"), sido),
         "start": _date(field("startDate")), "end": _date(field("endDate")),
         "realm": realm, "emoji": REALM_EMOJI.get(category, "🎟️"), "price": price[:60],
         "free": is_free(price), "ticketOpen": None, "url": url, "image": image,
+        "entry": _entry(booking_text), "applyEnd": _apply_end(booking_text),
+        **{name: value for name, value in extra.items() if value},
     }
 
 
