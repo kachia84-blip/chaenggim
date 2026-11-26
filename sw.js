@@ -2,7 +2,7 @@
 
 const scope = new URL(self.registration.scope);
 const cachePrefix = "chaenggim:" + scope.pathname + ":";
-const cacheName = cachePrefix + "v13";
+const cacheName = cachePrefix + "v14";
 const shell = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icons/icon.svg",
   "./fonts/fonts.css", "./fonts/pretendard.woff2",

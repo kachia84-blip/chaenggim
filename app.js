@@ -1090,7 +1090,19 @@ function renderEvents(today, now) {
   }
 
   if (eventFilter === "apply") matches.sort((a, b) => a.applyDay - b.applyDay);
-  const results = matches.length ? cardList(matches.map(item => eventRow(item, today, now)))
+  // 전국·전체면 1천 줄이 넘어 휴대폰이 버벅이므로 지원금 탭처럼 40줄씩 그린다.
+  let shownCount = BENEFIT_PAGE_SIZE;
+  const row = item => eventRow(item, today, now);
+  const list = listing(matches.slice(0, shownCount).map(row));
+  const more = button("더 보기", "quiet-button text-button card-link", () => {
+    const next = matches.slice(shownCount, shownCount + BENEFIT_PAGE_SIZE).map(row);
+    list.append(...next.map(control => el("li", null, control)));
+    shownCount += BENEFIT_PAGE_SIZE;
+    next[0]?.focus();
+    if (shownCount >= matches.length) more.parentElement.remove();
+  });
+  const results = matches.length ? el("div", "card list-card", list,
+    matches.length > shownCount ? el("div", "list-more", more) : null)
     : el("div", "state", el("p", null, "조건에 맞는 행사가 없어요"),
       button("조건 초기화", "quiet-button text-button", () => {
         eventFilter = "all";
