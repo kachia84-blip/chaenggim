@@ -1267,7 +1267,23 @@ document.addEventListener("visibilitychange", () => {
 loadData();
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./sw.js").catch(error => console.warn("오프라인 기능을 시작할 수 없어요.", error));
+  // 설치 앱은 저장해 둔 옛 화면부터 띄우고, 뒤로 보냈다 다시 켤 때는 새 버전을 확인하지 않는다.
+  // 그래서 다시 보일 때마다(30분에 한 번) 새 버전을 확인하고, 새 버전이 자리 잡으면 한 번 새로 고친다.
+  const hadController = Boolean(navigator.serviceWorker.controller);
+  let reloading = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!hadController || reloading) return;  // 첫 설치 때는 새로 고치지 않는다
+    reloading = true;
+    location.reload();
+  });
+  navigator.serviceWorker.register("./sw.js").then(registration => {
+    let checked = Date.now();
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState !== "visible" || Date.now() - checked < 30 * 60 * 1000) return;
+      checked = Date.now();
+      registration.update().catch(() => {});
+    });
+  }).catch(error => console.warn("오프라인 기능을 시작할 수 없어요.", error));
 }
 
 // 설치 · 크롬이 설치를 허락하면 바로 설치 창을 띄우고, 아니면 방법을 보여 준다.
