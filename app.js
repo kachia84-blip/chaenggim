@@ -471,6 +471,17 @@ function weeklyEvents(today, sido, sigungu) {
   return events.filter(item => selected.has(item));
 }
 
+// "성인(성인), 청소년(중,고등학생)…"처럼 긴 대상 설명을 한 줄로 줄인다. 괄호 설명은 빼되,
+// "제한없음(경찰, 소방 가족)"처럼 괄호 안이 핵심이면 그 안을 쓴다.
+function shortTarget(text = "") {
+  let plain = text;
+  while (/\([^()]*\)/.test(plain)) plain = plain.replace(/\([^()]*\)/g, "");
+  plain = plain.replace(/\s+/g, " ").replace(/\s+,/g, ",").trim();
+  let value = plain;
+  if (/^제한\s*없음$/.test(plain)) value = (text.match(/^제한\s*없음\s*\((.*)\)$/)?.[1] ?? "").trim();
+  return value.length > 16 ? value.slice(0, 15) + "…" : value;
+}
+
 function homeEventRow(item, today, sigungu) {
   const thumbnail = el("span", "home-event-image");
   if (item.source === "seoul") {
@@ -487,7 +498,7 @@ function homeEventRow(item, today, sigungu) {
   const [, month, day] = dateParts(item.endDay);
   const multiDay = item.startDay !== item.endDay ? `~${month}.${day}까지` : "";
   const nearby = (sigungu || item.source === "seoul") && !inDistrict(item, sigungu) ? item.sigungu : "";
-  const target = /^제한\s*없음$/.test(item.target) ? "" : item.target;
+  const target = shortTarget(item.target);
   const meta = [item.time, item.venue || item.placeAddr, multiDay, nearby, target].filter(Boolean).join(" · ");
   const distance = item.applyDay - today;
   const status = item.applyDay >= today && distance <= 30
