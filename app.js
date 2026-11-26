@@ -473,7 +473,10 @@ function weeklyEvents(today, sido, sigungu) {
 
 function homeEventRow(item, today, sigungu) {
   const thumbnail = el("span", "home-event-image");
-  if (item.image) {
+  if (item.source === "seoul") {
+    // 서울 예약 사진은 원본이 장당 2MB 안팎이라 휴대폰 데이터·배터리를 아끼려고 분야 이모지로 대신한다.
+    thumbnail.append(emoji(item.emoji));
+  } else if (item.image) {
     const image = el("img");
     image.alt = "";
     image.loading = "lazy";
@@ -487,17 +490,26 @@ function homeEventRow(item, today, sigungu) {
   const target = /^제한\s*없음$/.test(item.target) ? "" : item.target;
   const meta = [item.time, item.venue || item.placeAddr, multiDay, nearby, target].filter(Boolean).join(" · ");
   const distance = item.applyDay - today;
-  const status = item.applyDay >= today
+  const status = item.applyDay >= today && distance <= 30
     ? el("span", "status countdown", distance === 0 ? "오늘 마감" : `신청 D-${distance}`)
-    : el("span", "status", item.applyDay < today ? "신청 마감" : item.entry);
+    : el("span", "status", item.applyDay > today ? "신청 받는 중" : item.applyDay < today ? "신청 마감" : item.entry);
   return rowControl(item, "row home-event-row", thumbnail,
     el("span", "row-text", el("span", "row-title", item.title), meta && el("span", "row-meta", meta), sampleLabel(item)),
     status.textContent ? status : null);
 }
 
+// 오늘 마감인데 마감 시각이 이미 지났으면 신청할 수 없다.
+function applyOpen(item, today) {
+  if (!(item.applyDay >= today)) return false;
+  if (item.applyDay > today || !/^\d\d:\d\d$/.test(item.applyEndTime ?? "")) return true;
+  return koreanTime.format(Date.now()).padStart(5, "0") < item.applyEndTime;
+}
+
 function homeEvents(today, sido, sigungu) {
-  const events = weeklyEvents(today, sido, sigungu);
   const sunday = weekEnd(today);
+  const all = weeklyEvents(today, sido, sigungu);
+  // 서울 예약은 신청만 이번 주이고 행사는 몇 주 뒤인 경우가 많아 요일 목록에는 이번 주 행사만 둔다.
+  const events = all.filter(item => item.day <= sunday);
   const counts = new Map();
   for (const item of events) counts.set(item.day, (counts.get(item.day) ?? 0) + 1);
   if (!counts.has(homeEventDay)) homeEventDay = null;
@@ -520,16 +532,29 @@ function homeEvents(today, sido, sigungu) {
     filters.append(chip(day, `${label} ${count}`));
   }
   const selected = events.filter(item => homeEventDay === null || item.day === homeEventDay);
-  const deadlines = selected.filter(item => item.applyDay >= today && item.applyDay <= today + 7)
-    .sort((a, b) => a.applyDay - b.applyDay || districtOrder(a, b, sigungu));
-  const urgent = new Set(deadlines);
+  const deadlines = homeEventDay !== null ? [] : all
+    .filter(item => applyOpen(item, today) && item.applyDay <= today + 7)
+    .sort((a, b) => districtOrder(a, b, sigungu) || a.applyDay - b.applyDay);
+  // 한 장소가 같은 달 프로그램을 여러 개 올려 목록을 채우지 않도록 장소마다 2건까지만 보인다.
+  const perVenue = new Map();
+  const fewPerVenue = item => {
+    const key = item.venue || item.title;
+    perVenue.set(key, (perVenue.get(key) ?? 0) + 1);
+    return perVenue.get(key) <= 2;
+  };
+  const shown = deadlines.filter(fewPerVenue).slice(0, 6);
+  const urgent = new Set(shown);
   const sections = [];
-  if (deadlines.length) {
+  if (shown.length) {
+    const rest = deadlines.length - shown.length;
+    const applyMore = rest > 0 ? tabLink("events", `신청 마감 임박 ${rest}건 더 보기`, "quiet-button text-button") : null;
+    applyMore?.addEventListener("click", () => { eventFilter = "apply"; });
     sections.push(el("section", null, el("h2", "section-label", "신청 마감 임박"),
-      listing(deadlines.map(item => homeEventRow(item, today, sigungu)))));
+      listing(shown.map(item => homeEventRow(item, today, sigungu))), applyMore));
   }
   const groups = new Map();
-  for (const item of selected.filter(item => !urgent.has(item)).slice(0, 12)) {
+  perVenue.clear();
+  for (const item of selected.filter(item => !urgent.has(item)).filter(fewPerVenue).slice(0, 12)) {
     if (!groups.has(item.day)) groups.set(item.day, []);
     groups.get(item.day).push(homeEventRow(item, today, sigungu));
   }
@@ -562,7 +587,7 @@ function renderToday(today) {
   const tax = upcomingTaxes(today, true)[0];
   const due = matchingBenefits(today).filter(item => item.endDay - today <= 14 && readyToReceive(item, today)).length;
   const dueLink = tabLink("benefits", null, "row quiet-row");
-  dueLink.append(el("span", "row-title", "신청 마감 임박"), el("span", "status", `${due}건`));
+  dueLink.append(el("span", "row-title", "지원금 마감 임박"), el("span", "status", `${due}건`));
   dueLink.addEventListener("click", () => {
     benefitSortByDeadline = true;
     benefitQuery = "";
@@ -904,7 +929,7 @@ function upcomingEvents(today) {
 
 function eventMatches(item, today, now) {
   if (eventFilter === "free") return item.free === true;
-  if (eventFilter === "apply") return item.applyDay >= today;
+  if (eventFilter === "apply") return applyOpen(item, today);
   if (eventFilter === "tickets") {
     return eventOpenings(item).some(opening => opening.label === "티켓 오픈" && opensLater(opening, today, now));
   }
@@ -945,6 +970,7 @@ function renderEvents(today, now) {
     filters.append(chip);
   }
   const rows = upcomingEvents(today).filter(item => eventMatches(item, today, now))
+    .sort((a, b) => eventFilter === "apply" ? a.applyDay - b.applyDay : 0)  // 신청 가능은 마감 빠른 순
     .map(item => eventRow(item, today, now));
   const missingRegion = eventFilter === "local" && (!profile.sido || profile.sido === "모름");
   const results = missingRegion

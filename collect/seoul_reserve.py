@@ -1,3 +1,4 @@
+import html
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -31,7 +32,8 @@ def _date_time(value):
 
 def map_event(row, today):
     def field(name):
-        return str(row.get(name) or "").strip()
+        # 제목에 "&lt;"나 두 번 덧씌운 "&amp;lt;" 같은 기호가 섞여 온다
+        return html.unescape(html.unescape(str(row.get(name) or ""))).strip()
 
     status = field("SVCSTATNM")
     if field("PAYATNM") != "무료" or status not in ("접수중", "안내중"):
@@ -39,6 +41,10 @@ def map_event(row, today):
     receipt_start = _date_time(field("RCPTBGNDT"))
     receipt_end_text = field("RCPTENDDT")
     receipt_end = _date_time(receipt_end_text)
+    # "27일 00:00·00:02 마감"은 사실상 26일 밤 마감이라 하루 당기고 시각은 뺀다.
+    midnight = bool(receipt_end) and len(receipt_end_text) > 10 and receipt_end.hour == 0 and receipt_end.minute <= 5
+    if midnight:
+        receipt_end -= timedelta(days=1)
     has_deadline = receipt_end and receipt_end.date() >= today
     opening_soon = (status == "안내중" and receipt_start and
                     today <= receipt_start.date() <= today + timedelta(days=30))
@@ -72,7 +78,7 @@ def map_event(row, today):
         "free": True, "price": "무료", "entry": "예약 필요", "ticketOpen": None,
         "applyStart": receipt_start.date().isoformat() if receipt_start else None,
         "applyEnd": receipt_end.date().isoformat() if receipt_end else None,
-        "applyEndTime": receipt_end.strftime("%H:%M") if receipt_end and len(receipt_end_text) > 10 else None,
+        "applyEndTime": receipt_end.strftime("%H:%M") if receipt_end and len(receipt_end_text) > 10 and not midnight else None,
         "status": status, "target": field("USETGTINFO"), "realm": realm,
         "emoji": REALM_EMOJI.get(realm, "🎟️"),
         "image": image if image.lower().startswith("https://") else "",
