@@ -6415,6 +6415,33 @@
     }
   },
   {
+    "id": "383000000145",
+    "name": "노인 개안수술 지원",
+    "org": "경기도 안양시",
+    "summary": "저소득층 노인에게 노인 개안수술비 지원을 통한 의료비 부담 경감",
+    "target": "○ 대상자 : 60세 이상 노인 중「국민기초생활 보장법」에 따른 수급자 또는 차상위계층\r\n  - 차상위계층: 차상위장애인, 차",
+    "amount": "○ 수술 \r\n - 1안당 150만원 내 지원\r\n  * 백내장 비급여 인공수정체는  전액 본인부담(비급여 검사",
+    "how": "방문신청",
+    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803393&bnefType=all&svcId=383000000145",
+    "amountWon": 1800000,
+    "amountText": "180만 원",
+    "plain": "저소득층 노인에게 노인 개안수술비 지원을 통한 의료비 부담 경감",
+    "who": "대상자 : 60세 이상 노인 중「국민기초생활 보장법」에 따른 수급자 또는 차상위계층",
+    "deadline": null,
+    "deadlineText": "상시신청",
+    "field": "보건·의료",
+    "emoji": "🏥",
+    "sigungu": "안양시",
+    "cond": {
+      "ageMin": 60,
+      "ageMax": 120,
+      "income": [
+        "JA0201"
+      ],
+      "need": []
+    }
+  },
+  {
     "id": "393000000108",
     "name": "노인 목욕 및 이·미용 바우처 사업 지원",
     "org": "경기도 안산시",
