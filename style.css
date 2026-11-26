@@ -256,6 +256,20 @@ a { color: inherit; }
 .home-filters .chip { border: 1px solid var(--hairline); background: transparent; }
 .home-filters .chip:hover { background: var(--shade); }
 .home-filters .chip[aria-pressed="true"] { background: var(--text); color: var(--paper); }
+.event-condition-filters .chip, .event-category-filters .chip {
+  border: 1px solid var(--hairline);
+  white-space: nowrap;
+}
+.event-region { max-width: 100%; }
+.event-category-filters {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-padding-inline: 4px;
+  padding: 4px;
+  margin-inline: -4px;
+}
+.event-category-filters::-webkit-scrollbar { display: none; }
 .chip[aria-current="date"] {
   font-weight: 500;
   text-decoration: underline var(--muted);

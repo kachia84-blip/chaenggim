@@ -559,7 +559,10 @@ function homeEvents(today, sido, sigungu) {
   if (shown.length) {
     const rest = deadlines.length - shown.length;
     const applyMore = rest > 0 ? tabLink("events", `신청 마감 임박 ${rest}건 더 보기`, "quiet-button text-button") : null;
-    applyMore?.addEventListener("click", () => { eventFilter = "apply"; });
+    applyMore?.addEventListener("click", () => {
+      eventFilter = "apply";
+      eventCategory = "전체";
+    });
     sections.push(el("section", null, el("h2", "section-label", "신청 마감 임박"),
       listing(shown.map(item => homeEventRow(item, today, sigungu))), applyMore));
   }
@@ -574,7 +577,10 @@ function homeEvents(today, sido, sigungu) {
       el("h2", "section-label", weekdays[dayDate(day).getUTCDay()] + "요일 " + dateLabel(day)), listing(rows)));
   }
   const more = tabLink("events", "공연 탭에서 더 보기", "quiet-button text-button card-link");
-  more.addEventListener("click", () => { eventFilter = "free"; });
+  more.addEventListener("click", () => {
+    eventFilter = "free";
+    eventCategory = "전체";
+  });
   return [filters, !sido && !sigungu ? el("div", "home-location", el("p", null, "내 동네를 넣으면 가까운 행사만 보여요"),
     button("동네 설정", "quiet-button text-button", openProfile)) : null, dataNotice(eventDataKeys),
     sections.length ? el("div", "home-event-groups", ...sections)
@@ -921,8 +927,29 @@ function renderTaxes(today) {
 }
 
 // 공연 · 공연 기간과 티켓·신청 시작은 각각 표시한다.
-const eventFilters = { all: "전체", free: "무료", apply: "신청 가능", tickets: "티켓 오픈", local: "내 지역" };
+const eventFilters = { all: "전체", free: "무료", apply: "신청 가능", tickets: "티켓 오픈" };
+const eventRealms = {
+  "음악": ["음악/콘서트", "국악"],
+  "연극·뮤지컬": ["연극", "뮤지컬/오페라", "무용/발레"],
+  "전시": ["전시", "전시/관람", "미술제작", "역사"],
+  "체험·교육": ["교육/체험", "교육체험", "공예/취미", "교양/어학", "도시농업", "자연/과학", "스포츠"],
+  "숲·공원": ["공원탐방", "산림여가"],
+  "축제": ["행사/축제", "문화행사"],
+  "아이랑": ["아동/가족", "서울형키즈카페"],
+  "청년": ["청년정보"]
+};
 let eventFilter = "all";
+let eventCategory = "전체";
+let eventRegion;
+
+function eventCategories(item) {
+  const target = item.target ?? "";
+  const categories = Object.entries(eventRealms).filter(([category, realms]) =>
+    realms.includes(item.realm) || (category === "아이랑" && /어린이|유아|아동|초등|가족/.test(target)) ||
+    (category === "청년" && /청년/.test(target))
+  ).map(([category]) => category);
+  return categories.length ? categories : ["기타"];
+}
 
 function eventOpenings(item) {
   return [
@@ -944,8 +971,67 @@ function eventMatches(item, today, now) {
   if (eventFilter === "tickets") {
     return eventOpenings(item).some(opening => opening.label === "티켓 오픈" && opensLater(opening, today, now));
   }
-  if (eventFilter === "local") return item.sido === profile.sido;
   return true;
+}
+
+function initialEventRegion(events) {
+  const sido = profile.sido === "모름" ? "" : profile.sido ?? "";
+  const sigungu = profile.sigungu === "모름" ? "" : profile.sigungu ?? "";
+  if (sido) return [sido, sigungu];
+  if (sigungu) {
+    const matches = new Set(events.filter(item => item.sido && inDistrict(item, sigungu)).map(item => item.sido));
+    if (matches.size === 1) return [[...matches][0], sigungu];
+  }
+  return ["", ""];
+}
+
+function shortEventRegion(sido) {
+  const shortNames = {
+    충청북도: "충북", 충청남도: "충남", 경상북도: "경북", 경상남도: "경남", 전라북도: "전북", 전라남도: "전남"
+  };
+  return shortNames[sido] ?? sido.replace(/(?:통합특별시|특별자치[시도]|특별시|광역시|도)$/, "");
+}
+
+function eventRegionSelect(events) {
+  const [sido, sigungu] = eventRegion;
+  const provinces = new Set(events.map(item => item.sido).filter(Boolean));
+  const districts = new Set(events.filter(item => item.sido === sido).map(item => item.sigungu).filter(Boolean));
+  // 일정이 사라져도 현재 선택한 지역은 표시한다.
+  if (sido) provinces.add(sido);
+  if (sigungu) districts.add(sigungu);
+
+  const select = el("select", "chip event-region");
+  select.setAttribute("aria-label", "지역");
+  select.dataset.filter = "event-region";
+  const addOption = (province, district, label) => {
+    const option = el("option", null, label);
+    option.value = JSON.stringify([province, district]);
+    select.append(option);
+  };
+  const compare = (first, second) => first.localeCompare(second, "ko");
+  addOption("", "", "전국");
+  for (const province of [...provinces].sort(compare)) {
+    addOption(province, "", shortEventRegion(province) + " 전체");
+    if (province === sido) {
+      for (const district of [...districts].sort(compare)) addOption(province, district, district);
+    }
+  }
+  select.value = JSON.stringify(eventRegion);
+  select.addEventListener("change", () => {
+    eventRegion = JSON.parse(select.value);
+    render({ focusFilter: select.dataset.filter });
+  });
+  return select;
+}
+
+function eventChip(label, focusFilter, pressed, onSelect) {
+  const chip = button(label, "chip", () => {
+    onSelect();
+    render({ focusFilter });
+  });
+  chip.dataset.filter = focusFilter;
+  chip.setAttribute("aria-pressed", String(pressed));
+  return chip;
 }
 
 function openingLine(opening, today, now) {
@@ -968,27 +1054,51 @@ function eventRow(item, today, now) {
 }
 
 function renderEvents(today, now) {
-  const filters = el("div", "filters");
+  const events = upcomingEvents(today);
+  const [sido, sigungu] = eventRegion ??= initialEventRegion(events);
+  const filters = el("div", "filters event-condition-filters");
   filters.setAttribute("role", "group");
-  filters.setAttribute("aria-label", "공연 필터");
+  filters.setAttribute("aria-label", "공연 조건");
   for (const [key, label] of Object.entries(eventFilters)) {
-    const chip = button(label, "chip", () => {
+    filters.append(eventChip(label, "event-condition-" + key, eventFilter === key, () => {
       eventFilter = key;
-      render({ focusFilter: key });
-    });
-    chip.dataset.filter = key;
-    chip.setAttribute("aria-pressed", String(eventFilter === key));
-    filters.append(chip);
+    }));
   }
-  const rows = upcomingEvents(today).filter(item => eventMatches(item, today, now))
-    .sort((a, b) => eventFilter === "apply" ? a.applyDay - b.applyDay : 0)  // 신청 가능은 마감 빠른 순
-    .map(item => eventRow(item, today, now));
-  const missingRegion = eventFilter === "local" && (!profile.sido || profile.sido === "모름");
-  const results = missingRegion
-    ? el("div", "state", el("p", null, "지역을 설정하면 가까운 공연을 볼 수 있어요."),
-      button("지역 설정", "quiet-button text-button", openProfile))
-    : cardList(rows, "조건에 맞는 공연이 없어요.");
-  return [pageHead("공연"), filters, dataNotice(eventDataKeys), results];
+  filters.append(eventRegionSelect(events));
+
+  const counts = new Map();
+  const matches = [];
+  let total = 0;
+  for (const item of events) {
+    if (sido && (item.sido !== sido || (sigungu && !inDistrict(item, sigungu)))) continue;
+    if (!eventMatches(item, today, now)) continue;
+    total++;
+    const categories = eventCategories(item);
+    for (const category of categories) counts.set(category, (counts.get(category) ?? 0) + 1);
+    if (eventCategory === "전체" || categories.includes(eventCategory)) matches.push(item);
+  }
+
+  const categories = el("div", "filters event-category-filters");
+  categories.setAttribute("role", "group");
+  categories.setAttribute("aria-label", "분야");
+  for (const key of ["전체", ...Object.keys(eventRealms), "기타"]) {
+    const count = key === "전체" ? total : counts.get(key) ?? 0;
+    if (!count && key !== "전체" && key !== eventCategory) continue;
+    categories.append(eventChip(`${key} ${count}`, "event-category-" + key, eventCategory === key, () => {
+      eventCategory = key;
+    }));
+  }
+
+  if (eventFilter === "apply") matches.sort((a, b) => a.applyDay - b.applyDay);
+  const results = matches.length ? cardList(matches.map(item => eventRow(item, today, now)))
+    : el("div", "state", el("p", null, "조건에 맞는 행사가 없어요"),
+      button("조건 초기화", "quiet-button text-button", () => {
+        eventFilter = "all";
+        eventCategory = "전체";
+        eventRegion = ["", ""];
+        render({ focusFilter: "event-condition-all" });
+      }));
+  return [pageHead("공연"), filters, categories, dataNotice(eventDataKeys), results];
 }
 
 // 시트 · 상세 정보와 프로필은 같은 하단 대화상자를 사용한다.
