@@ -5,7 +5,7 @@ from pathlib import Path
 if not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from collect import benefits, events
+from collect import benefits, events, seoul_reserve
 from collect.common import DATA_DIR, atomic_write_json, kst_now, log
 
 
@@ -17,7 +17,8 @@ def _previous_count(data_dir, source):
         except (OSError, ValueError, AttributeError, TypeError):
             pass
     try:
-        rows = json.loads((data_dir / f"{source}.json").read_text(encoding="utf-8"))
+        filename = seoul_reserve.OUTPUT_FILE if source == "seoul" else f"{source}.json"
+        rows = json.loads((data_dir / filename).read_text(encoding="utf-8"))
         return len(rows) if isinstance(rows, list) else 0
     except (OSError, ValueError):
         return 0
@@ -28,7 +29,8 @@ def main(data_dir=DATA_DIR):
     today = kst_now().date()
     sources = {}
     messages = []
-    for name, collector in (("benefits", benefits.collect), ("events", events.collect)):
+    for name, collector in (("benefits", benefits.collect), ("events", events.collect),
+                            ("seoul", seoul_reserve.collect)):
         try:
             count = collector(data_dir, today)
         except Exception as error:

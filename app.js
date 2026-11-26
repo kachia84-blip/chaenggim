@@ -63,7 +63,8 @@ function opensLater(opening, today, now) {
 }
 
 // 데이터 불러오기 · 일부 파일이 실패해도 받은 일정은 표시한다.
-const dataKeys = ["picks", "benefits", "taxes", "events", "tips", "dormant"];
+const eventDataKeys = ["events", "seoul_events"];
+const dataKeys = ["picks", "benefits", "taxes", ...eventDataKeys, "tips", "dormant"];
 const data = Object.fromEntries(dataKeys.map(key => [key, []]));
 const failed = new Set();
 let pendingLoads = 0;
@@ -103,12 +104,13 @@ async function loadData(keys = dataKeys) {
   const sido = benefitSido();
   pendingLoads++;
   render();
-  const results = await Promise.allSettled(keys.map(key => key === "benefits" ? readBenefits(sido) : readData(key)));
+  const results = await Promise.allSettled(keys.map(key =>
+    key === "benefits" ? readBenefits(sido) : readData(key, key === "seoul_events")));
   results.forEach((result, index) => {
     const key = keys[index];
     if (key === "benefits" && sido !== benefitSido()) return;
     if (result.status === "fulfilled") {
-      data[key] = result.value;
+      data[key] = result.value ?? [];
       failed.delete(key);
     } else {
       failed.add(key);
@@ -440,18 +442,28 @@ function openDormant() {
 let homeEventDay = null;
 
 function inDistrict(item, sigungu) {
-  return item.sigungu === sigungu || item.sigungu?.startsWith(sigungu + " ");
+  return item.sigungu === sigungu || (item.sigungu ?? "").startsWith(sigungu + " ");
+}
+
+function districtOrder(first, second, sigungu) {
+  if (!sigungu) return 0;
+  return Number(inDistrict(second, sigungu)) - Number(inDistrict(first, sigungu));
+}
+
+function weekEnd(today) {
+  return today + (7 - dayDate(today).getUTCDay()) % 7;
 }
 
 function weeklyEvents(today, sido, sigungu) {
-  const sunday = today + (7 - dayDate(today).getUTCDay()) % 7;
+  const sunday = weekEnd(today);
   const events = upcomingEvents(today)
-    .filter(item => item.free === true && item.startDay <= sunday && (!sido || item.sido === sido))
-    .map(item => ({ ...item, day: Math.max(today, item.startDay), applyDay: dayNumber(item.applyEnd) }))
-    .sort((a, b) => a.day - b.day ||
+    .filter(item => item.free === true && (!sido || item.sido === sido) &&
+      (item.applyDay >= today || (item.endDay >= today && item.startDay <= sunday)))
+    .map(item => ({ ...item, day: Math.max(today, item.startDay) }))
+    .sort((a, b) => a.day - b.day || districtOrder(a, b, sigungu) ||
       (a.applyDay >= today ? a.applyDay : Infinity) - (b.applyDay >= today ? b.applyDay : Infinity) ||
       b.startDay - a.startDay);
-  if (!sigungu) return events;
+  if (!sigungu || sido === "서울특별시") return events;
   const local = events.filter(item => inDistrict(item, sigungu));
   if (!sido || local.length >= 5) return local;
   const nearby = events.filter(item => !inDistrict(item, sigungu) && item.sigungu).slice(0, 5 - local.length);
@@ -471,10 +483,12 @@ function homeEventRow(item, today, sigungu) {
   }
   const [, month, day] = dateParts(item.endDay);
   const multiDay = item.startDay !== item.endDay ? `~${month}.${day}까지` : "";
-  const nearby = sigungu && !inDistrict(item, sigungu) ? item.sigungu : "";
-  const meta = [item.time, item.venue || item.placeAddr, multiDay, nearby].filter(Boolean).join(" · ");
+  const nearby = (sigungu || item.source === "seoul") && !inDistrict(item, sigungu) ? item.sigungu : "";
+  const target = /^제한\s*없음$/.test(item.target) ? "" : item.target;
+  const meta = [item.time, item.venue || item.placeAddr, multiDay, nearby, target].filter(Boolean).join(" · ");
+  const distance = item.applyDay - today;
   const status = item.applyDay >= today
-    ? el("span", "status countdown", `신청 D-${item.applyDay - today}`)
+    ? el("span", "status countdown", distance === 0 ? "오늘 마감" : `신청 D-${distance}`)
     : el("span", "status", item.applyDay < today ? "신청 마감" : item.entry);
   return rowControl(item, "row home-event-row", thumbnail,
     el("span", "row-text", el("span", "row-title", item.title), meta && el("span", "row-meta", meta), sampleLabel(item)),
@@ -483,6 +497,7 @@ function homeEventRow(item, today, sigungu) {
 
 function homeEvents(today, sido, sigungu) {
   const events = weeklyEvents(today, sido, sigungu);
+  const sunday = weekEnd(today);
   const counts = new Map();
   for (const item of events) counts.set(item.day, (counts.get(item.day) ?? 0) + 1);
   if (!counts.has(homeEventDay)) homeEventDay = null;
@@ -500,20 +515,33 @@ function homeEvents(today, sido, sigungu) {
   };
   filters.append(chip(null, `전체 ${events.length}`));
   for (const [day, count] of counts) {
-    const label = day === today ? "오늘" : day === today + 1 ? "내일" : weekdays[dayDate(day).getUTCDay()];
+    const label = day === today ? "오늘" : day === today + 1 ? "내일" :
+      day <= sunday ? weekdays[dayDate(day).getUTCDay()] : dateLabel(day);
     filters.append(chip(day, `${label} ${count}`));
   }
+  const selected = events.filter(item => homeEventDay === null || item.day === homeEventDay);
+  const deadlines = selected.filter(item => item.applyDay >= today && item.applyDay <= today + 7)
+    .sort((a, b) => a.applyDay - b.applyDay || districtOrder(a, b, sigungu));
+  const urgent = new Set(deadlines);
+  const sections = [];
+  if (deadlines.length) {
+    sections.push(el("section", null, el("h2", "section-label", "신청 마감 임박"),
+      listing(deadlines.map(item => homeEventRow(item, today, sigungu)))));
+  }
   const groups = new Map();
-  for (const item of events.filter(item => homeEventDay === null || item.day === homeEventDay).slice(0, 12)) {
+  for (const item of selected.filter(item => !urgent.has(item)).slice(0, 12)) {
     if (!groups.has(item.day)) groups.set(item.day, []);
     groups.get(item.day).push(homeEventRow(item, today, sigungu));
+  }
+  for (const [day, rows] of groups) {
+    sections.push(el("section", null,
+      el("h2", "section-label", weekdays[dayDate(day).getUTCDay()] + "요일 " + dateLabel(day)), listing(rows)));
   }
   const more = tabLink("events", "공연 탭에서 더 보기", "quiet-button text-button card-link");
   more.addEventListener("click", () => { eventFilter = "free"; });
   return [filters, !sido && !sigungu ? el("div", "home-location", el("p", null, "내 동네를 넣으면 가까운 행사만 보여요"),
-    button("동네 설정", "quiet-button text-button", openProfile)) : null, dataNotice(["events"]),
-    groups.size ? el("div", "home-event-groups", ...Array.from(groups, ([day, rows]) => el("section", null,
-      el("h2", "section-label", weekdays[dayDate(day).getUTCDay()] + "요일 " + dateLabel(day)), listing(rows))))
+    button("동네 설정", "quiet-button text-button", openProfile)) : null, dataNotice(eventDataKeys),
+    sections.length ? el("div", "home-event-groups", ...sections)
       : el("p", "state", "이번 주 무료 행사가 없어요"), more];
 }
 
@@ -555,7 +583,7 @@ function renderToday(today) {
     ...homeEvents(today, sido, sigungu), el("div", "stack home-extras",
       el("section", null, el("h2", "section-label", "그 밖에 챙길 것"),
         listing(taxRow ? [dueLink, dormant, picks, taxRow] : [dueLink, dormant, picks]),
-        dataNotice(dataKeys.filter(key => key !== "events"))), tipCard(today))];
+        dataNotice(dataKeys.filter(key => !eventDataKeys.includes(key)))), tipCard(today))];
 }
 
 // 지원금 · 이전 수집본에도 금액과 조건을 표시한다.
@@ -857,7 +885,7 @@ function renderTaxes(today) {
 }
 
 // 공연 · 공연 기간과 티켓·신청 시작은 각각 표시한다.
-const eventFilters = { all: "전체", free: "무료", tickets: "티켓 오픈", local: "내 지역" };
+const eventFilters = { all: "전체", free: "무료", apply: "신청 가능", tickets: "티켓 오픈", local: "내 지역" };
 let eventFilter = "all";
 
 function eventOpenings(item) {
@@ -868,12 +896,15 @@ function eventOpenings(item) {
 }
 
 function upcomingEvents(today) {
-  return data.events.map(item => ({ ...item, startDay: dayNumber(item.start), endDay: dayNumber(item.end) }))
-    .filter(item => item.endDay >= today).sort((first, second) => first.startDay - second.startDay);
+  return eventDataKeys.flatMap(key => data[key]).map(item => ({
+    ...item, startDay: dayNumber(item.start), endDay: dayNumber(item.end), applyDay: dayNumber(item.applyEnd)
+  })).filter(item => item.endDay >= today || item.applyDay >= today)
+    .sort((first, second) => first.startDay - second.startDay);
 }
 
 function eventMatches(item, today, now) {
   if (eventFilter === "free") return item.free === true;
+  if (eventFilter === "apply") return item.applyDay >= today;
   if (eventFilter === "tickets") {
     return eventOpenings(item).some(opening => opening.label === "티켓 오픈" && opensLater(opening, today, now));
   }
@@ -891,9 +922,12 @@ function openingLine(opening, today, now) {
 
 function eventRow(item, today, now) {
   const price = item.free ? el("span", "price", "무료") : el("span", "row-meta", item.price);
+  const deadline = Number.isFinite(item.applyDay)
+    ? el("span", "row-meta", "신청 마감 " + dateLabel(item.applyDay) + (item.applyEndTime ? " " + item.applyEndTime : ""))
+    : null;
   return rowControl(item, "row event-row", emoji(item.emoji), el("span", "row-text",
     el("span", "row-title", item.title), el("span", "row-sub", item.venue),
-    el("span", "row-meta", periodLabel(item.startDay, item.endDay)), price,
+    el("span", "row-meta", periodLabel(item.startDay, item.endDay)), price, deadline,
     ...eventOpenings(item).map(opening => openingLine(opening, today, now)), sampleLabel(item)));
 }
 
@@ -917,7 +951,7 @@ function renderEvents(today, now) {
     ? el("div", "state", el("p", null, "지역을 설정하면 가까운 공연을 볼 수 있어요."),
       button("지역 설정", "quiet-button text-button", openProfile))
     : cardList(rows, "조건에 맞는 공연이 없어요.");
-  return [pageHead("공연"), filters, dataNotice(["events"]), results];
+  return [pageHead("공연"), filters, dataNotice(eventDataKeys), results];
 }
 
 // 시트 · 상세 정보와 프로필은 같은 하단 대화상자를 사용한다.
@@ -1051,7 +1085,7 @@ function scheduleRefresh() {
   clearTimeout(refreshTimer);
   const now = Date.now();
   const midnight = (seoulDay(now) + 1) * DAY_MS - SEOUL_OFFSET;
-  const nextOpening = data.events.flatMap(eventOpenings).map(opening => opening.time)
+  const nextOpening = eventDataKeys.flatMap(key => data[key].flatMap(eventOpenings)).map(opening => opening.time)
     .filter(time => time > now).reduce((soonest, time) => Math.min(soonest, time), midnight);
   refreshTimer = setTimeout(() => {
     render();

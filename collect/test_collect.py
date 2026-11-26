@@ -8,7 +8,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
 
-from collect import benefits, common, events, run_all
+from collect import benefits, common, events, run_all, seoul_reserve
 
 
 TODAY = date(2026, 11, 25)
@@ -28,6 +28,14 @@ EVENT = {
     "seq": "001", "title": "가을 공연", "startDate": "20261125", "endDate": "2026-12-01",
     "place": "공연장", "realmName": "음악/콘서트", "area": "서울", "sigungu": "종로구",
     "thumbnail": "http://images.invalid/poster.jpg",
+}
+RESERVATION = {
+    "SVCID": "S001", "SVCNM": "[서울공예박물관] 어린이 공예", "SVCSTATNM": "접수중", "PAYATNM": "무료",
+    "AREANM": "종로구", "PLACENM": "종로구 > 서울공예박물관 > 교육실",
+    "RCPTBGNDT": "2026-11-20 09:00:00.0", "RCPTENDDT": "2026-11-25 17:30:00.0",
+    "SVCOPNBGNDT": "2026-12-01 10:00:00", "SVCOPNENDDT": "2026-12-02 16:00:00",
+    "USETGTINFO": " 초등 1~3학년 ", "MINCLASSNM": "교육체험", "IMGURL": "http://images.invalid/poster.jpg",
+    "SVCURL": "https://yeyak.seoul.go.kr/reservation", "DTLCONT": "<p>상세 설명</p>",
 }
 
 
@@ -334,33 +342,140 @@ class EventTests(unittest.TestCase):
         self.assertEqual((len(rows), rows[-1]["seq"], get.call_count), (3000, 2999, 30))
 
 
+class SeoulReservationTests(unittest.TestCase):
+    def test_mapping(self):
+        self.assertEqual(seoul_reserve.map_event(RESERVATION, TODAY), {
+            "id": "seoul-S001", "title": "어린이 공예", "host": "서울공예박물관", "venue": "교육실",
+            "sido": "서울특별시", "sigungu": "종로구", "start": "2026-12-01", "end": "2026-12-02",
+            "free": True, "price": "무료", "entry": "예약 필요", "ticketOpen": None,
+            "applyStart": "2026-11-20", "applyEnd": "2026-11-25", "applyEndTime": "17:30",
+            "status": "접수중", "target": "초등 1~3학년", "realm": "교육체험", "emoji": "🧩",
+            "image": "https://images.invalid/poster.jpg", "url": "https://yeyak.seoul.go.kr/reservation",
+            "source": "seoul",
+        })
+
+    def test_free_status_and_receipt_window(self):
+        accepted = [
+            {"SVCSTATNM": "안내중"},
+            {"SVCSTATNM": "안내중", "RCPTBGNDT": "2026-12-25", "RCPTENDDT": ""},
+        ]
+        rejected = [
+            {"PAYATNM": "유료"}, {"SVCSTATNM": "예약마감"}, {"SVCSTATNM": "접수종료"},
+            {"RCPTENDDT": "2026-11-24 23:59:00"},
+            {"SVCSTATNM": "안내중", "RCPTBGNDT": "2026-12-26", "RCPTENDDT": ""},
+            {"SVCSTATNM": "안내중", "RCPTBGNDT": "2026-11-24", "RCPTENDDT": ""},
+        ]
+        for changes in accepted:
+            with self.subTest(changes=changes):
+                self.assertIsNotNone(seoul_reserve.map_event({**RESERVATION, **changes}, TODAY))
+        for changes in rejected:
+            with self.subTest(changes=changes):
+                self.assertIsNone(seoul_reserve.map_event({**RESERVATION, **changes}, TODAY))
+
+    def test_dates_and_optional_time(self):
+        item = seoul_reserve.map_event({**RESERVATION, "RCPTENDDT": "2026-11-26", "SVCOPNBGNDT": "20261201"}, TODAY)
+        self.assertEqual((item["applyEnd"], item["applyEndTime"], item["start"]), ("2026-11-26", None, "2026-12-01"))
+        self.assertIsNone(seoul_reserve.map_event({**RESERVATION, "RCPTENDDT": "2026-11-31 17:30:00"}, TODAY))
+        self.assertIsNone(seoul_reserve.map_event({**RESERVATION, "SVCOPNENDDT": "미정"}, TODAY))
+
+    def test_sample_collects_both_services_and_deduplicates_in_deadline_order(self):
+        culture, education = seoul_reserve.SERVICES
+        fixtures = {
+            culture: [RESERVATION, {**RESERVATION, "SVCID": "S002", "RCPTENDDT": "2026-11-27"}],
+            education: [
+                {**RESERVATION, "SVCID": "duplicate", "PLACENM": "서울공예박물관 > 교육실"},
+                {**RESERVATION, "SVCID": "other-host", "SVCNM": "[다른 기관] 어린이 공예"},
+                {**RESERVATION, "SVCID": "other-venue", "PLACENM": "다른 교육실"},
+                {**RESERVATION, "SVCID": "earlier-start", "SVCNM": "가족 체험", "SVCOPNBGNDT": "2026-11-28"},
+            ],
+        }
+
+        def open_fixture(url, timeout):
+            key, output, service, first, last = urlsplit(url).path.strip("/").split("/")
+            self.assertEqual((key, output, first, last), ("sample", "json", "1", "5"))
+            self.assertEqual(urlsplit(url).query, "")
+            response = {service: {"list_total_count": 100, "RESULT": {"CODE": "INFO-000"}, "row": fixtures[service]}}
+            return BytesIO(json.dumps(response).encode("utf-8"))
+
+        with TemporaryDirectory() as temporary, patch.object(seoul_reserve, "get_key", side_effect=RuntimeError):
+            with patch.object(seoul_reserve, "log") as log, patch.object(common, "urlopen", side_effect=open_fixture) as get:
+                self.assertEqual(seoul_reserve.collect(temporary, TODAY), 5)
+            rows = _read(Path(temporary) / seoul_reserve.OUTPUT_FILE)
+            self.assertEqual([row["id"] for row in rows], [
+                "seoul-earlier-start", "seoul-S001", "seoul-other-host", "seoul-other-venue", "seoul-S002",
+            ])
+        self.assertEqual(get.call_count, 2)
+        log.assert_called_once_with("seoul: sample key mode")
+
+    def test_configured_key_reads_multiple_pages(self):
+        rows = [{**RESERVATION, "SVCID": str(i), "SVCNM": f"행사 {i}"} for i in range(1001)]
+        culture, education = seoul_reserve.SERVICES
+        pages = [(culture, 1, 1000), (culture, 1001, 1001), (education, 1, 1000)]
+        responses = [(1001, rows[:1000]), (1001, rows[1000:]), (0, [])]
+        with TemporaryDirectory() as temporary, patch.object(seoul_reserve, "get_key", return_value=KEY):
+            with patch.object(seoul_reserve, "log") as log, patch.object(seoul_reserve, "_page", side_effect=responses) as get:
+                self.assertEqual(seoul_reserve.collect(temporary, TODAY), 1001)
+            self.assertEqual(len(_read(Path(temporary) / seoul_reserve.OUTPUT_FILE)), 1001)
+        self.assertEqual([call.args for call in get.call_args_list], [(KEY, *page) for page in pages])
+        log.assert_called_once_with("seoul: configured key mode")
+
+    def test_configured_key_low_count_preserves_the_previous_file(self):
+        with TemporaryDirectory() as temporary, patch.object(seoul_reserve, "get_key", return_value=KEY):
+            path = Path(temporary) / seoul_reserve.OUTPUT_FILE
+            common.atomic_write_json(path, [{"id": "previous"}])
+            with patch.object(seoul_reserve, "log"), patch.object(seoul_reserve, "_rows", return_value=[RESERVATION]):
+                with self.assertRaisesRegex(RuntimeError, "expected at least 20"):
+                    seoul_reserve.collect(temporary, TODAY)
+            self.assertEqual(_read(path), [{"id": "previous"}])
+
+    def test_request_error_omits_the_key_and_url(self):
+        service = seoul_reserve.SERVICES[0]
+        with patch.object(seoul_reserve, "http_get_json", side_effect=RuntimeError(f"secret URL {KEY}")):
+            with self.assertRaises(RuntimeError) as error:
+                seoul_reserve._page(KEY, service, 1, 1000)
+        self.assertEqual(str(error.exception), f"{service}: request failed at row 1")
+
+
 class RunnerTests(unittest.TestCase):
     def test_empty_source_data_retains_previous_files(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
-            paths = [root / "benefits" / "전국.json", root / "events.json", root / "meta.json"]
+            paths = [root / "benefits" / "전국.json", root / "events.json", root / seoul_reserve.OUTPUT_FILE, root / "meta.json"]
             for path in paths:
                 common.atomic_write_json(path, [{"id": "previous"}])
             old = [path.read_bytes() for path in paths]
             with patch.dict(os.environ, {common.KEY_NAME: KEY}), patch.object(run_all, "log") as log:
                 with patch.object(benefits, "http_get_json", return_value={"data": [], "matchCount": 0}):
-                    with patch.object(events, "_request", return_value=({"totalCount": 0}, [])):
+                    with patch.object(events, "_request", return_value=({"totalCount": 0}, [])), \
+                            patch.object(seoul_reserve, "collect", side_effect=RuntimeError("failure")):
                         self.assertEqual(run_all.main(root), 1)
             self.assertEqual([path.read_bytes() for path in paths], old)
-            self.assertEqual(log.call_count, 2)
+            self.assertEqual(log.call_count, 3)
 
     def test_partial_success_keeps_previous_count_and_updates_metadata(self):
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
             common.atomic_write_json(root / "benefits" / "index.json", {"전국": 51, "서울특별시": 2})
             with patch.object(run_all, "log"), patch.object(benefits, "collect", side_effect=RuntimeError("failure")):
-                with patch.object(events, "collect", return_value=12) as collect_events:
+                with patch.object(events, "collect", return_value=12) as collect_events, \
+                        patch.object(seoul_reserve, "collect", return_value=25):
                     self.assertEqual(run_all.main(root), 1)
             collect_events.assert_called_once()
             meta = _read(root / "meta.json")
             self.assertTrue(meta["updated"].endswith("+09:00"))
             self.assertEqual(meta["sources"], {"benefits": {"count": 53, "ok": False},
-                                               "events": {"count": 12, "ok": True}})
+                                               "events": {"count": 12, "ok": True},
+                                               "seoul": {"count": 25, "ok": True}})
+
+    def test_seoul_failure_reports_previous_seoul_count(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            common.atomic_write_json(root / seoul_reserve.OUTPUT_FILE, [{"id": "previous"}])
+            with (patch.object(run_all, "log"), patch.object(benefits, "collect", return_value=10),
+                  patch.object(events, "collect", return_value=12),
+                  patch.object(seoul_reserve, "collect", side_effect=RuntimeError("failure"))):
+                self.assertEqual(run_all.main(root), 1)
+            self.assertEqual(_read(root / "meta.json")["sources"]["seoul"], {"count": 1, "ok": False})
 
 
 if __name__ == "__main__":

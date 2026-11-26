@@ -2,7 +2,7 @@
 
 const scope = new URL(self.registration.scope);
 const cachePrefix = "chaenggim:" + scope.pathname + ":";
-const cacheName = cachePrefix + "v10";
+const cacheName = cachePrefix + "v11";
 const shell = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icons/icon.svg",
   "./fonts/fonts.css", "./fonts/pretendard.woff2",
@@ -10,14 +10,15 @@ const shell = [
 ];
 const jsonFiles = ["benefits", "events", "taxes", "tips", "dormant", "picks", "meta"].map(name => "./data/" + name + ".json");
 const nationalBenefits = "./data/benefits/전국.json";
+const seoulEvents = "./data/seoul_events.json";
 const shellPaths = new Set(shell.map(path => new URL(path, scope).pathname));
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(cacheName).then(async cache => {
     const reload = path => new Request(new URL(path, scope), { cache: "reload" });
     await cache.addAll([...shell, ...jsonFiles].map(reload));
-    // 첫 수집 전에는 전국 파일이 없으므로 설치는 예시 데이터로 마친다.
-    await cache.add(reload(nationalBenefits)).catch(() => {});
+    // 첫 수집 전에도 설치할 수 있도록 수집 결과 파일은 있을 때만 캐시한다.
+    await Promise.all([nationalBenefits, seoulEvents].map(path => cache.add(reload(path)).catch(() => {})));
   }).then(() => self.skipWaiting()));
 });
 

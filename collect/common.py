@@ -17,18 +17,18 @@ KST = timezone(timedelta(hours=9))
 KEY_NAME = "DATA_GO_KR_KEY"
 
 
-def get_key():
-    key = os.environ.get(KEY_NAME)
+def get_key(name=KEY_NAME):
+    key = os.environ.get(name)
     if key is None and os.name == "nt":
         try:
             import winreg
 
             with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as env:
-                key, _ = winreg.QueryValueEx(env, KEY_NAME)
+                key, _ = winreg.QueryValueEx(env, name)
         except (ImportError, OSError):
             pass
     if not isinstance(key, str) or not key.strip():
-        raise RuntimeError(f"{KEY_NAME} is missing")
+        raise RuntimeError(f"{name} is missing")
     return key.strip()
 
 
@@ -61,7 +61,7 @@ def http_get_json(url, params, retries=3, backoff=1.0):
     query = dict(params)
     if "serviceKey" in query:
         query["serviceKey"] = unquote(query["serviceKey"])
-    request_url = f"{url}?{urlencode(query)}"
+    request_url = f"{url}?{urlencode(query)}" if query else url
 
     for attempt in range(retries + 1):
         try:
