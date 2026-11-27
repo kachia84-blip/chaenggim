@@ -339,6 +339,7 @@ a { color: inherit; }
 .sheet-section dt { font-size: var(--meta-size); color: var(--secondary); }
 .detail-copy p + p { margin-top: 4px; color: var(--secondary); }
 .sheet-section dd { white-space: pre-line; overflow-wrap: anywhere; }
+.sheet-button { border: 1px solid var(--hairline); }
 .sheet-actions {
   display: flex;
   justify-content: flex-end;
@@ -346,6 +347,7 @@ a { color: inherit; }
   margin-top: 4px;
   padding-top: 16px;
 }
+.event-actions { flex-wrap: wrap; justify-content: flex-start; }
 .action { background: var(--text); color: var(--paper); font-weight: 500; }
 .action:hover { opacity: .88; }
 .fields { display: grid; gap: 12px; padding-bottom: 12px; }

@@ -504,9 +504,11 @@ function homeEventRow(item, today, sigungu) {
   const status = item.applyDay >= today && distance <= 30
     ? el("span", "status countdown", distance === 0 ? "오늘 마감" : `신청 D-${distance}`)
     : el("span", "status", item.applyDay > today ? "신청 받는 중" : item.applyDay < today ? "신청 마감" : item.entry);
-  return rowControl(item, "row home-event-row", thumbnail,
+  const row = rowControl({ open: () => openEvent(item) }, "row home-event-row", thumbnail,
     el("span", "row-text", el("span", "row-title", item.title), meta && el("span", "row-meta", meta), sampleLabel(item)),
     status.textContent ? status : null);
+  row.id = eventRowId(item);
+  return row;
 }
 
 // 오늘 마감인데 마감 시각이 이미 지났으면 신청할 수 없다.
@@ -562,6 +564,7 @@ function homeEvents(today, sido, sigungu) {
     applyMore?.addEventListener("click", () => {
       eventFilter = "apply";
       eventCategory = "전체";
+      eventQuery = "";
     });
     sections.push(el("section", null, el("h2", "section-label", "신청 마감 임박"),
       listing(shown.map(item => homeEventRow(item, today, sigungu))), applyMore));
@@ -580,6 +583,7 @@ function homeEvents(today, sido, sigungu) {
   more.addEventListener("click", () => {
     eventFilter = "free";
     eventCategory = "전체";
+    eventQuery = "";
   });
   return [filters, !sido && !sigungu ? el("div", "home-location", el("p", null, "내 동네를 넣으면 가까운 행사만 보여요"),
     button("동네 설정", "quiet-button text-button", openProfile)) : null, dataNotice(eventDataKeys),
@@ -619,12 +623,24 @@ function renderToday(today) {
   const taxRow = tax ? rowControl({ open: () => openTax(tax) }, "row quiet-row",
     el("span", "row-text", el("span", "row-title", "다가오는 세금"), el("span", "row-meta", tax.title)),
     statusText(taxStatus(tax, today))) : null;
+  const saved = upcomingEvents(today).filter(item => savedEvents.has(item.id));
+  const deadline = saved.filter(item => applyOpen(item, today)).sort((a, b) => a.applyDay - b.applyDay)[0];
+  const first = saved[0];
+  const savedRow = first ? tabLink("events", null, "row quiet-row") : null;
+  if (savedRow) {
+    savedRow.append(el("span", "row-text", el("span", "row-title", "관심 행사"),
+      el("span", "row-meta", deadline ? deadline.title + " 신청 마감" : first.title + " " + dateLabel(first.startDay))),
+      deadline ? statusText(dDay(deadline.applyDay - today)) : statusText(`${saved.length}건`));
+    savedRow.addEventListener("click", () => {
+      eventFilter = "saved"; eventCategory = "전체"; eventRegion = ["", ""]; eventQuery = "";
+    });
+  }
   const date = el("time", null, koreanDate.format(dayDate(today)));
   date.dateTime = dayDate(today).toISOString().slice(0, 10);
   return [pageHead("이번 주 무료 행사", el("p", null, (sigungu || sido || "전국") + " · ", date)),
     ...homeEvents(today, sido, sigungu), el("div", "stack home-extras",
       el("section", null, el("h2", "section-label", "그 밖에 챙길 것"),
-        listing(taxRow ? [dueLink, dormant, picks, taxRow] : [dueLink, dormant, picks]),
+        listing([savedRow, dueLink, dormant, picks, taxRow].filter(Boolean)),
         dataNotice(dataKeys.filter(key => !eventDataKeys.includes(key)))), tipCard(today))];
 }
 
@@ -941,6 +957,14 @@ const eventRealms = {
 let eventFilter = "all";
 let eventCategory = "전체";
 let eventRegion;
+let eventQuery = "";
+const savedEvents = (() => {
+  try {
+    const saved = JSON.parse(localStorage.getItem("chaenggim.saved"));
+    return new Set(Array.isArray(saved) ? saved : []);
+  } catch { return new Set(); }
+})();
+let savedEventsChanged = false;
 
 function eventCategories(item) {
   const target = item.target ?? "";
@@ -966,6 +990,7 @@ function upcomingEvents(today) {
 }
 
 function eventMatches(item, today, now) {
+  if (eventFilter === "saved") return savedEvents.has(item.id);
   if (eventFilter === "free") return item.free === true;
   if (eventFilter === "apply") return applyOpen(item, today);
   if (eventFilter === "tickets") {
@@ -1042,20 +1067,99 @@ function openingLine(opening, today, now) {
     status ? " · " : null, status);
 }
 
+function eventRowId(item) {
+  return "event-" + String(item.id).replace(/[^A-Za-z0-9_-]/g, "_");
+}
+
+function calendarEvent(item, deadline) {
+  const start = deadline ? item.applyDay : item.startDay;
+  const end = deadline ? item.applyDay : item.endDay;
+  const date = day => dayDate(day).toISOString().slice(0, 10).replace(/-/g, "");
+  const title = deadline ? "신청 마감 · " + item.title : item.title;
+  const details = [deadline && item.applyEndTime ? "마감 " + item.applyEndTime : "", item.venue, item.url].filter(Boolean).join("\n");
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Mac/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  if (ios) {
+    const escape = value => String(value ?? "").replace(/\\/g, "\\\\").replace(/\r\n|\r|\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;");
+    const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//chaenggim//KO", "BEGIN:VEVENT",
+      "UID:" + escape(item.id + "@chaenggim"), "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""),
+      "DTSTART;VALUE=DATE:" + date(start), "DTEND;VALUE=DATE:" + date(end + 1), "SUMMARY:" + escape(title),
+      "LOCATION:" + escape(item.venue), "DESCRIPTION:" + escape(details), "URL:" + escape(item.url),
+      ...(deadline ? ["BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + escape(title), "TRIGGER:-PT15H", "END:VALARM"] : []),
+      "END:VEVENT", "END:VCALENDAR"];
+    const url = URL.createObjectURL(new Blob([lines.join("\r\n") + "\r\n"], { type: "text/calendar;charset=utf-8" }));
+    const link = el("a");
+    link.href = url; link.download = "챙김.ics"; document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+  } else {
+    const params = new URLSearchParams({ action: "TEMPLATE", text: title, dates: date(start) + "/" + date(end + 1),
+      details, location: item.venue ?? "", ctz: "Asia/Seoul" });
+    window.open("https://calendar.google.com/calendar/render?" + params, "_blank", "noopener,noreferrer");
+  }
+}
+
+function openEvent(item) {
+  const today = seoulDay();
+  const period = periodLabel(item.startDay, item.endDay);
+  const start = openingDate(item.applyStart);
+  const application = Number.isFinite(item.applyDay)
+    ? (start && start.day > today ? dateLabel(start.day) + "부터 " : "") + "~ " + dateLabel(item.applyDay) +
+      "(" + weekdays[dayDate(item.applyDay).getUTCDay()] + ")" + (item.applyEndTime ? " " + item.applyEndTime : "") + " 마감" : "";
+  const openings = eventOpenings(item).map(opening => opening.label + " " + dateLabel(opening.day) +
+    (opening.time === null ? "" : " " + koreanTime.format(opening.time))).join("\n");
+  const details = [["기간", period], ["장소", [item.venue, item.placeAddr].filter(Boolean).join("\n")],
+    ["지역", [item.sido ? shortEventRegion(item.sido) : "", item.sigungu].filter(Boolean).join(" ")],
+    ["대상", item.target], ["요금", item.free ? "무료" : item.price], ["신청", application],
+    ["티켓 오픈", openings], ["분야", item.realm], ["주최", item.host]];
+  const list = el("dl", null, ...details.filter(([, content]) => content)
+    .map(([term, content]) => el("div", "sheet-section", el("dt", null, term), el("dd", null, content))));
+  const deadline = applyOpen(item, today) && item.applyDay >= today;
+  const link = officialLink(item.url, applyOpen(item, today) ? "신청하러 가기" : "공식 안내 보기", "action");
+  const calendar = button(deadline ? "마감일 달력에 넣기" : "달력에 넣기", "quiet-button sheet-button", () => calendarEvent(item, deadline));
+  const saved = button("", "quiet-button sheet-button", () => {
+    if (savedEvents.has(item.id)) savedEvents.delete(item.id); else savedEvents.add(item.id);
+    try { localStorage.setItem("chaenggim.saved", JSON.stringify([...savedEvents])); } catch {}
+    savedEventsChanged = true;
+    updateSaved();
+  });
+  function updateSaved() {
+    const active = savedEvents.has(item.id);
+    saved.textContent = active ? "관심 해제" : "관심 추가";
+    saved.setAttribute("aria-pressed", String(active));
+  }
+  updateSaved();
+  let share = null;
+  if (officialLink(item.url, "", "") && (navigator.share || navigator.clipboard?.writeText)) {
+    share = button("공유", "quiet-button sheet-button", async () => {
+      try {
+        if (navigator.share) await navigator.share({ title: item.title, text: `${item.title}\n${period} · ${item.venue ?? ""}`, url: item.url });
+        else {
+          await navigator.clipboard.writeText(item.url);
+          share.textContent = "링크 복사됨";
+          setTimeout(() => { share.textContent = "공유"; }, 2000);
+        }
+      } catch (error) { if (error.name !== "AbortError") console.warn("공유하지 못했어요.", error); }
+    });
+  }
+  showSheet(el("span", "detail-title", emoji(item.emoji), item.title), sampleLabel(item), list,
+    el("div", "sheet-actions event-actions", link, calendar, saved, share));
+}
+
 function eventRow(item, today, now) {
   const price = item.free ? el("span", "price", "무료") : el("span", "row-meta", item.price);
   const deadline = Number.isFinite(item.applyDay)
     ? el("span", "row-meta", "신청 마감 " + dateLabel(item.applyDay) + (item.applyEndTime ? " " + item.applyEndTime : ""))
     : null;
-  return rowControl(item, "row event-row", emoji(item.emoji), el("span", "row-text",
+  const row = rowControl({ open: () => openEvent(item) }, "row event-row", emoji(item.emoji), el("span", "row-text",
     el("span", "row-title", item.title), el("span", "row-sub", item.venue),
     el("span", "row-meta", periodLabel(item.startDay, item.endDay)), price, deadline,
     ...eventOpenings(item).map(opening => openingLine(opening, today, now)), sampleLabel(item)));
+  row.id = eventRowId(item);
+  return row;
 }
 
 function renderEvents(today, now) {
   const events = upcomingEvents(today);
-  const [sido, sigungu] = eventRegion ??= initialEventRegion(events);
+  eventRegion ??= initialEventRegion(events);
   const filters = el("div", "filters event-condition-filters");
   filters.setAttribute("role", "group");
   filters.setAttribute("aria-label", "공연 조건");
@@ -1065,13 +1169,31 @@ function renderEvents(today, now) {
     }));
   }
   filters.append(eventRegionSelect(events));
+  const savedCount = new Set(events.filter(item => savedEvents.has(item.id)).map(item => item.id)).size;
+  if (savedCount || eventFilter === "saved") filters.append(eventChip(`관심 ${savedCount}`, "event-condition-saved",
+    eventFilter === "saved", () => { eventFilter = "saved"; }));
+  const results = el("div", null, ...eventResults(events, today, now));
+  const search = inputField("행사 검색", "event-search", eventQuery, {
+    id: "event-search", type: "search", placeholder: "행사 이름, 장소"
+  });
+  search.addEventListener("input", event => {
+    eventQuery = event.target.value;
+    results.replaceChildren(...eventResults(events, today, now));
+  });
+  return [pageHead("공연"), search, filters, dataNotice(eventDataKeys), results];
+}
 
+function eventResults(events, today, now) {
+  const [sido, sigungu] = eventRegion;
+  const terms = eventQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const counts = new Map();
   const matches = [];
   let total = 0;
   for (const item of events) {
     if (sido && (item.sido !== sido || (sigungu && !inDistrict(item, sigungu)))) continue;
     if (!eventMatches(item, today, now)) continue;
+    const searchable = [item.title, item.venue, item.host, item.placeAddr, item.realm, item.sigungu].join(" ").toLowerCase();
+    if (!terms.every(term => searchable.includes(term))) continue;
     total++;
     const categories = eventCategories(item);
     for (const category of categories) counts.set(category, (counts.get(category) ?? 0) + 1);
@@ -1103,14 +1225,15 @@ function renderEvents(today, now) {
   });
   const results = matches.length ? el("div", "card list-card", list,
     matches.length > shownCount ? el("div", "list-more", more) : null)
-    : el("div", "state", el("p", null, "조건에 맞는 행사가 없어요"),
+    : el("div", "state", el("p", null, terms.length ? "검색 결과가 없어요" : "조건에 맞는 행사가 없어요"),
       button("조건 초기화", "quiet-button text-button", () => {
         eventFilter = "all";
         eventCategory = "전체";
         eventRegion = ["", ""];
+        eventQuery = "";
         render({ focusFilter: "event-condition-all" });
       }));
-  return [pageHead("공연"), filters, categories, dataNotice(eventDataKeys), results];
+  return [categories, results];
 }
 
 // 시트 · 상세 정보와 프로필은 같은 하단 대화상자를 사용한다.
@@ -1140,6 +1263,9 @@ function showDetail(icon, title, sample, details, url, { linkLabel = "공식 안
 }
 
 sheet.addEventListener("close", () => {
+  // 공연 탭을 통째로 다시 그리면 '더 보기'로 펼친 목록이 접히며 맨 위로 튀므로, 관심 목록을 보는 중일 때만 다시 그린다.
+  if (savedEventsChanged && (location.hash !== "#events" || eventFilter === "saved")) render();
+  savedEventsChanged = false;
   const fallback = document.getElementById(sheetOpener?.id) ?? document.querySelector("#profile-button");
   (sheetOpener?.isConnected ? sheetOpener : fallback)?.focus({ preventScroll: true });
   sheetOpener = null;
