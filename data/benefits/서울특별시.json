@@ -2236,7 +2236,7 @@
     "plain": "감면 대상 고객에게 강동구 공영주차장 주차요금 감면을 안내",
     "who": "성실납세자",
     "deadline": null,
-    "deadlineText": "없음",
+    "deadlineText": "상시신청",
     "field": "생활안정",
     "emoji": "💰",
     "sigungu": "",
@@ -2264,31 +2264,6 @@
     "deadlineText": "상시신청",
     "field": "행정·안전",
     "emoji": "🏛️",
-    "sigungu": "강동구",
-    "cond": {
-      "ageMin": 0,
-      "ageMax": 120,
-      "income": null,
-      "need": []
-    }
-  },
-  {
-    "id": "324000000121",
-    "name": "강동야간학교 운영 지원",
-    "org": "서울특별시 강동구",
-    "summary": "배움의 기회를 놓친 구민에게 기초학습권 보장과 평등한 배움의 기회 제공",
-    "target": "○ 문해교육 및 기초학습이 필요한 강동구민",
-    "amount": "○ 운영목적: 배움의 기회를 놓친 구민에게 기초학습권 보장과 평등한 배움의 기회 제공하여, 지역공동체 강화에",
-    "how": "직접입력",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2102007&bnefType=all&svcId=324000000121",
-    "amountWon": null,
-    "amountText": "",
-    "plain": "배움의 기회를 놓친 구민에게 기초학습권 보장과 평등한 배움의 기회 제공",
-    "who": "문해교육 및 기초학습이 필요한 강동구민",
-    "deadline": null,
-    "deadlineText": "상시신청",
-    "field": "보육·교육",
-    "emoji": "🎒",
     "sigungu": "강동구",
     "cond": {
       "ageMin": 0,
@@ -5681,33 +5656,6 @@
     }
   },
   {
-    "id": "324000000109",
-    "name": "노인 성인용 보행기 지원",
-    "org": "서울특별시 강동구",
-    "summary": "장기요양 등급외 판정을 받은 저소득 어르신에게 보행기 지원",
-    "target": "○ 장기요양등급 외 A, B 판정자 중 기초생활수급자, 차상위계층 기초생활수급자, \r\n\r\n○ 그 밖에 노인장기요양보험법에 따라",
-    "amount": "○ 노인장기요양급여 사각지대 어르신의 보행불편 해소 및 편의 증진을 위해 예산 범위내에서 노인 성인용 보행기",
-    "how": "방문신청",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003353&bnefType=all&svcId=324000000109",
-    "amountWon": null,
-    "amountText": "",
-    "plain": "장기요양 등급외 판정을 받은 저소득 어르신에게 보행기 지원",
-    "who": "장기요양등급 외 A",
-    "deadline": null,
-    "deadlineText": "상반기:2~3월    /        하반기:8~9월",
-    "field": "보건·의료",
-    "emoji": "🏥",
-    "sigungu": "강동구",
-    "cond": {
-      "ageMin": 65,
-      "ageMax": 120,
-      "income": [
-        "JA0201"
-      ],
-      "need": []
-    }
-  },
-  {
     "id": "311000000121",
     "name": "노인맞춤돌봄지원 강화사업",
     "org": "서울특별시 은평구",
@@ -7835,33 +7783,6 @@
     }
   },
   {
-    "id": "324000000110",
-    "name": "명절맞이 위문물품 지원(양로시설)",
-    "org": "서울특별시 강동구",
-    "summary": "양로시설 입소 어르신에게 명절맞이 위문물품 지원",
-    "target": "○ 양로시설 입소어르신",
-    "amount": "○ 양로시설 입소 어르신에게 명절맞이 위문물품 지원\r\n   - 70만원 / 연 2회",
-    "how": "신청불필요",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004269&bnefType=all&svcId=324000000110",
-    "amountWon": 700000,
-    "amountText": "70만 원",
-    "plain": "양로시설 입소 어르신에게 명절맞이 위문물품 지원",
-    "who": "양로시설 입소어르신",
-    "deadline": null,
-    "deadlineText": "별도 신청절차 없음(설/추석 명절 지원)",
-    "field": "보호·돌봄",
-    "emoji": "🤝",
-    "sigungu": "강동구",
-    "cond": {
-      "ageMin": 65,
-      "ageMax": 120,
-      "income": [
-        "JA0201"
-      ],
-      "need": []
-    }
-  },
-  {
     "id": "308000000128",
     "name": "모성보건사업 지원",
     "org": "서울특별시 강북구",
@@ -8265,31 +8186,6 @@
         "장애인",
         "질병/질환자"
       ]
-    }
-  },
-  {
-    "id": "324000000104",
-    "name": "반려식물 보급",
-    "org": "서울특별시 강동구",
-    "summary": "노인맞춤돌봄서비스 대상 구민 반려식물 보급 및 원예치유프로그램 진행, 전시회 개최 등",
-    "target": "○ 노인맞춤돌봄서비스 지원 대상 구민",
-    "amount": "○ 노인맞춤돌봄서비스 대상 구민 반려식물 보급 및 원예치유 프로그램 운영, 전시회 개최 등",
-    "how": "직접입력",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001533&bnefType=all&svcId=324000000104",
-    "amountWon": null,
-    "amountText": "",
-    "plain": "노인맞춤돌봄서비스 대상 구민 반려식물 보급 및 원예치유프로그램 진행, 전시회 개최 등",
-    "who": "노인맞춤돌봄서비스 지원 대상 구민",
-    "deadline": null,
-    "deadlineText": "접수기관 별 상이",
-    "field": "보호·돌봄",
-    "emoji": "🤝",
-    "sigungu": "강동구",
-    "cond": {
-      "ageMin": 65,
-      "ageMax": 120,
-      "income": null,
-      "need": []
     }
   },
   {
@@ -13216,31 +13112,6 @@
     "field": "행정·안전",
     "emoji": "🏛️",
     "sigungu": "은평구",
-    "cond": {
-      "ageMin": 0,
-      "ageMax": 120,
-      "income": null,
-      "need": []
-    }
-  },
-  {
-    "id": "315000000291",
-    "name": "안심장비 지원",
-    "org": "서울특별시 강서구",
-    "summary": "1인가구, 스토킹범죄피해자 등 주거안전 취약가구에 안심 장비 지원",
-    "target": "1인거주가구\r\n스토킹범죄피해자\r\n주거안전취약가구 (주거침입범죄 피해자, 여성, 노인, 아동 등)",
-    "amount": "안심장비 지원\r\n-스마트홈카메라\r\n-도어락지문방지필름\r\n-스마트문열림센서\r\n-창문잠금장치 등",
-    "how": "방문신청",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168596&bnefType=all&svcId=315000000291",
-    "amountWon": null,
-    "amountText": "",
-    "plain": "1인가구, 스토킹범죄피해자 등 주거안전 취약가구에 안심 장비 지원",
-    "who": "1인거주가구",
-    "deadline": null,
-    "deadlineText": "접수기관 별 상이",
-    "field": "생활안정",
-    "emoji": "💰",
-    "sigungu": "강서구",
     "cond": {
       "ageMin": 0,
       "ageMax": 120,
@@ -21922,31 +21793,6 @@
     "field": "행정·안전",
     "emoji": "🏛️",
     "sigungu": "강남구",
-    "cond": {
-      "ageMin": 14,
-      "ageMax": 120,
-      "income": null,
-      "need": []
-    }
-  },
-  {
-    "id": "324000000101",
-    "name": "지역화폐(강동사랑상품권)",
-    "org": "서울특별시 강동구",
-    "summary": "소비자에게 할인 및 소득공제 혜택, 가맹점에 수수료 절감 혜택 등 제공",
-    "target": "○ 만 14세 이상의 은행과 금융거래가 가능한 본인 명의의 스마트폰 소지자",
-    "amount": "○ 소비자\r\n - 구입 충전 시 할인 5%, 연말정산 시 소득공제 30%\r\n\r\n○ 가맹점 \r\n - 가맹점 결",
-    "how": "직접입력",
-    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000838&bnefType=all&svcId=324000000101",
-    "amountWon": null,
-    "amountText": "",
-    "plain": "소비자에게 할인 및 소득공제 혜택, 가맹점에 수수료 절감 혜택 등 제공",
-    "who": "만 14세 이상의 은행과 금융거래가 가능한 본인 명의의 스마트폰 소지자",
-    "deadline": null,
-    "deadlineText": "상품권 할인발행시 구매 가능(명절 전)",
-    "field": "행정·안전",
-    "emoji": "🏛️",
-    "sigungu": "강동구",
     "cond": {
       "ageMin": 14,
       "ageMax": 120,

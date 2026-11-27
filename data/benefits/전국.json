@@ -24155,6 +24155,33 @@
     }
   },
   {
+    "id": "183000000024",
+    "name": "제대군인 직업교육훈련",
+    "org": "국가보훈부",
+    "summary": "제대군인 직업교육훈련 지원",
+    "target": "5년 이상 복무한 중장기복무 제대군인 및 전역예정자",
+    "amount": "○ (직업능력개발교육비) 전역(예정)자 역량개발 위해 자금 지원\r\n   - 희망직종 관련 자격증 취득 및 훈",
+    "how": "방문신청||직접입력",
+    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2186021&bnefType=all&svcId=183000000024",
+    "amountWon": 1800000,
+    "amountText": "180만 원",
+    "plain": "제대군인 직업교육훈련 지원",
+    "who": "5년 이상 복무한 중장기복무 제대군인 및 전역예정자",
+    "deadline": null,
+    "deadlineText": "상시신청",
+    "field": "생활안정",
+    "emoji": "💰",
+    "sigungu": "",
+    "cond": {
+      "ageMin": 18,
+      "ageMax": 120,
+      "income": null,
+      "need": [
+        "구직자/실업자"
+      ]
+    }
+  },
+  {
     "id": "999000000020",
     "name": "제대군인 취업지원",
     "org": "국가보훈부",

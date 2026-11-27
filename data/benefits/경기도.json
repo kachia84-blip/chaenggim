@@ -22028,6 +22028,38 @@
     }
   },
   {
+    "id": "641000000687",
+    "name": "중소기업 청년 노동자 지원사업",
+    "org": "경기도",
+    "summary": "경기도 거주, 경기도 소재 중소기업 재직자에게 2년간 최대 480만원 지역화폐 지급",
+    "target": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자 \r\n  - 접수기준일 기준 19세 ~ 39세 청년 근로자\r\n  - 접수기준일 ",
+    "amount": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자 \r\n  - 접수기준일 기준 19세 ~ 39세 청년 근로자\r\n",
+    "how": "기타 온라인신청",
+    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2144426&bnefType=all&svcId=641000000687",
+    "amountWon": 4800000,
+    "amountText": "최대 480만 원",
+    "plain": "경기도 거주, 경기도 소재 중소기업 재직자에게 2년간 최대 480만원 지역화폐 지급",
+    "who": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자",
+    "deadline": null,
+    "deadlineText": "홈페이지 참고(https://youth.jobaba.net/main)",
+    "field": "고용·창업",
+    "emoji": "💼",
+    "sigungu": "",
+    "cond": {
+      "ageMin": 19,
+      "ageMax": 39,
+      "income": [
+        "JA0201",
+        "JA0202",
+        "JA0203",
+        "JA0204"
+      ],
+      "need": [
+        "근로자/직장인"
+      ]
+    }
+  },
+  {
     "id": "O00045800003",
     "name": "중장년 마음돌봄 전화상담",
     "org": "재단법인경기도사회서비스원",
@@ -22951,6 +22983,38 @@
       "income": null,
       "need": [
         "구직자/실업자"
+      ]
+    }
+  },
+  {
+    "id": "641000000686",
+    "name": "청년 복지포인트",
+    "org": "경기도",
+    "summary": "경기도 거주, 경기도 소재 중소기업 등에 근무하는 청년들에게 청년복지포인트 120만원 지급",
+    "target": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자 \r\n  - 접수기준일 기준 19세 ~ 39세 청년 근로자\r\n  - 접수기준일 ",
+    "amount": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자 \r\n  - 접수기준일 기준 19세 ~ 39세 청년 근로자\r\n",
+    "how": "기타 온라인신청",
+    "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2144425&bnefType=all&svcId=641000000686",
+    "amountWon": 3850000,
+    "amountText": "385만 원",
+    "plain": "경기도 거주, 경기도 소재 중소기업 등에 근무하는 청년들에게 청년복지포인트 120만원 지급",
+    "who": "ㅇ (지원대상) 아래 자격요건을 모두 만족한 자",
+    "deadline": null,
+    "deadlineText": "2026년 7월 모집",
+    "field": "고용·창업",
+    "emoji": "💼",
+    "sigungu": "",
+    "cond": {
+      "ageMin": 19,
+      "ageMax": 39,
+      "income": [
+        "JA0201",
+        "JA0202",
+        "JA0203",
+        "JA0204"
+      ],
+      "need": [
+        "근로자/직장인"
       ]
     }
   },

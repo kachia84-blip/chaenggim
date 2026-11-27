@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-27T07:13:17+09:00",
+  "updated": "2026-11-28T07:12:05+09:00",
   "sources": {
     "benefits": {
-      "count": 9172,
+      "count": 9169,
       "ok": true
     },
     "events": {
-      "count": 985,
+      "count": 933,
       "ok": true
     },
     "seoul": {
-      "count": 365,
+      "count": 339,
       "ok": true
     }
   }

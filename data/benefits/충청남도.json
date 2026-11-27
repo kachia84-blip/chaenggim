@@ -14434,7 +14434,7 @@
     "org": "충청남도 논산시",
     "summary": "만 65세이상 참전유공자에게 수당 지급",
     "target": "○ 참전유공자 예우 및 단체설립에 관한 법률 제2조제2호의 규정에서 정한 사람으로 법 제5조에 따라 국가보훈처에 참전유공자로 ",
-    "amount": "○ 만 65세 이상 참전유공자(6.25) 에게 월 35만원 지급\r\n○ 만 65세 이상 참전유공자(월남) 에게",
+    "amount": "○ 만 65세 이상 참전유공자(6.25, 월남) 에게 월 35만원 지급",
     "how": "정부24온라인신청||방문신청",
     "url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004310&bnefType=all&svcId=454000000144",
     "amountWon": 4200000,
